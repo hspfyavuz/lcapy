@@ -1,4 +1,0 @@
-[console_scripts]
-lcapy = lcapy.scripts.lcapy:main
-schtex = lcapy.scripts.schtex:main
-
