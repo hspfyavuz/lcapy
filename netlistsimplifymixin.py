@@ -395,7 +395,7 @@ class NetlistSimplifyMixin:
                     cpt = self._elements[name]
                     if cpt.type != 'I':
                         #warn('Have redundant %s in series with %s' %
-                             (name, Iname))
+                             #(name, Iname))
 
         return net, False
 
@@ -416,7 +416,7 @@ class NetlistSimplifyMixin:
                     cpt = self._elements[name]
                     if cpt.type != 'V':
                         #warn('Have redundant %s in parallel with %s' %
-                             (name, Vname))
+                             #(name, Vname))
 
         return net, False
 
