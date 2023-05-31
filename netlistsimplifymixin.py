@@ -225,7 +225,6 @@ from .expr import expr
 from warnings import warn
 from collections import OrderedDict
 from ordered_set import OrderedSet
-from minimizecalc import *
 
 class NetlistSimplifyMixin:
     
