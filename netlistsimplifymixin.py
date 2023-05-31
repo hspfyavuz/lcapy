@@ -4,6 +4,7 @@ Copyright 2022--2023 Michael Hayes, UCECE
 
 """
 
+
 import os
 import pathlib
 from lcapy import *
@@ -158,17 +159,17 @@ def mainprogram():
             #check_key_press()
             print(give_result(i-1))
             col_net=colored_net(net,i)
-            col_net.draw(style='european',
+            col_net.draw(style='european',filename='step'+str(i)+'.png',
                         draw_nodes=False,label_nodes=False,cpt_size=1,node_spacing=3.5)
 
         net=give_net(i)
         
         if i==0:
-            net.draw(style='european',
+            net.draw(style='european',filename='Schaltung.png',
                         draw_nodes=False,label_nodes=False,cpt_size=1,node_spacing=3.5)
             
         if i==give_net_length()-1:
-            net.draw(style='european',
+            net.draw(style='european',filename='Vereinfachte-Schaltung.png',
                         draw_nodes=False,label_nodes=False,cpt_size=1,node_spacing=3.5)
             
         print('_______________')
@@ -208,17 +209,60 @@ def change_elements_of_ac_netlist(net,netlist):
             strnet=(strnet[:findcomp]) + 'Z'+netlist[i] + (strnet[findcomp+len(netlist[i]):])
             strnethelp=(strnet[findcomp:])
             findcomphelp=strnethelp.find(';')
-            strnethelptwo=(strnethelp[:findcomphelp])
-            findcompheltwo=strnethelptwo.rfind(' ')
-            one=(findcomp+findcompheltwo+1)
-            two=(findcomp+findcomphelp)
-            erg=(net.elements[netlist[i]].Z.jomega)
-            strnet=(strnet[:one]) + '{'+str(erg)+'}' + (strnet[two:])
+            if net.elements[netlist[i]].cpt.args[0]==0 or net.elements[netlist[i]].cpt.args[0]=='L' or net.elements[netlist[i]].cpt.args[0]=='C' or net.elements[netlist[i]].cpt.args[0]=='R':
+                one=(findcomp+findcomphelp)
+                two=(findcomp+findcomphelp+1)
+                erg=(net.elements[netlist[i]].Z.jomega)
+                strnet=(strnet[:one]) + ' {'+str(erg)+'};' + (strnet[two:])
+            else:
+                strnethelptwo=(strnethelp[:findcomphelp])
+                findcompheltwo=strnethelptwo.rfind(' ')
+                one=(findcomp+findcompheltwo+1)
+                two=(findcomp+findcomphelp)
+                erg=(net.elements[netlist[i]].Z.jomega)
+                strnet=(strnet[:one]) + '{'+str(erg)+'}' + (strnet[two:])
+            if str(netlist[i][0])=='R':
+                print_changed_elements(netlist[i],net.elements[netlist[i]].R,erg)
+            if str(netlist[i][0])=='C':
+                print_changed_elements(netlist[i],net.elements[netlist[i]].C,erg)
+            if str(netlist[i][0])=='L':
+                print_changed_elements(netlist[i],net.elements[netlist[i]].L,erg)
         if str(netlist[i][0])=='Z':
             strnet=strnet
         if str(netlist[i][0])=='W':
             strnet=strnet
     return circuit.Circuit(strnet)
+
+
+def print_changed_elements(comp,value1,value2):
+    
+    strcomp=str(comp)
+    strvalue1=str(value1)
+    strvalue2=str(value2)
+    print(strcomp+' = '+strvalue1+' |->| Z'+strcomp+' = '+strvalue2)
+    if strcomp[0]=='R':
+        if value2!=strcomp:
+            print('yes')
+    if strcomp[0]=='C':
+        if strvalue2.find('-j')>=0:
+            print('yes')
+    if strcomp[0]=='L':
+        if strvalue2.find('j')>=0:
+            print('yes')
+    
+            
+def resub():
+    
+    strerg=give_result(give_net_length()-2)
+    print(strerg)
+    strergold=strerg.find('\n')
+    strergold2=strerg[strergold+1:]
+    strergnew=strergold2.find('\n')
+    strergnew2=strerg[strergnew+strergold+1:]
+    print('________')
+    print(strergnew2)
+    print(strergnew2.find('j*'))
+    print(strergnew2.find('- j'))
 
 
 from .expr import expr
@@ -334,7 +378,7 @@ class NetlistSimplifyMixin:
             subsets = net._find_combine_subsets(aset)
             for k, subset in subsets.items():
                 if k == 'I':
-                    #warn('Netlist has current sources in series: %s' % subset)
+                    warn('Netlist has current sources in series: %s' % subset)
                 elif k in ('R', 'NR', 'L', 'V', 'Z'):
                     if k == 'L' and not self._check_ic(subset):
                         continue
@@ -360,7 +404,7 @@ class NetlistSimplifyMixin:
             subsets = net._find_combine_subsets(aset)
             for k, subset in subsets.items():
                 if k == 'V':
-                    #warn('Netlist has voltage sources in parallel: %s' % subset)
+                    warn('Netlist has voltage sources in parallel: %s' % subset)
                 elif k in ('R', 'NR', 'L', 'Z'):
                     changed |= self._do_simplify_combine('Can combine in parallel: %s',
                                                          subset, net, explain, False, False)
@@ -394,8 +438,8 @@ class NetlistSimplifyMixin:
                 for name in aset:
                     cpt = self._elements[name]
                     if cpt.type != 'I':
-                        #warn('Have redundant %s in series with %s' %
-                             #(name, Iname))
+                        warn('Have redundant %s in series with %s' %
+                             (name, Iname))
 
         return net, False
 
@@ -415,8 +459,8 @@ class NetlistSimplifyMixin:
                 for name in aset:
                     cpt = self._elements[name]
                     if cpt.type != 'V':
-                        #warn('Have redundant %s in parallel with %s' %
-                             #(name, Vname))
+                        warn('Have redundant %s in parallel with %s' %
+                             (name, Vname))
 
         return net, False
 
