@@ -335,7 +335,7 @@ class NetlistSimplifyMixin:
             subsets = net._find_combine_subsets(aset)
             for k, subset in subsets.items():
                 if k == 'I':
-                    warn('Netlist has current sources in series: %s' % subset)
+                    #warn('Netlist has current sources in series: %s' % subset)
                 elif k in ('R', 'NR', 'L', 'V', 'Z'):
                     if k == 'L' and not self._check_ic(subset):
                         continue
@@ -361,7 +361,7 @@ class NetlistSimplifyMixin:
             subsets = net._find_combine_subsets(aset)
             for k, subset in subsets.items():
                 if k == 'V':
-                    warn('Netlist has voltage sources in parallel: %s' % subset)
+                    #warn('Netlist has voltage sources in parallel: %s' % subset)
                 elif k in ('R', 'NR', 'L', 'Z'):
                     changed |= self._do_simplify_combine('Can combine in parallel: %s',
                                                          subset, net, explain, False, False)
@@ -395,7 +395,7 @@ class NetlistSimplifyMixin:
                 for name in aset:
                     cpt = self._elements[name]
                     if cpt.type != 'I':
-                        warn('Have redundant %s in series with %s' %
+                        #warn('Have redundant %s in series with %s' %
                              (name, Iname))
 
         return net, False
@@ -416,7 +416,7 @@ class NetlistSimplifyMixin:
                 for name in aset:
                     cpt = self._elements[name]
                     if cpt.type != 'V':
-                        warn('Have redundant %s in parallel with %s' %
+                        #warn('Have redundant %s in parallel with %s' %
                              (name, Vname))
 
         return net, False
