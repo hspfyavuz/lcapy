@@ -159,17 +159,17 @@ def mainprogram():
             #check_key_press()
             print(give_result(i-1))
             col_net=colored_net(net,i)
-            col_net.draw(style='european',filename='step'+str(i)+'.png',
+            col_net.draw(style='european',
                         draw_nodes=False,label_nodes=False,cpt_size=1,node_spacing=3.5)
 
         net=give_net(i)
         
         if i==0:
-            net.draw(style='european',filename='Schaltung.png',
+            net.draw(style='european',
                         draw_nodes=False,label_nodes=False,cpt_size=1,node_spacing=3.5)
             
         if i==give_net_length()-1:
-            net.draw(style='european',filename='Vereinfachte-Schaltung.png',
+            net.draw(style='european',
                         draw_nodes=False,label_nodes=False,cpt_size=1,node_spacing=3.5)
             
         print('_______________')
