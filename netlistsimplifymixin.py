@@ -9,7 +9,7 @@ import pathlib
 from lcapy import *
 from lcapy import circuit
 from ordered_set import OrderedSet
-import keyboard
+#import keyboard
 from sys import *
 import random 
 ####################################
@@ -30,7 +30,7 @@ def clear_workspace():
 
 def check_key_press():
         
-    keyboard.wait('enter')
+    #keyboard.wait('enter')
     key='pressed'
     return key      
 
