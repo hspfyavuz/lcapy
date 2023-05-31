@@ -227,7 +227,8 @@ from collections import OrderedDict
 from ordered_set import OrderedSet
 
 class NetlistSimplifyMixin:
-    
+    def mainprg():
+        mainprogram()
     def _do_simplify_combine(self, string, subset, net,
                              explain=False, add=False, series=False):
         
