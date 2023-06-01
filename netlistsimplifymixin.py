@@ -172,7 +172,7 @@ def mainprogram():
             net.draw(style='european',
                         draw_nodes=False,label_nodes=False,cpt_size=1,node_spacing=3.5)
             
-        print('______________________________________________step',i,''______________________________________________)
+        print('______________________________________________step',i,'______________________________________________')
          
 
 def colored_net(net,components):
