@@ -160,19 +160,19 @@ def mainprogram():
             print(give_result(i-1))
             col_net=colored_net(net,i)
             col_net.draw(style='european',
-                        draw_nodes=False,label_nodes=False,cpt_size=1,node_spacing=3.5)
+                        draw_nodes=False,label_nodes=False,cpt_size=1,node_spacing=2.5)
             print('______________________________________________ step',i,'______________________________________________')
 
         net=give_net(i)
         
         if i==0:
             net.draw(style='european',
-                        draw_nodes=False,label_nodes=False,cpt_size=1,node_spacing=3.5)
+                        draw_nodes=False,label_nodes=False,cpt_size=1,node_spacing=2.5)
             print('______________________________________________ Originalschaltung ______________________________________________')
             
         if i==give_net_length()-1:
             net.draw(style='european',
-                        draw_nodes=False,label_nodes=False,cpt_size=1,node_spacing=3.5)
+                        draw_nodes=False,label_nodes=False,cpt_size=1,node_spacing=2.5)
             print('______________________________________________ Vereinfachte Schaltung ______________________________________________')
          
 
