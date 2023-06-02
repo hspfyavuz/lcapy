@@ -174,7 +174,7 @@ def mainprogram():
             net.draw(style='european',
                         draw_nodes=False,label_nodes=False,cpt_size=1,node_spacing=2.5)
             print('______________________________________________ Vereinfachte Schaltung ______________________________________________')
-         
+        sys.wait(10000)
 
 def colored_net(net,components):
     
