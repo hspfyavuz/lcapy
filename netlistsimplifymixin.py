@@ -343,7 +343,7 @@ class NetlistSimplifyMixin:
                 # Avoid creating open-circuit components.
             if True and series:
                 net.add(net1)
-            self._remove_dangling()
+            self.remove_dangling_wires()
             save_net(self)
             net.remove(name1)
                 
