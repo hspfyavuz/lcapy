@@ -343,7 +343,7 @@ class NetlistSimplifyMixin:
                 # Avoid creating open-circuit components.
             if True and series:
                 net.add(net1)
-            self._remove_dangling(subset_list[1:2])
+            self._remove_dangling(skip=subset_list[1:2])
             save_net(self)
             net.remove(name1)
                 
