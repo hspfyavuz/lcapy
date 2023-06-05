@@ -268,6 +268,33 @@ def resub():
     print(strergnew2.find('- j'))
 
 
+def choose_net(number):
+    if number==1:
+        return(DC_R_Series())
+    if number==2:
+        return(DC_R_Parallel())
+    if number==3:
+        return(DC_R_Mixed())
+    if number==4:
+        return(DC_R_Mixed_long())
+    if number==5:
+        return(DC_C_Series())
+    if number==6:
+        return(DC_C_Parallel())
+    if number==7:
+        return(DC_C_Mixed())
+    if number==8:
+        return(DC_C_Mixed_long())
+    if number==9:
+        return(DC_L_Series())
+    if number==10:
+        return(DC_L_Parallel())
+    if number==11:
+        return(DC_L_Mixed())
+    if number==12:
+        return(DC_L_Mixed_long())
+    
+    
 def DC_R_Series():
 
     return(circuit.Circuit("""
