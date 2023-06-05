@@ -275,7 +275,163 @@ def DC_R_Series():
         ...R1 1 2 {10}; right
         ...R2 2 3 {20}; right
         ...R3 3 0_3 {10}; down
-        ...W 0 0_3; right"""))    
+        ...W 0 0_3; right""")) 
+
+
+def DC_R_Parallel():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 {10}; down
+        ...W 1 2; right
+        ...R1 2 0_2 {10}; down
+        ...W 2 3 ; right
+        ...R2 3 0_3 {10}; down
+        ...W 3 4 ; right
+        ...R3 4 0_4 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right""")) 
+
+
+def DC_R_Mixed():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 ac {10}; down
+        ...R1 1 2 {10}; right
+        ...R2 2 3 {10}; right
+        ...R3 2 0_2 {20}; down
+        ...R4 3 0_3 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right""")) 
+
+
+def DC_R_Mixed_long():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 ac {10}; down
+        ...R1 1 2 {10}; right
+        ...R2 2 3 {20}; right
+        ...R3 3 4 {10}; right
+        ...R4 2 0_2 {20}; down
+        ...R5 3 0_3 {20}; down
+        ...R6 4 0_4 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right"""))
+
+
+def DC_C_Series():
+
+    return(circuit.Circuit("""
+        ...V 1 0 {10}; down
+        ...C1 1 2 {10}; right
+        ...C2 2 3 {20}; right
+        ...C3 3 0_3 {10}; down
+        ...W 0 0_3; right""")) 
+
+
+def DC_C_Parallel():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 {10}; down
+        ...W 1 2; right
+        ...C1 2 0_2 {10}; down
+        ...W 2 3 ; right
+        ...C2 3 0_3 {10}; down
+        ...W 3 4 ; right
+        ...C3 4 0_4 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right""")) 
+
+
+def DC_C_Mixed():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 ac {10}; down
+        ...C1 1 2 {10}; right
+        ...C2 2 3 {10}; right
+        ...C3 2 0_2 {20}; down
+        ...C4 3 0_3 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right""")) 
+
+
+def DC_C_Mixed_long():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 ac {10}; down
+        ...C1 1 2 {10}; right
+        ...C2 2 3 {20}; right
+        ...C3 3 4 {10}; right
+        ...C4 2 0_2 {20}; down
+        ...C5 3 0_3 {20}; down
+        ...C6 4 0_4 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right"""))
+
+
+def DC_L_Series():
+
+    return(circuit.Circuit("""
+        ...V 1 0 {10}; down
+        ...L1 1 2 {10}; right
+        ...L2 2 3 {20}; right
+        ...L3 3 0_3 {10}; down
+        ...W 0 0_3; right""")) 
+
+
+def DC_L_Parallel():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 {10}; down
+        ...W 1 2; right
+        ...L1 2 0_2 {10}; down
+        ...W 2 3 ; right
+        ...L2 3 0_3 {10}; down
+        ...W 3 4 ; right
+        ...L3 4 0_4 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right""")) 
+
+
+def DC_L_Mixed():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 ac {10}; down
+        ...L1 1 2 {10}; right
+        ...L2 2 3 {10}; right
+        ...L3 2 0_2 {20}; down
+        ...L4 3 0_3 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right""")) 
+
+
+def DC_L_Mixed_long():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 ac {10}; down
+        ...L1 1 2 {10}; right
+        ...L2 2 3 {20}; right
+        ...L3 3 4 {10}; right
+        ...L4 2 0_2 {20}; down
+        ...L5 3 0_3 {20}; down
+        ...L6 4 0_4 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right"""))
+
         
     
 
