@@ -270,7 +270,7 @@ def resub():
 
 def DC_R_Series():
 
-    return(Circuit("""
+    return(circuit.Circuit("""
         ...V 1 0 {10}; down
         ...R1 1 2 {10}; right
         ...R2 2 3 {20}; right
