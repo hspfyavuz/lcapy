@@ -268,6 +268,19 @@ def resub():
     print(strergnew2.find('- j'))
 
 
+def 1.1R_Series():
+
+    return(cct = Circuit("""
+        ...V 1 0 {10}; down
+        ...R1 1 2 {10}; right
+        ...R2 2 3 {20}; right
+        ...R3 3 0_3 {10}; down
+        ...W 0 0_3; right"""))    
+        
+    
+
+    
+    
 from .expr import expr
 from warnings import warn
 from collections import OrderedDict
