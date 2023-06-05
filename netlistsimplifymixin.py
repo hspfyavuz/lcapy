@@ -268,7 +268,7 @@ def resub():
     print(strergnew2.find('- j'))
 
 
-def 1_1_R_Series():
+def DC_R_Series():
 
     return(cct = Circuit("""
         ...V 1 0 {10}; down
