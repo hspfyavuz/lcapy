@@ -457,6 +457,33 @@ def DC_L_Mixed_long():
         ...W 0_2 0_3; right
         ...W 0_3 0_4; right"""))
 
+def DC_R_Random():
+    
+    from lcapy import *
+    from sys import *
+
+    res=random.randrange(3,10)
+    cap=0
+    ind=0
+    par=random.randrange(3,7)
+    k=res+cap+ind
+
+    while True:
+        try:
+            net = random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
+                        num_voltage_sources=1, kind='dc', num_parallel=par, numeric_values=True)
+            net=Circuit(net.netlist())
+            net.simplify() 
+            if give_net_length()== k:
+                break
+        except:
+            python = executable
+            os.execl(python, python, *argv)
+            
+        return(net)
+
+
+
 def show_notebooks():
    
     print('_______________________________________________________________________ 1. DC R Series _______________________________________________________________________')
@@ -519,5 +546,10 @@ def show_notebooks():
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
     
-    print('Available Nets:\n\t  1. DC R Series \n\t  2. DC R Parallel \n\t  3. DC R Mixed \n\t  4. DC R Mixed long \n\t  5. DC C Series \n\t  6. DC C Parallel \n\t  7. DC C Mixed \n\t  8. DC C Mixed long \n\t  9. DC L Series \n\t 10. DC L Parallel \n\t 11. DC L Mixed \n\t 12. DC L Mixed long \n\t')
+    print('____________________________________________________________________ 13. DC R Random ____________________________________________________________________')
+    DC_L_Mixed_long().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    print('_____________________________________________________________________________________________________________________________________________________________')
+    print('\n\n')
+    
+    print('Available Nets:\n\t  1. DC R Series \n\t  2. DC R Parallel \n\t  3. DC R Mixed \n\t  4. DC R Mixed long \n\t  5. DC C Series \n\t  6. DC C Parallel \n\t  7. DC C Mixed \n\t  8. DC C Mixed long \n\t  9. DC L Series \n\t 10. DC L Parallel \n\t 11. DC L Mixed \n\t 12. DC L Mixed long \n\t 13. DC R Random \n\t')
     
