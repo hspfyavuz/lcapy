@@ -469,15 +469,15 @@ def DC_R_Random():
         try:
             net = random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
                         num_voltage_sources=1, kind='dc', num_parallel=par, numeric_values=True)
-            net=Circuit(net.netlist())
-            net.simplify() 
+            nettest=Circuit(net.netlist())
+            nettest.simplify() 
             if give_net_length()== k:
                 break
         except:
             python = executable
             os.execl(python, python, *argv)
             
-        return(net)
+    return(Circuit(net.netlist()))
 
 
 
