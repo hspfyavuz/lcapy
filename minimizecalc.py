@@ -291,6 +291,8 @@ def choose_net(number):
         return(DC_L_Mixed())
     if number==12:
         return(DC_L_Mixed_long())
+    if number==13:
+        return(DC_R_Random())
     
     
 def DC_R_Series():
