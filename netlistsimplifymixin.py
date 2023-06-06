@@ -18,7 +18,7 @@ from ordered_set import OrderedSet
 from sys import *
 import random 
 import time
-import minimizecalc
+from lcapy import minimizecalc
 
 class NetlistSimplifyMixin:
     
