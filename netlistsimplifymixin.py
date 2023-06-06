@@ -9,6 +9,17 @@ from warnings import warn
 from collections import OrderedDict
 from ordered_set import OrderedSet
 
+import os
+import pathlib
+from lcapy import *
+from lcapy import circuit
+from ordered_set import OrderedSet
+#import keyboard
+from sys import *
+import random 
+import time
+import minimizecalc
+
 class NetlistSimplifyMixin:
     
     def _do_simplify_combine(self, string, subset, net,
