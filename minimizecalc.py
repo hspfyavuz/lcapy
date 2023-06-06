@@ -453,4 +453,41 @@ def DC_L_Mixed_long():
         ...W 0_2 0_3; right
         ...W 0_3 0_4; right"""))
 
-        
+def show_notebooks():
+   
+    print('1. DC R Series')
+    DC_R_Series().draw()
+    
+    print('2. DC R Parallel')
+    DC_R_Parallel().draw()
+    
+    print('3. DC R Mixed')
+    DC_R_Mixed().draw()
+    
+    print('4. DC R Mixed long')
+    DC_R_Mixed_long().draw()
+    
+    print('5. DC C Series')
+    DC_C_Series().draw()
+    
+    print('6. DC C Parallel')
+    DC_C_Parallel().draw()
+    
+    print('7. DC C Mixed')
+    DC_C_Mixed().draw()
+    
+    print('8. DC C Mixed long')
+    DC_C_Mixed_long().draw()
+    
+    print('9. DC L Series')
+    DC_L_Series().draw()
+    
+    print('10. DC L Parallel')
+    DC_L_Parallel().draw()
+    
+    print('11. DC L Mixed')
+    DC_L_Mixed().draw()
+    
+    print('12. DC L Mixed long')
+    DC_L_Mixed_long().draw()
+    
