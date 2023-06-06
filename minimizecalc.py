@@ -458,9 +458,6 @@ def DC_L_Mixed_long():
         ...W 0_3 0_4; right"""))
 
 def DC_R_Random():
-    
-    from lcapy import *
-    from sys import *
 
     res=random.randrange(3,10)
     cap=0
