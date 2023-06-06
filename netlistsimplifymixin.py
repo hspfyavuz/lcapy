@@ -18,7 +18,7 @@ from ordered_set import OrderedSet
 from sys import *
 import random 
 import time
-from lcapy import minimizecalc
+from lcapy import minimizecalc as mincalc
 
 class NetlistSimplifyMixin:
     
@@ -36,10 +36,10 @@ class NetlistSimplifyMixin:
                 total += expr(self.elements[name].cpt.args[0])
             
             if (subset_list[0])[0] == 'R' or (subset_list[0])[0] == 'C' or (subset_list[0])[0] == 'L':
-                explain_dc_series_print(self,subset_list,
+                mincalc.explain_dc_series_print(self,subset_list,
                         total,(save_new_component(subset_list[0:2],(give_net_length()+1))))
             if (subset_list[0])[0] == 'Z':
-                explain_ac_series_print(self,subset_list,
+                mincalc.explain_ac_series_print(self,subset_list,
                         total,(save_new_component(subset_list[0:2],(give_net_length()+1))))
                     
         else:
@@ -48,14 +48,14 @@ class NetlistSimplifyMixin:
                 total = ( (expr(self.elements[subset_list[0]].cpt.args[0]) * expr(self.elements[subset_list[1]].cpt.args[0])) 
                             / (expr(self.elements[subset_list[0]].cpt.args[0]) + expr(self.elements[subset_list[1]].cpt.args[0])))
                     
-                explain_dc_parallel_print(self,subset_list,
+                mincalc.explain_dc_parallel_print(self,subset_list,
                             total,(save_new_component(subset_list[0:2],(give_net_length()+1))))
             if (subset_list[0])[0]=='Z':
                 total = expr(0)
                 total = 1 / ( (1 / (expr(self.elements[subset_list[0]].cpt.args[0]))
                                + (1 / expr(self.elements[subset_list[1]].cpt.args[0]))))
                     
-                explain_ac_parallel_print(self,subset_list,
+                mincalc.explain_ac_parallel_print(self,subset_list,
                             total,(save_new_component(subset_list[0:2],(give_net_length()+1))))
                 
                 
@@ -63,7 +63,7 @@ class NetlistSimplifyMixin:
         ic = None
         name = subset_list[0]
         name1 = subset_list[1]
-        newname=save_new_component(subset_list[0:2],(give_net_length()+1))
+        newname=mincalc.save_new_component(subset_list[0:2],(give_net_length()+1))
         elt = self.elements[name]
         if elt.cpt.has_ic:
             ic = expr(0)
@@ -91,7 +91,7 @@ class NetlistSimplifyMixin:
             if True and series:
                 net.add(net1)
             #self._remove_dangling(skip=subset_list[1:2])
-            save_net(self)
+            mincalc.save_net(self)
             net.remove(name1)
                 
         return True
@@ -136,11 +136,11 @@ class NetlistSimplifyMixin:
                         continue
                     changed |= self._do_simplify_combine('Can add in series: %s',
                                                          subset, net, explain, True, True)
-                    save_components(subset)
+                    mincalc.save_components(subset)
                 elif k in ('C', 'Y'):
                     changed |= self._do_simplify_combine('Can combine in series: %s',
                                                          subset, net, explain, False, True)
-                    save_components(subset)
+                    mincalc.save_components(subset)
                 else:
                     raise RuntimeError('Internal error')
 
@@ -161,13 +161,13 @@ class NetlistSimplifyMixin:
                 elif k in ('R', 'NR', 'L', 'Z'):
                     changed |= self._do_simplify_combine('Can combine in parallel: %s',
                                                          subset, net, explain, False, False)
-                    save_components(subset)
+                    mincalc.save_components(subset)
                 elif k in ('C', 'Y', 'I'):
                     if k == 'C' and not self._check_ic(subset):
                         continue
                     changed |= self._do_simplify_combine('Can add in parallel: %s',
                                                          subset, net, explain, True, False)
-                    save_components(subset)
+                    mincalc.save_components(subset)
                 else:
                     raise RuntimeError('Internal error')
 
@@ -443,6 +443,6 @@ class NetlistSimplifyMixin:
         if not modify:
             return self
         
-        save_net(net)
+        mincalc.save_net(net)
         
         return net
