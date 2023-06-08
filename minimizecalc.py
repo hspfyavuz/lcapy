@@ -2,6 +2,7 @@
 import os
 import pathlib
 from lcapy import *
+from lcapy import randomnetwork
 from lcapy import circuit
 from ordered_set import OrderedSet
 #import keyboard
@@ -467,7 +468,7 @@ def DC_R_Random():
     par=random.randrange(2,res)
     k=res+cap+ind
 
-    net = lcapy.random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
+    net = randomnetwork.random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
                         num_voltage_sources=1, kind='dc', num_parallel=par, numeric_values=True)
     net=circuit.Circuit(net.netlist())
     
