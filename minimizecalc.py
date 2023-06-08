@@ -3,7 +3,6 @@ import os
 import pathlib
 from lcapy import *
 from lcapy import circuit
-from lcapy import randomnetwork
 from ordered_set import OrderedSet
 #import keyboard
 from sys import *
@@ -463,16 +462,21 @@ def DC_L_Mixed_long():
 def DC_R_Random():
 
     res=random.randrange(3,6)
+
     cap=0
+
     ind=0
+
     par=random.randrange(2,res)
+
     k=res+cap+ind
 
+
     net = random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
-                        num_voltage_sources=1, kind='dc', num_parallel=par, numeric_values=True)
+            num_voltage_sources=1, kind='dc', num_parallel=par, numeric_values=True)
     
-  
-    return(Circuit(net.netlist()))
+
+    return(circuit.Circuit(net.netlist()))
 
 
 def show_notebooks():
