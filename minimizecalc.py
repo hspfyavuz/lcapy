@@ -3,6 +3,7 @@ import os
 import pathlib
 from lcapy import *
 from lcapy import circuit
+from lcapy import random_network
 from ordered_set import OrderedSet
 #import keyboard
 from sys import *
