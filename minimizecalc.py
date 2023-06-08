@@ -461,26 +461,17 @@ def DC_L_Mixed_long():
 
 def DC_R_Random():
 
-    res=random.randrange(3,10)
+    res=random.randrange(3,6)
     cap=0
     ind=0
-    par=random.randrange(3,7)
+    par=random.randrange(2,res)
     k=res+cap+ind
 
-    while True:
-        try:
-            net = random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
+    net = random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
                         num_voltage_sources=1, kind='dc', num_parallel=par, numeric_values=True)
-            nettest=Circuit(net.netlist())
-            nettest.simplify() 
-            if give_net_length()== k:
-                break
-        except:
-            python = executable
-            os.execl(python, python, *argv)
-            
+    
+  
     return(Circuit(net.netlist()))
-
 
 
 def show_notebooks():
