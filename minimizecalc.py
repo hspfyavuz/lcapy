@@ -462,21 +462,16 @@ def DC_L_Mixed_long():
 def DC_R_Random():
 
     res=random.randrange(3,6)
-
     cap=0
-
     ind=0
-
     par=random.randrange(2,res)
-
     k=res+cap+ind
 
-
-    net = random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
-            num_voltage_sources=1, kind='dc', num_parallel=par, numeric_values=True)
+    net = lcapy.random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
+                        num_voltage_sources=1, kind='dc', num_parallel=par, numeric_values=True)
+    net=circuit.Circuit(net.netlist())
     
-
-    return(circuit.Circuit(net.netlist()))
+    return(net)
 
 
 def show_notebooks():
