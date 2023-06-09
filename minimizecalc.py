@@ -167,7 +167,7 @@ def mainprogram():
             net.draw(style='european',
                         draw_nodes=False,label_nodes=False,cpt_size=1,node_spacing=2.5)
             if net.has_ac:
-                print('_______________________________________________________________________ AC Schaltung _______________________________________________________________________')
+                print('_______________________________________________________________________ AC Schaltung ______________________________________________________________________')
             if net.has_dc:
                 print('____________________________________________________________________ Originalschaltung ____________________________________________________________________')
             print('\n\n')
@@ -273,6 +273,7 @@ def show_changing_elements(net):
     print('\nChanging elements to:\n')
     newnet=change_elements(net)
     newnet.draw(style='european',draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    print('_______________________________________________________________________ AC Schaltung ______________________________________________________________________')
     return(newnet)
 
 
