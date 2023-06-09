@@ -245,15 +245,12 @@ def print_changed_elements(comp,value1,value2):
     strvalue1=str(value1)
     strvalue2=str(value2)
     print(strcomp+' = '+strvalue1+' |->| Z'+strcomp+' = '+strvalue2)
-    if strcomp[0]=='R':
-        if value2!=strcomp:
-            print('yes')
-    if strcomp[0]=='C':
-        if strvalue2.find('-j')>=0:
-            print('yes')
-    if strcomp[0]=='L':
-        if strvalue2.find('j')>=0:
-            print('yes')
+    #if strcomp[0]=='R':
+     #   if value2!=strcomp:
+    #if strcomp[0]=='C':
+     #   if strvalue2.find('-j')>=0:
+    #if strcomp[0]=='L':
+     #   if strvalue2.find('j')>=0:
     
             
 def resub():
@@ -328,7 +325,7 @@ def DC_R_Parallel():
 def DC_R_Mixed():
 
     return(circuit.Circuit("""
-        ...V1 1 0 ac {10}; down
+        ...V1 1 0 {10}; down
         ...R1 1 2 {10}; right
         ...R2 2 3 {10}; right
         ...R3 2 0_2 {20}; down
@@ -341,7 +338,7 @@ def DC_R_Mixed():
 def DC_R_Mixed_long():
 
     return(circuit.Circuit("""
-        ...V1 1 0 ac {10}; down
+        ...V1 1 0 {10}; down
         ...R1 1 2 {10}; right
         ...R2 2 3 {20}; right
         ...R3 3 4 {10}; right
@@ -383,7 +380,7 @@ def DC_C_Parallel():
 def DC_C_Mixed():
 
     return(circuit.Circuit("""
-        ...V1 1 0 ac {10}; down
+        ...V1 1 0 {10}; down
         ...C1 1 2 {10}; right
         ...C2 2 3 {10}; right
         ...C3 2 0_2 {20}; down
@@ -396,7 +393,7 @@ def DC_C_Mixed():
 def DC_C_Mixed_long():
 
     return(circuit.Circuit("""
-        ...V1 1 0 ac {10}; down
+        ...V1 1 0 {10}; down
         ...C1 1 2 {10}; right
         ...C2 2 3 {20}; right
         ...C3 3 4 {10}; right
@@ -438,7 +435,7 @@ def DC_L_Parallel():
 def DC_L_Mixed():
 
     return(circuit.Circuit("""
-        ...V1 1 0 ac {10}; down
+        ...V1 1 0 {10}; down
         ...L1 1 2 {10}; right
         ...L2 2 3 {10}; right
         ...L3 2 0_2 {20}; down
@@ -451,7 +448,7 @@ def DC_L_Mixed():
 def DC_L_Mixed_long():
 
     return(circuit.Circuit("""
-        ...V1 1 0 ac {10}; down
+        ...V1 1 0 {10}; down
         ...L1 1 2 {10}; right
         ...L2 2 3 {20}; right
         ...L3 3 4 {10}; right
@@ -468,8 +465,10 @@ def DC_R_Random():
     res=random.randrange(3,6)
     cap=0
     ind=0
-    par=random.randrange(2,res)
+    
     k=res+cap+ind
+    
+    par=random.randrange(1,k)
 
     net = randomnetwork.random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
                         num_voltage_sources=1, kind='dc', num_parallel=par, numeric_values=True)
@@ -477,109 +476,459 @@ def DC_R_Random():
     
     return(net)
 
+def DC_C_Random():
+
+    cap=random.randrange(3,6)
+    res=0
+    ind=0
+    
+    k=res+cap+ind
+    
+    par=random.randrange(1,k)
+
+    net = randomnetwork.random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
+                        num_voltage_sources=1, kind='dc', num_parallel=par, numeric_values=True)
+    net=circuit.Circuit(net.netlist())
+    
+    return(net)
+
+
+def DC_L_Random():
+
+    ind=random.randrange(3,6)
+    cap=0
+    res=0
+    
+    k=res+cap+ind
+    
+    par=random.randrange(1,k)
+
+    net = randomnetwork.random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
+                        num_voltage_sources=1, kind='dc', num_parallel=par, numeric_values=True)
+    net=circuit.Circuit(net.netlist())
+    
+    return(net)
+
+#######################################################################################################
+
 def AC_R_Series():
-    cct = circuit.Circuit("""
-    ...V 1 0 ac {10}; down
-    ...R1 1 2 {10}; right
-    ...R2 2 3 {20}; right
-    ...R3 3 0_3 {10}; down
-    ...W 0 0_3; right""")
+
+    return(circuit.Circuit("""
+        ...V 1 0 ac {10}; down
+        ...R1 1 2 {10}; right
+        ...R2 2 3 {20}; right
+        ...R3 3 0_3 {10}; down
+        ...W 0 0_3; right""")) 
+
+
+def AC_R_Parallel():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 ac {10}; down
+        ...W 1 2; right
+        ...R1 2 0_2 {10}; down
+        ...W 2 3 ; right
+        ...R2 3 0_3 {10}; down
+        ...W 3 4 ; right
+        ...R3 4 0_4 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right""")) 
+
+
+def AC_R_Mixed():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 ac {10}; down
+        ...R1 1 2 {10}; right
+        ...R2 2 3 {10}; right
+        ...R3 2 0_2 {20}; down
+        ...R4 3 0_3 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right""")) 
+
+
+def AC_R_Mixed_long():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 ac {10}; down
+        ...R1 1 2 {10}; right
+        ...R2 2 3 {20}; right
+        ...R3 3 4 {10}; right
+        ...R4 2 0_2 {20}; down
+        ...R5 3 0_3 {20}; down
+        ...R6 4 0_4 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right"""))
+
+
+def AC_C_Series():
+
+    return(circuit.Circuit("""
+        ...V 1 0 ac {10}; down
+        ...C1 1 2 {10}; right
+        ...C2 2 3 {20}; right
+        ...C3 3 0_3 {10}; down
+        ...W 0 0_3; right""")) 
+
+
+def AC_C_Parallel():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 ac {10}; down
+        ...W 1 2; right
+        ...C1 2 0_2 {10}; down
+        ...W 2 3 ; right
+        ...C2 3 0_3 {10}; down
+        ...W 3 4 ; right
+        ...C3 4 0_4 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right""")) 
+
+
+def AC_C_Mixed():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 ac {10}; down
+        ...C1 1 2 {10}; right
+        ...C2 2 3 {10}; right
+        ...C3 2 0_2 {20}; down
+        ...C4 3 0_3 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right""")) 
+
+
+def AC_C_Mixed_long():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 ac {10}; down
+        ...C1 1 2 {10}; right
+        ...C2 2 3 {20}; right
+        ...C3 3 4 {10}; right
+        ...C4 2 0_2 {20}; down
+        ...C5 3 0_3 {20}; down
+        ...C6 4 0_4 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right"""))
+
+
+def AC_L_Series():
+
+    return(circuit.Circuit("""
+        ...V 1 0 ac {10}; down
+        ...L1 1 2 {10}; right
+        ...L2 2 3 {20}; right
+        ...L3 3 0_3 {10}; down
+        ...W 0 0_3; right""")) 
+
+
+def AC_L_Parallel():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 ac {10}; down
+        ...W 1 2; right
+        ...L1 2 0_2 {10}; down
+        ...W 2 3 ; right
+        ...L2 3 0_3 {10}; down
+        ...W 3 4 ; right
+        ...L3 4 0_4 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right""")) 
+
+
+def AC_L_Mixed():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 ac {10}; down
+        ...L1 1 2 {10}; right
+        ...L2 2 3 {10}; right
+        ...L3 2 0_2 {20}; down
+        ...L4 3 0_3 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right""")) 
+
+
+def AC_L_Mixed_long():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 ac {10}; down
+        ...L1 1 2 {10}; right
+        ...L2 2 3 {20}; right
+        ...L3 3 4 {10}; right
+        ...L4 2 0_2 {20}; down
+        ...L5 3 0_3 {20}; down
+        ...L6 4 0_4 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right"""))
+
+def AC_R_Random():
+
+    res=random.randrange(3,6)
+    cap=0
+    ind=0
     
+    k=res+cap+ind
     
-    cct.draw(style='european',
-                draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
-    print('____________________________________________________________________ Originalschaltung ____________________________________________________________________')
-    print('\n\n')
-    net=change_elements(cct)
+    par=random.randrange(1,k)
+
+    net = randomnetwork.random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
+                        num_voltage_sources=1, kind='ac', num_parallel=par, numeric_values=True)
+    net=circuit.Circuit(net.netlist())
+    
+    return(net)
+
+def AC_C_Random():
+
+    cap=random.randrange(3,6)
+    res=0
+    ind=0
+    
+    k=res+cap+ind
+    
+    par=random.randrange(1,k)
+
+    net = randomnetwork.random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
+                        num_voltage_sources=1, kind='ac', num_parallel=par, numeric_values=True)
+    net=circuit.Circuit(net.netlist())
+    
+    return(net)
+
+def AC_L_Random():
+
+    ind=random.randrange(3,6)
+    cap=0
+    res=0
+    
+    k=res+cap+ind
+    
+    par=random.randrange(1,k)
+
+    net = randomnetwork.random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
+                        num_voltage_sources=1, kind='ac', num_parallel=par, numeric_values=True)
+    net=circuit.Circuit(net.netlist())
+    
+    return(net)
+
+def AC_Mixed_Random():
+
+    ind=random.randrange(1,3)
+    cap=random.randrange(1,3)
+    res=random.randrange(1,3)
+  
+    k=res+cap+ind
+    
+    par=random.randrange(1,k)
+
+    net = randomnetwork.random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
+                        num_voltage_sources=1, kind='ac', num_parallel=par, numeric_values=True)
+    net=circuit.Circuit(net.netlist())
     
     return(net)
 
 
 def show_notebooks():
    
-    print('_______________________________________________________________________ 1. DC R Series _______________________________________________________________________')
+    print('______________________________________________________________________ 1. DC R Series _______________________________________________________________________')
     DC_R_Series().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
-    time.sleep(2)
+    time.sleep(1)
     
     print('______________________________________________________________________ 2. DC R Parallel _____________________________________________________________________')
     DC_R_Parallel().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
-    time.sleep(2)
+    time.sleep(1)
     
     print('_______________________________________________________________________ 3. DC R Mixed _______________________________________________________________________')
     DC_R_Mixed().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
-    time.sleep(2)
+    time.sleep(1)
     
-    print('_____________________________________________________________________ 4. DC R Mixed long _____________________________________________________________________')
+    print('____________________________________________________________________ 4. DC R Mixed long _____________________________________________________________________')
     DC_R_Mixed_long().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
-    time.sleep(2)
+    time.sleep(1)
     
-    print('_______________________________________________________________________ 5. DC C Series _______________________________________________________________________')
+    print('______________________________________________________________________ 5. DC C Series _______________________________________________________________________')
     DC_C_Series().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
-    time.sleep(2)
+    time.sleep(1)
     
-    print('______________________________________________________________________ 6. DC C Parallel ______________________________________________________________________')
+    print('_____________________________________________________________________ 6. DC C Parallel ______________________________________________________________________')
     DC_C_Parallel().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
-    time.sleep(2)
+    time.sleep(1)
     
     print('_______________________________________________________________________ 7. DC C Mixed _______________________________________________________________________')
     DC_C_Mixed().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
-    time.sleep(2)
+    time.sleep(1)
     
-    print('_____________________________________________________________________ 8. DC C Mixed long _____________________________________________________________________')
+    print('____________________________________________________________________ 8. DC C Mixed long _____________________________________________________________________')
     DC_C_Mixed_long().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
-    time.sleep(2)
+    time.sleep(1)
     
-    print('_______________________________________________________________________ 9. DC L Series _______________________________________________________________________')
+    print('______________________________________________________________________ 9. DC L Series _______________________________________________________________________')
     DC_L_Series().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
-    time.sleep(2)
+    time.sleep(1)
     
     print('_____________________________________________________________________ 10. DC L Parallel _____________________________________________________________________')
     DC_L_Parallel().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
-    time.sleep(2)
+    time.sleep(1)
     
-    print('______________________________________________________________________ 11. DC L Mixed ______________________________________________________________________')
+    print('______________________________________________________________________ 11. DC L Mixed _______________________________________________________________________')
     DC_L_Mixed().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
-    time.sleep(2)
+    time.sleep(1)
     
     print('____________________________________________________________________ 12. DC L Mixed long ____________________________________________________________________')
     DC_L_Mixed_long().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
-    time.sleep(2)
+    time.sleep(1)
     
-    print('____________________________________________________________________ 13. DC R Random ____________________________________________________________________')
-    print('\n -> Random R Network \n')
+    print('______________________________________________________________________ 13. DC R Random ______________________________________________________________________')
+    print('\n -> Random DC R Network \n')
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
-    time.sleep(2)
+    time.sleep(1)
     
-    print('_______________________________________________________________________ 14. AC R Series _______________________________________________________________________')
-    AC_R_Series().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    print('______________________________________________________________________ 14. DC C Random ______________________________________________________________________')
+    print('\n -> Random DC C Network \n')
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
-    time.sleep(2)
+    time.sleep(1)
     
-    print('Available Nets:\n\t  1. DC R Series \t 14. AC R Series \n\t  2. DC R Parallel \n\t  3. DC R Mixed \n\t  4. DC R Mixed long \n\t  5. DC C Series \n\t  6. DC C Parallel \n\t  7. DC C Mixed \n\t  8. DC C Mixed long \n\t  9. DC L Series \n\t 10. DC L Parallel \n\t 11. DC L Mixed \n\t 12. DC L Mixed long \n\t 13. DC R Random \n\t')
+    print('______________________________________________________________________ 15. DC L Random ______________________________________________________________________')
+    print('\n -> Random DC L Network \n')
+    print('_____________________________________________________________________________________________________________________________________________________________')
+    print('\n\n')
+    time.sleep(1)
+    
+    print('______________________________________________________________________ 16. AC R Series ______________________________________________________________________')
+    DC_R_Series().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    print('_____________________________________________________________________________________________________________________________________________________________')
+    print('\n\n')
+    time.sleep(1)
+    
+    print('_____________________________________________________________________ 17. AC R Parallel _____________________________________________________________________')
+    DC_R_Parallel().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    print('_____________________________________________________________________________________________________________________________________________________________')
+    print('\n\n')
+    time.sleep(1)
+    
+    print('______________________________________________________________________ 18. AC R Mixed _______________________________________________________________________')
+    DC_R_Mixed().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    print('_____________________________________________________________________________________________________________________________________________________________')
+    print('\n\n')
+    time.sleep(1)
+    
+    print('____________________________________________________________________ 19. AC R Mixed long ____________________________________________________________________')
+    DC_R_Mixed_long().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    print('_____________________________________________________________________________________________________________________________________________________________')
+    print('\n\n')
+    time.sleep(1)
+    
+    print('______________________________________________________________________ 20. AC C Series ______________________________________________________________________')
+    DC_C_Series().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    print('_____________________________________________________________________________________________________________________________________________________________')
+    print('\n\n')
+    time.sleep(1)
+    
+    print('_____________________________________________________________________ 21. AC C Parallel _____________________________________________________________________')
+    DC_C_Parallel().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    print('_____________________________________________________________________________________________________________________________________________________________')
+    print('\n\n')
+    time.sleep(1)
+    
+    print('______________________________________________________________________ 22. AC C Mixed ______________________________________________________________________')
+    DC_C_Mixed().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    print('_____________________________________________________________________________________________________________________________________________________________')
+    print('\n\n')
+    time.sleep(1)
+    
+    print('____________________________________________________________________ 23. AC C Mixed long ____________________________________________________________________')
+    DC_C_Mixed_long().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    print('_____________________________________________________________________________________________________________________________________________________________')
+    print('\n\n')
+    time.sleep(1)
+    
+    print('______________________________________________________________________ 24. AC L Series ______________________________________________________________________')
+    DC_L_Series().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    print('_____________________________________________________________________________________________________________________________________________________________')
+    print('\n\n')
+    time.sleep(1)
+    
+    print('_____________________________________________________________________ 25. AC L Parallel _____________________________________________________________________')
+    DC_L_Parallel().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    print('_____________________________________________________________________________________________________________________________________________________________')
+    print('\n\n')
+    time.sleep(1)
+    
+    print('______________________________________________________________________ 26. AC L Mixed ______________________________________________________________________')
+    DC_L_Mixed().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    print('_____________________________________________________________________________________________________________________________________________________________')
+    print('\n\n')
+    time.sleep(1)
+    
+    print('____________________________________________________________________ 27. DC L Mixed long ____________________________________________________________________')
+    DC_L_Mixed_long().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    print('_____________________________________________________________________________________________________________________________________________________________')
+    print('\n\n')
+    time.sleep(1)
+    
+    print('______________________________________________________________________ 28. AC R Random ______________________________________________________________________')
+    print('\n -> Random AC R Network \n')
+    print('_____________________________________________________________________________________________________________________________________________________________')
+    print('\n\n')
+    time.sleep(1)
+    
+    print('______________________________________________________________________ 29. AC C Random ______________________________________________________________________')
+    print('\n -> Random AC C Network \n')
+    print('_____________________________________________________________________________________________________________________________________________________________')
+    print('\n\n')
+    time.sleep(1)
+    
+    print('______________________________________________________________________ 30. AC L Random ______________________________________________________________________')
+    print('\n -> Random AC L Network \n')
+    print('_____________________________________________________________________________________________________________________________________________________________')
+    print('\n\n')
+    time.sleep(1)
+    
+    print('____________________________________________________________________ 31. AC Mixed Random _____________________________________________________________________')
+    print('\n -> Random AC Mixed Network \n')
+    print('_____________________________________________________________________________________________________________________________________________________________')
+    print('\n\n')
+    time.sleep(1)
+    
+    
+    
+    print('Available Nets:\n\t  1. DC R Series \t 16. AC R Series \n\t  2. DC R Parallel \t 17. AC R Parallel \n\t  3. DC R Mixed \t 18. AC R Mixed \n\t  4. DC R Mixed long \t 19. AC R Mixed long \n\t  5. DC C Series \t 20. AC C Series \n\t  6. DC C Parallel \t 21. AC C Parallel \n\t  7. DC C Mixed \t 22. AC C Mixed \n\t  8. DC C Mixed long \t 23. AC C Mixed long \n\t  9. DC L Series \t 24. AC L Series \n\t 10. DC L Parallel \t 25. AC L Parallel \n\t 11. DC L Mixed \t 26. AC L Mixed \n\t 12. DC L Mixed long \t 27. AC L Mixed long \n\t 13. DC R Random \t 28. AC R Random \n\t 14. DC C Random \t 29. AC C Random \n\t 15. DC L Random \t 30. AC L Random \n\t \t \t 31. AC Mixed Random \n\t')
     
