@@ -265,6 +265,14 @@ def resub():
     print(strergnew2)
     print(strergnew2.find('j*'))
     print(strergnew2.find('- j'))
+    
+def show_changing_elements(net):
+    
+    net.draw(style='european',draw_nodes=False,label_nodes=False,cpt_size=1,node_spacing=2.5)
+    print('\n changing elements to:\n')
+    newnet=change_elements(net)
+    net.draw(style='european',draw_nodes=False,label_nodes=False,cpt_size=1,node_spacing=2.5)
+    return(newnet)
 
 
 def choose_net(number):
