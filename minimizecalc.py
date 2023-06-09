@@ -160,6 +160,7 @@ def mainprogram():
                         draw_nodes=False,label_nodes=False,cpt_size=1,node_spacing=2.5)
             print('____________________________________________________________________ Step',i,'____________________________________________________________________')
             print('\n\n')
+            time.sleep(10)
 
         net=give_net(i)
         
@@ -171,6 +172,7 @@ def mainprogram():
             if net.has_dc:
                 print('____________________________________________________________________ Originalschaltung ____________________________________________________________________')
             print('\n\n')
+            time.sleep(10)
             
         if i==give_net_length()-1:
             time.sleep(10)
@@ -178,7 +180,7 @@ def mainprogram():
                         draw_nodes=False,label_nodes=False,cpt_size=1,node_spacing=2.5)
             print('____________________________________________________________________ Vereinfachte Schaltung ____________________________________________________________________')
             print('\n\n')
-        time.sleep(10)
+        
 
 def colored_net(net,components):
     
