@@ -302,7 +302,7 @@ def choose_net(number):
 def DC_R_Series():
 
     return(circuit.Circuit("""
-        ...V 1 0 {str(random.randrange(1,100))}; down
+        ...V 1 0 {10}; down
         ...R1 1 2 {10}; right
         ...R2 2 3 {20}; right
         ...R3 3 0_3 {10}; down
