@@ -294,6 +294,42 @@ def choose_net(number):
         return(DC_L_Mixed_long())
     if number==13:
         return(DC_R_Random())
+    if number==14:
+        return(DC_C_Random())
+    if number==15:
+        return(DC_L_Random())
+    if number==16:
+        return(AC_R_Series())
+    if number==17:
+        return(AC_R_Parallel())
+    if number==18:
+        return(AC_R_Mixed())
+    if number==19:
+        return(AC_R_Mixed_long())
+    if number==20:
+        return(AC_C_Series())
+    if number==21:
+        return(AC_C_Parallel())
+    if number==22:
+        return(AC_C_Mixed())
+    if number==23:
+        return(AC_C_Mixed_long())
+    if number==24:
+        return(AC_L_Series())
+    if number==25:
+        return(AC_L_Parallel())
+    if number==26:
+        return(AC_L_Mixed())
+    if number==27:
+        return(AC_L_Mixed_long())
+    if number==28:
+        return(AC_R_Random())
+    if number==29:
+        return(AC_C_Random())
+    if number==30:
+        return(AC_L_Random())
+    if number==31:
+        return(AC_Mixed_Random())
     
     
 def DC_R_Series():
