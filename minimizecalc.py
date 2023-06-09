@@ -878,73 +878,73 @@ def show_notebooks():
     time.sleep(1)
     
     print('______________________________________________________________________ 16. AC R Series ______________________________________________________________________')
-    DC_R_Series().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    AC_R_Series().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
     time.sleep(1)
     
     print('_____________________________________________________________________ 17. AC R Parallel _____________________________________________________________________')
-    DC_R_Parallel().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    AC_R_Parallel().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
     time.sleep(1)
     
     print('______________________________________________________________________ 18. AC R Mixed _______________________________________________________________________')
-    DC_R_Mixed().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    AC_R_Mixed().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
     time.sleep(1)
     
     print('____________________________________________________________________ 19. AC R Mixed long ____________________________________________________________________')
-    DC_R_Mixed_long().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    AC_R_Mixed_long().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
     time.sleep(1)
     
     print('______________________________________________________________________ 20. AC C Series ______________________________________________________________________')
-    DC_C_Series().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    AC_C_Series().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
     time.sleep(1)
     
     print('_____________________________________________________________________ 21. AC C Parallel _____________________________________________________________________')
-    DC_C_Parallel().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    AC_C_Parallel().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
     time.sleep(1)
     
     print('______________________________________________________________________ 22. AC C Mixed ______________________________________________________________________')
-    DC_C_Mixed().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    AC_C_Mixed().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
     time.sleep(1)
     
     print('____________________________________________________________________ 23. AC C Mixed long ____________________________________________________________________')
-    DC_C_Mixed_long().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    AC_C_Mixed_long().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
     time.sleep(1)
     
     print('______________________________________________________________________ 24. AC L Series ______________________________________________________________________')
-    DC_L_Series().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    AC_L_Series().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
     time.sleep(1)
     
     print('_____________________________________________________________________ 25. AC L Parallel _____________________________________________________________________')
-    DC_L_Parallel().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    AC_L_Parallel().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
     time.sleep(1)
     
     print('______________________________________________________________________ 26. AC L Mixed ______________________________________________________________________')
-    DC_L_Mixed().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    AC_L_Mixed().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
     time.sleep(1)
     
     print('____________________________________________________________________ 27. DC L Mixed long ____________________________________________________________________')
-    DC_L_Mixed_long().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    AC_L_Mixed_long().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
     time.sleep(1)
@@ -975,5 +975,5 @@ def show_notebooks():
     
     
     
-    print('Available Nets:\n\t  1. DC R Series \t 16. AC R Series \n\t  2. DC R Parallel \t 17. AC R Parallel \n\t  3. DC R Mixed \t 18. AC R Mixed \n\t  4. DC R Mixed long \t 19. AC R Mixed long \n\t  5. DC C Series \t 20. AC C Series \n\t  6. DC C Parallel \t 21. AC C Parallel \n\t  7. DC C Mixed \t 22. AC C Mixed \n\t  8. DC C Mixed long \t 23. AC C Mixed long \n\t  9. DC L Series \t 24. AC L Series \n\t 10. DC L Parallel \t 25. AC L Parallel \n\t 11. DC L Mixed \t 26. AC L Mixed \n\t 12. DC L Mixed long \t 27. AC L Mixed long \n\t 13. DC R Random \t 28. AC R Random \n\t 14. DC C Random \t 29. AC C Random \n\t 15. DC L Random \t 30. AC L Random \n\t \t \t \t \t 31. AC Mixed Random \n\t')
+    print('Available Nets:\n\t  1. DC R Series \t 16. AC R Series \n\t  2. DC R Parallel \t 17. AC R Parallel \n\t  3. DC R Mixed \t 18. AC R Mixed \n\t  4. DC R Mixed long \t 19. AC R Mixed long \n\t  5. DC C Series \t 20. AC C Series \n\t  6. DC C Parallel \t 21. AC C Parallel \n\t  7. DC C Mixed \t 22. AC C Mixed \n\t  8. DC C Mixed long \t 23. AC C Mixed long \n\t  9. DC L Series \t 24. AC L Series \n\t 10. DC L Parallel \t 25. AC L Parallel \n\t 11. DC L Mixed \t 26. AC L Mixed \n\t 12. DC L Mixed long \t 27. AC L Mixed long \n\t 13. DC R Random \t 28. AC R Random \n\t 14. DC C Random \t 29. AC C Random \n\t 15. DC L Random \t 30. AC L Random \n\t \t \t \t31. AC Mixed Random \n\t')
     
