@@ -166,7 +166,10 @@ def mainprogram():
         if i==0:
             net.draw(style='european',
                         draw_nodes=False,label_nodes=False,cpt_size=1,node_spacing=2.5)
-            print('____________________________________________________________________ Originalschaltung ____________________________________________________________________')
+            if net.has_ac:
+                print('_______________________________________________________________________ AC Schaltung _______________________________________________________________________')
+            if net.has_dc:
+                print('____________________________________________________________________ Originalschaltung ____________________________________________________________________')
             print('\n\n')
             
         if i==give_net_length()-1:
@@ -474,6 +477,23 @@ def DC_R_Random():
     
     return(net)
 
+def AC_R_Series():
+    cct = Circuit("""
+    ...V 1 0 ac {10}; down
+    ...R1 1 2 {10}; right
+    ...R2 2 3 {20}; right
+    ...R3 3 0_3 {10}; down
+    ...W 0 0_3; right""")
+    
+    
+    cct.draw(style='european',
+                draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    print('____________________________________________________________________ Originalschaltung ____________________________________________________________________')
+    print('\n\n')
+    net=change_elements(cct)
+    
+    return(net)
+
 
 def show_notebooks():
    
@@ -555,5 +575,11 @@ def show_notebooks():
     print('\n\n')
     time.sleep(2)
     
-    print('Available Nets:\n\t  1. DC R Series \n\t  2. DC R Parallel \n\t  3. DC R Mixed \n\t  4. DC R Mixed long \n\t  5. DC C Series \n\t  6. DC C Parallel \n\t  7. DC C Mixed \n\t  8. DC C Mixed long \n\t  9. DC L Series \n\t 10. DC L Parallel \n\t 11. DC L Mixed \n\t 12. DC L Mixed long \n\t 13. DC R Random \n\t')
+    print('_______________________________________________________________________ 14. AC R Series _______________________________________________________________________')
+    AC_R_Series().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    print('_____________________________________________________________________________________________________________________________________________________________')
+    print('\n\n')
+    time.sleep(2)
+    
+    print('Available Nets:\n\t  1. DC R Series \t 14. AC R Series \n\t  2. DC R Parallel \n\t  3. DC R Mixed \n\t  4. DC R Mixed long \n\t  5. DC C Series \n\t  6. DC C Parallel \n\t  7. DC C Mixed \n\t  8. DC C Mixed long \n\t  9. DC L Series \n\t 10. DC L Parallel \n\t 11. DC L Mixed \n\t 12. DC L Mixed long \n\t 13. DC R Random \n\t')
     
