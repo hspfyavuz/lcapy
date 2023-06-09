@@ -268,10 +268,10 @@ def resub():
     
 def show_changing_elements(net):
     
-    net.draw(style='european',draw_nodes=False,label_nodes=False,cpt_size=1,node_spacing=2.5)
+    net.draw(style='european',draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('\n changing elements to:\n')
     newnet=change_elements(net)
-    net.draw(style='european',draw_nodes=False,label_nodes=False,cpt_size=1,node_spacing=2.5)
+    newnet.draw(style='european',draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     return(newnet)
 
 
