@@ -209,36 +209,38 @@ def change_elements(net):
 
 def change_elements_of_ac_netlist(net,netlist):
     
-    strnet=str(net)
     for i in range(len(netlist)-1):
-        findcomp=strnet.find(netlist[i])
-        if str(netlist[i][0])=='R' or str(netlist[i][0])=='C' or str(netlist[i][0])=='L':
-            strnet=(strnet[:findcomp]) + 'Z'+netlist[i] + (strnet[findcomp+len(netlist[i]):])
-            strnethelp=(strnet[findcomp:])
-            findcomphelp=strnethelp.find(';')
-            if net.elements[netlist[i]].cpt.args[0]==0 or net.elements[netlist[i]].cpt.args[0]=='L' or net.elements[netlist[i]].cpt.args[0]=='C' or net.elements[netlist[i]].cpt.args[0]=='R':
-                one=(findcomp+findcomphelp)
-                two=(findcomp+findcomphelp+1)
-                erg=(net.elements[netlist[i]].Z.jomega)
-                strnet=(strnet[:one]) + ' {'+str(erg)+'};' + (strnet[two:])
-            else:
-                strnethelptwo=(strnethelp[:findcomphelp])
-                findcompheltwo=strnethelptwo.rfind(' ')
-                one=(findcomp+findcompheltwo+1)
-                two=(findcomp+findcomphelp)
-                erg=(net.elements[netlist[i]].Z.jomega)
-                strnet=(strnet[:one]) + '{'+str(erg)+'}' + (strnet[two:])
+        if (netlist[i][0])=='R' or (netlist[i][0])=='C' or (netlist[i][0])=='L':
+            
+            elt = net.elements[netlist[i]]
+            name=(netlist[i])
+            net1 = elt._new_value(net.elements[netlist[i]].Z.jomega, )
+            parts = net1.split(' ', 1)
+            if (netlist[i][0])=='R':
+                newname='ZR'+ (netlist[i][1])
+            if (netlist[i][0])=='C':
+                newname='ZC'+ (netlist[i][1])
+            if (netlist[i][0])=='L':
+                newname='ZL'+ (netlist[i][1])
+                
             if str(netlist[i][0])=='R':
-                print_changed_elements(netlist[i],net.elements[netlist[i]].R,erg)
+                print_changed_elements(netlist[i],net.elements[netlist[i]].R,net.elements[netlist[i]].Z.jomega)
             if str(netlist[i][0])=='C':
-                print_changed_elements(netlist[i],net.elements[netlist[i]].C,erg)
+                print_changed_elements(netlist[i],net.elements[netlist[i]].C,net.elements[netlist[i]].Z.jomega)
             if str(netlist[i][0])=='L':
-                print_changed_elements(netlist[i],net.elements[netlist[i]].L,erg)
+                print_changed_elements(netlist[i],net.elements[netlist[i]].L,net.elements[netlist[i]].Z.jomega)
+                
+            net1 = newname + ' ' + parts[1]
+            net.add(net1)
+            net.remove(name)
+            
         if str(netlist[i][0])=='Z':
-            strnet=strnet
+            net=net
+            
         if str(netlist[i][0])=='W':
-            strnet=strnet
-    return circuit.Circuit(strnet)
+            net=net
+            
+    return net
 
 
 def print_changed_elements(comp,value1,value2):
