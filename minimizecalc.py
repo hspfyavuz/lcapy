@@ -217,17 +217,22 @@ def change_elements_of_ac_netlist(net,netlist):
             net1 = elt._new_value(net.elements[netlist[i]].Z.jomega, )
             parts = net1.split(' ', 1)
             if (netlist[i][0])=='R':
-                newname='ZR'+ (netlist[i][1])
-            if (netlist[i][0])=='C':
-                newname='ZC'+ (netlist[i][1])
-            if (netlist[i][0])=='L':
-                newname='ZL'+ (netlist[i][1])
-                
-            if str(netlist[i][0])=='R':
+                try:
+                    newname='ZR'+ (netlist[i][1])
+                except:
+                    newname='ZR'
                 print_changed_elements(netlist[i],net.elements[netlist[i]].R,net.elements[netlist[i]].Z.jomega)
-            if str(netlist[i][0])=='C':
+            if (netlist[i][0])=='C':
+                try:
+                    newname='ZC'+ (netlist[i][1])
+                except:
+                    newname='ZC'
                 print_changed_elements(netlist[i],net.elements[netlist[i]].C,net.elements[netlist[i]].Z.jomega)
-            if str(netlist[i][0])=='L':
+            if (netlist[i][0])=='L':
+                try:
+                    newname='ZL'+ (netlist[i][1])
+                except:
+                    newname='ZL'
                 print_changed_elements(netlist[i],net.elements[netlist[i]].L,net.elements[netlist[i]].Z.jomega)
                 
             net1 = newname + ' ' + parts[1]
