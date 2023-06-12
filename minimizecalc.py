@@ -725,6 +725,44 @@ def AC_L_Mixed_long():
         ...W 0_2 0_3; right
         ...W 0_3 0_4; right"""))
 
+def AC_Mixed_Series():
+    
+    return(circuit.Circuit("""
+        ...V1 1 0 ac 10; down
+        ...R 1 2 20; right
+        ...L 2 3 10; right
+        ...C 3 0_3 10; down
+        ...W 0 0_3; right"""))
+
+
+def AC_Mixed_Parallel():
+    
+    return(circuit.Circuit("""
+        ...V1 1 0 ac 10; down
+        ...W 1 2; right
+        ...R 2 0_2 20; down
+        ...W 2 3 ; right
+        ...C 3 0_3 10; down
+        ...W 3 4 ; right
+        ...L 4 0_4 10; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right"""))
+
+def AC_Mixed_long():
+    
+    return(circuit.Circuit("""
+        ...V 1 0 ac 10; down
+        ...R1 1 2 10; right
+        ...L1 2 3 10; right
+        ...L2 3 0_3 5; down
+        ...C1 3 4 10; right
+        ...R2 4 5 20; right
+        ...C2 5 0_5 10; down
+        ...W 0 0_3; right
+        ...W 0 0_5; right"""))
+
 def AC_R_Random():
 
     res=random.randrange(3,6)
@@ -922,32 +960,47 @@ def show_notebooks():
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
     
-    print('____________________________________________________________________ 27. DC L Mixed long ____________________________________________________________________')
+    print('____________________________________________________________________ 27. AC L Mixed long ____________________________________________________________________')
     AC_L_Mixed_long().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
     
-    print('______________________________________________________________________ 28. AC R Random ______________________________________________________________________')
+    print('____________________________________________________________________ 28. AC Mixed Series ____________________________________________________________________')
+    AC_Mixed_Series().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    print('_____________________________________________________________________________________________________________________________________________________________')
+    print('\n\n')
+    
+    print('___________________________________________________________________ 29. AC Mixed Parallel ___________________________________________________________________')
+    AC_Mixed_Parallel().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    print('_____________________________________________________________________________________________________________________________________________________________')
+    print('\n\n')
+    
+    print('_____________________________________________________________________ 30. AC Mixed long _____________________________________________________________________')
+    AC_Mixed_long().draw(style='european', draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+    print('_____________________________________________________________________________________________________________________________________________________________')
+    print('\n\n')
+    
+    print('______________________________________________________________________ 31. AC R Random ______________________________________________________________________')
     print('\n -> Random AC R Network \n')
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
     
-    print('______________________________________________________________________ 29. AC C Random ______________________________________________________________________')
+    print('______________________________________________________________________ 32. AC C Random ______________________________________________________________________')
     print('\n -> Random AC C Network \n')
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
     
-    print('______________________________________________________________________ 30. AC L Random ______________________________________________________________________')
+    print('______________________________________________________________________ 33. AC L Random ______________________________________________________________________')
     print('\n -> Random AC L Network \n')
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
     
-    print('____________________________________________________________________ 31. AC Mixed Random _____________________________________________________________________')
+    print('____________________________________________________________________ 34. AC Mixed Random _____________________________________________________________________')
     print('\n -> Random AC Mixed Network \n')
     print('_____________________________________________________________________________________________________________________________________________________________')
     print('\n\n')
     
     
     
-    print('Available Nets:\n\t  DC\t\t\t\tAC \n\t  1. DC R Series \t 16. AC R Series \n\t  2. DC R Parallel \t 17. AC R Parallel \n\t  3. DC R Mixed \t 18. AC R Mixed \n\t  4. DC R Mixed long \t 19. AC R Mixed long \n\t  5. DC C Series \t 20. AC C Series \n\t  6. DC C Parallel \t 21. AC C Parallel \n\t  7. DC C Mixed \t 22. AC C Mixed \n\t  8. DC C Mixed long \t 23. AC C Mixed long \n\t  9. DC L Series \t 24. AC L Series \n\t 10. DC L Parallel \t 25. AC L Parallel \n\t 11. DC L Mixed \t 26. AC L Mixed \n\t 12. DC L Mixed long \t 27. AC L Mixed long \n\t 13. DC R Random \t 28. AC R Random \n\t 14. DC C Random \t 29. AC C Random \n\t 15. DC L Random \t 30. AC L Random \n\t \t \t \t 31. AC Mixed Random \n\t')
+    print('Available Nets:\n\t  DC\t\t\t\tAC \n\t  1. DC R Series \t 16. AC R Series \n\t  2. DC R Parallel \t 17. AC R Parallel \n\t  3. DC R Mixed \t 18. AC R Mixed \n\t  4. DC R Mixed long \t 19. AC R Mixed long \n\t  5. DC C Series \t 20. AC C Series \n\t  6. DC C Parallel \t 21. AC C Parallel \n\t  7. DC C Mixed \t 22. AC C Mixed \n\t  8. DC C Mixed long \t 23. AC C Mixed long \n\t  9. DC L Series \t 24. AC L Series \n\t 10. DC L Parallel \t 25. AC L Parallel \n\t 11. DC L Mixed \t 26. AC L Mixed \n\t 12. DC L Mixed long \t 27. AC L Mixed long \n\t 13. DC R Random \t 28. AC R Random \n\t 14. DC C Random \t 29. AC C Random \n\t 15. DC L Random \t 30. AC L Random \n\t \t \t \t 31. AC Mixed Random \n\t\t\t\t\t ')
     
