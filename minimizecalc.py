@@ -343,9 +343,9 @@ def choose_net(number):
         return(AC_L_Mixed_long())
     if number==28:
         return(AC_Mixed_Series())
-    if number==27:
+    if number==29:
         return(AC_Mixed_Parallel())
-    if number==27:
+    if number==30:
         return(AC_Mixed_long())
     if number==31:
         return(AC_R_Random())
