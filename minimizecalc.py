@@ -337,12 +337,18 @@ def choose_net(number):
     if number==27:
         return(AC_L_Mixed_long())
     if number==28:
-        return(AC_R_Random())
-    if number==29:
-        return(AC_C_Random())
-    if number==30:
-        return(AC_L_Random())
+        return(AC_Mixed_Series())
+    if number==27:
+        return(AC_Mixed_Parallel())
+    if number==27:
+        return(AC_Mixed_long())
     if number==31:
+        return(AC_R_Random())
+    if number==32:
+        return(AC_C_Random())
+    if number==33:
+        return(AC_L_Random())
+    if number==34:
         return(AC_Mixed_Random())
     
     
