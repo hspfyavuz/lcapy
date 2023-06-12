@@ -14,6 +14,7 @@ netarr=[]
 subset_steps=[]
 result=[]
 combiningvar=[]
+resultcompl=[]
 ####################################
 
 def clear_workspace():
@@ -59,6 +60,7 @@ def explain_ac_series_print(net,sublist,total,newname):
           +'\n'+ newname + ' = ' + str(total))
            
     result.append(solution)
+    resultcompl.append(total)
 
          
 def explain_ac_parallel_print(net,sublist,total,newname):
@@ -67,6 +69,7 @@ def explain_ac_parallel_print(net,sublist,total,newname):
         + '\n' '≙ ( 1 / (( 1 / '+(net.elements[sublist[0]].cpt.args[0])+ ') + ( 1 / ' +(net.elements[sublist[1]].cpt.args[0]) + ' )) )' 
         +'\n'+ newname + ' = ' + str(total))
     result.append(solution)
+    resultcompl.append(total)
     
         
 def result_print(name, result):
@@ -253,7 +256,7 @@ def print_changed_elements(comp,value1,value2):
     strcomp=str(comp)
     strvalue1=str(value1)
     strvalue2=str(value2)
-    print(strcomp+' = '+strvalue1+' |->| Z'+strcomp+' = '+strvalue2)
+    print(strcomp+' = '+strvalue1+' \t\t\t->\t\t\tZ'+strcomp+' = '+strvalue2)
     #if strcomp[0]=='R':
      #   if value2!=strcomp:
     #if strcomp[0]=='C':
@@ -264,16 +267,19 @@ def print_changed_elements(comp,value1,value2):
             
 def resub():
     
-    strerg=give_result(give_net_length()-2)
-    print(strerg)
-    strergold=strerg.find('\n')
-    strergold2=strerg[strergold+1:]
-    strergnew=strergold2.find('\n')
-    strergnew2=strerg[strergnew+strergold+1:]
-    print('________')
-    print(strergnew2)
-    print(strergnew2.find('j*'))
-    print(strergnew2.find('- j'))
+    a=(resultcompl[give_net_length()-2])
+    b=a.real_imag
+    print(a)
+    print('______________________________________')
+    print(b)
+    print('______________________________________')
+    c=b.real
+    print(c)
+    print('______________________________________')
+    d=b.imag
+    print(d)
+    e=d.simplify()
+    print(e)
     
 def show_changing_elements(net):
     
