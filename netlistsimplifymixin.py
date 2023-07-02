@@ -6,18 +6,11 @@ Copyright 2022--2023 Michael Hayes, UCECE
     
 from .expr import expr
 from warnings import warn
-from collections import OrderedDict
-from ordered_set import OrderedSet
 
-import os
-import pathlib
 from lcapy import *
 from lcapy import circuit
-from ordered_set import OrderedSet
-#import keyboard
 from sys import *
 import random 
-import time
 from lcapy import minimizecalc as mincalc
 
 class NetlistSimplifyMixin:
