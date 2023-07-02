@@ -163,7 +163,6 @@ def mainprogram():
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
             print('____________________________________________________________________ Step',i,'____________________________________________________________________')
             print('\n\n')
-            time.sleep(10)
 
         net=give_net(i)
         
@@ -175,10 +174,8 @@ def mainprogram():
             if net.has_dc:
                 print('____________________________________________________________________ Originalschaltung ____________________________________________________________________')
             print('\n\n')
-            time.sleep(10)
             
         if i==give_net_length()-1:
-            time.sleep(10)
             net.draw(style='european',
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
             print('____________________________________________________________________ Vereinfachte Schaltung ____________________________________________________________________')
@@ -1019,5 +1016,5 @@ def show_notebooks():
     
     
     
-    print('Available Nets:\n\t  DC\t\t\t\tAC \n\t  1. DC R Series \t 16. AC R Series \n\t  2. DC R Parallel \t 17. AC R Parallel \n\t  3. DC R Mixed \t 18. AC R Mixed \n\t  4. DC R Mixed long \t 19. AC R Mixed long \n\t  5. DC C Series \t 20. AC C Series \n\t  6. DC C Parallel \t 21. AC C Parallel \n\t  7. DC C Mixed \t 22. AC C Mixed \n\t  8. DC C Mixed long \t 23. AC C Mixed long \n\t  9. DC L Series \t 24. AC L Series \n\t 10. DC L Parallel \t 25. AC L Parallel \n\t 11. DC L Mixed \t 26. AC L Mixed \n\t 12. DC L Mixed long \t 27. AC L Mixed long \n\t 13. DC R Random \t 28. AC Mixed Series \n\t 14. DC C Random \t 29. AC Mixed Parallel \n\t 15. DC L Random \t 30. AC Mixed long \n\t \t \t \t 31. AC R Random \n\t \t \t \t 32. AC C Random \n\t \t \t \t 33. AC L Random \n\t \t \t \t 34. AC Mixed Random')
+    print('Available Nets:\n\t  DC\t\t\tAC \n\t  1. DC R Series \t 16. AC R Series \n\t  2. DC R Parallel \t 17. AC R Parallel \n\t  3. DC R Mixed \t 18. AC R Mixed \n\t  4. DC R Mixed long \t 19. AC R Mixed long \n\t  5. DC C Series \t 20. AC C Series \n\t  6. DC C Parallel \t 21. AC C Parallel \n\t  7. DC C Mixed \t 22. AC C Mixed \n\t  8. DC C Mixed long \t 23. AC C Mixed long \n\t  9. DC L Series \t 24. AC L Series \n\t 10. DC L Parallel \t 25. AC L Parallel \n\t 11. DC L Mixed \t 26. AC L Mixed \n\t 12. DC L Mixed long \t 27. AC L Mixed long \n\t 13. DC R Random \t 28. AC Mixed Series \n\t 14. DC C Random \t 29. AC Mixed Parallel \n\t 15. DC L Random \t 30. AC Mixed long \n\t \t \t \t 31. AC R Random \n\t \t \t \t 32. AC C Random \n\t \t \t \t 33. AC L Random \n\t \t \t \t 34. AC Mixed Random')
     
