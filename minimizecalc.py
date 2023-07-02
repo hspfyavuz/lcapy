@@ -1,14 +1,10 @@
 
 import os
-import pathlib
 from lcapy import *
 from lcapy import randomnetwork
 from lcapy import circuit
-from ordered_set import OrderedSet
-#import keyboard
 from sys import *
 import random 
-import time
 ####################################
 netarr=[]
 subset_steps=[]
