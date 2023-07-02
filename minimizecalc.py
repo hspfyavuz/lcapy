@@ -1,33 +1,16 @@
 
-import os
 from lcapy import *
 from lcapy import randomnetwork
 from lcapy import circuit
 from sys import *
-import random 
+import random
+
 ####################################
 netarr=[]
 subset_steps=[]
 result=[]
 combiningvar=[]
 resultcompl=[]
-####################################
-
-def clear_workspace():
-    
-    mydir=pathlib.Path().resolve()
-    for f in os.listdir(mydir):
-        if not f.endswith(".png"):
-            continue
-        os.remove(os.path.join(mydir, f))
-
-
-def check_key_press():
-        
-    #keyboard.wait('enter')
-    key='pressed'
-    return key      
-
 ####################################
  
 def explain_dc_series_print(net,sublist,total,newname):
@@ -181,18 +164,9 @@ def mainprogram():
 def colored_net(net,components):
     
     comps=(give_combined_components(components)).split(',')
-    strnet=(str(net))
-    strnet=strnet+('\n')
+    colnet=net.annotate((comps[0],comps[1]), color='red')
     
-    for cnt in range(2):
-    
-        findcomp=(strnet.find(comps[cnt]))
-        strnethelp=(strnet[findcomp+1:])
-        findcomponent=strnethelp.find('\n')
-        colnetstr=strnet[:findcomp+findcomponent+1]+', color=red!80 \n'+strnet[findcomp+findcomponent+2:]
-        strnet=colnetstr
-        
-    return circuit.Circuit(colnetstr)
+    return(colnet)
 
 
 def change_elements(net):
