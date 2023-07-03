@@ -1,4 +1,5 @@
 
+from OrderedSet import *
 from lcapy import *
 from lcapy import randomnetwork
 from lcapy import circuit
@@ -171,7 +172,7 @@ def colored_net(net,components):
 
 def change_elements(net):
     
-    netlist=list(set(net.elements))
+    netlist=list(OrderedSet(net.elements))
     net=change_elements_of_ac_netlist(net,netlist)
     
     return net
