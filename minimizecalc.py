@@ -1,5 +1,4 @@
 
-from collections import OrderedDict
 from ordered_set import OrderedSet
 from lcapy import *
 from lcapy import randomnetwork
