@@ -402,13 +402,13 @@ class NetlistSimplifyMixin:
 
         keep_nodes = [str(node) for node in keep_nodes]
 
-        skip = set()
+        skip = OrderedSet()
 
         if select is not None:
-            skip = set(self._elements) - set(select)
+            skip = OrderedSet(self._elements) - OrderedSet(select)
 
         if ignore is not None:
-            skip = skip.union(set(ignore))
+            skip = skip.union(OrderedSet(ignore))
 
         # Perhaps use num cpts?
         if passes == 0:
