@@ -7,6 +7,7 @@ Copyright 2022--2023 Michael Hayes, UCECE
 from .expr import expr
 from warnings import warn
 
+from ordered_set import OrderedSet
 from lcapy import *
 from lcapy import circuit
 from sys import *
