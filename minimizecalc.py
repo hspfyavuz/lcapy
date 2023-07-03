@@ -171,7 +171,7 @@ def colored_net(net,components):
 
 def change_elements(net):
     
-    netlist=list(OrderedSet(net.elements))
+    netlist=list(set(net.elements))
     net=change_elements_of_ac_netlist(net,netlist)
     
     return net
