@@ -1,5 +1,5 @@
 
-from OrderedSet import *
+from ordered_set import OrderedSet
 from lcapy import *
 from lcapy import randomnetwork
 from lcapy import circuit
