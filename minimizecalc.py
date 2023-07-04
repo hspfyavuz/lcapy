@@ -1,3 +1,4 @@
+import os
 from PyPDF2 import PdfMerger
 from ordered_set import OrderedSet
 from lcapy import *
@@ -147,6 +148,7 @@ def mainprogram():
             print('\n\n')
          
             merger.append(("step"+str(i)+".pdf"))
+            os.remove(("step"+str(i)+".pdf"))
 
         net=give_net(i)
         
@@ -159,6 +161,7 @@ def mainprogram():
                 print('____________________________________________________________________ Originalschaltung ____________________________________________________________________')
             print('\n\n')
             merger.append("one.pdf")
+            os.remove("one.pdf")
             
         if i==give_net_length()-1:
             net.draw(style='european',filename="end.pdf",
@@ -166,6 +169,7 @@ def mainprogram():
             print('____________________________________________________________________ Vereinfachte Schaltung ____________________________________________________________________')
             print('\n\n')
             merger.append("end.pdf")
+            os.remove("end.pdf")
             merger.write("result.pdf")
             merger.close()
         
