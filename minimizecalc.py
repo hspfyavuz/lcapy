@@ -140,7 +140,7 @@ def check_key_press():
     def on_button_clicked(b):
       # Display the message within the output widget.
       with output:
-         print('okay)
+         print('okay')
     
     button.on_click(on_button_clicked)
     display(button, output)
