@@ -144,6 +144,8 @@ def mainprogram():
             col_net=colored_net(net,i)
             col_net.draw(style='european',filename="step"+str(i)+".pdf",
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+            col_net.draw(style='european',
+                        draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
             print('____________________________________________________________________ Step',i,'____________________________________________________________________')
             print('\n\n')
          
@@ -155,6 +157,8 @@ def mainprogram():
         if i==0:
             net.draw(style='european',filename="one.pdf",
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+            net.draw(style='european',
+                        draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
             if net.has_ac:
                 print('_______________________________________________________________________ AC Schaltung ______________________________________________________________________')
             if net.has_dc:
@@ -165,6 +169,8 @@ def mainprogram():
             
         if i==give_net_length()-1:
             net.draw(style='european',filename="end.pdf",
+                        draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+            net.draw(style='european',
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
             print('____________________________________________________________________ Vereinfachte Schaltung ____________________________________________________________________')
             print('\n\n')
