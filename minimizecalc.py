@@ -138,12 +138,11 @@ def check_key_press():
     output = widgets.Output()
     
     def on_button_clicked(b):
-      # Display the message within the output widget.
-      with output:
-         print('okay')
-    
-    button.on_click(on_button_clicked)
-    display(button, output)
+       print("Next Step")
+
+    display(button)
+    if button.on_click(on_button_clicked) == False:
+        sys.wait()
 
     
 def mainprogram():
@@ -155,7 +154,6 @@ def mainprogram():
         if i>0:
             check_key_press()
             print('______________________________________________________________________________________________________________________________________________')
-            #check_key_press()
             print(give_result(i-1))
             col_net=colored_net(net,i)
             col_net.draw(style='european',filename="step"+str(i)+".pdf",
