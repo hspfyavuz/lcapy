@@ -1,4 +1,4 @@
-
+from PyPDF2 import PdfMerger
 from ordered_set import OrderedSet
 from lcapy import *
 from lcapy import randomnetwork
@@ -131,7 +131,9 @@ def give_combining_process(netnumber):
 ####################################
     
 def mainprogram():
-    
+ 
+    merger = PdfMerger()
+ 
     for i in range(give_net_length()):
         
         if i>0:
@@ -139,27 +141,33 @@ def mainprogram():
             #check_key_press()
             print(give_result(i-1))
             col_net=colored_net(net,i)
-            col_net.draw(style='european',
+            col_net.draw(style='european',filename="end.pdf",
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
             print('____________________________________________________________________ Step',i,'____________________________________________________________________')
             print('\n\n')
+         
+            merger.append(("step"+str(i)+".pdf"))
 
         net=give_net(i)
         
         if i==0:
-            net.draw(style='european',
+            net.draw(style='european',filename="one.pdf",
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
             if net.has_ac:
                 print('_______________________________________________________________________ AC Schaltung ______________________________________________________________________')
             if net.has_dc:
                 print('____________________________________________________________________ Originalschaltung ____________________________________________________________________')
             print('\n\n')
+            merger.append("one.pdf")
             
         if i==give_net_length()-1:
-            net.draw(style='european',
+            net.draw(style='european',filename="end.pdf",
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
             print('____________________________________________________________________ Vereinfachte Schaltung ____________________________________________________________________')
             print('\n\n')
+            merger.append("end.pdf")
+            merger.write("result.pdf")
+            merger.close()
         
 
 def colored_net(net,components):
