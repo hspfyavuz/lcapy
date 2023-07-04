@@ -143,9 +143,9 @@ def check_key_press():
     display(button)
     while True:
          if button.on_click(on_button_clicked):
-             continue
+             break
          else:
-             sys.wait()
+             continue
 
     
 def mainprogram():
