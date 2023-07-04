@@ -131,18 +131,19 @@ def give_combining_process(netnumber):
     
 ####################################
 
-def check_key_press():
+def create_button():
     import ipywidgets as widgets
     from IPython.display import display
     button = widgets.Button(description="Next Step")
-    output = widgets.Output()
-    
-    def on_button_clicked(b):
-       print("Next Step")
-
+ 
     display(button)
+
+def check_key_press():
+ 
+    create_button()
+    
     while True:
-         if button.on_click(on_button_clicked):
+         if button.on_click()==True:
              break
          else:
              continue
