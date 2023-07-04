@@ -143,7 +143,7 @@ def check_key_press():
     
     
     while True:
-         if button.on_click(on_button_clicked)==True:
+         if True==True:
              break
          else:
              continue
