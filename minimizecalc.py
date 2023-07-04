@@ -141,7 +141,7 @@ def mainprogram():
             #check_key_press()
             print(give_result(i-1))
             col_net=colored_net(net,i)
-            col_net.draw(style='european',filename="end.pdf",
+            col_net.draw(style='european',filename="step"+str(i)+".pdf",
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
             print('____________________________________________________________________ Step',i,'____________________________________________________________________')
             print('\n\n')
