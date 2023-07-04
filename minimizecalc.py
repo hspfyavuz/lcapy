@@ -138,9 +138,11 @@ def check_key_press():
     button = widgets.Button(description="Next Step")
  
     display(button)
+    def on_button_clicked(b):
+    return True
     
     while True:
-         if button.on_click()==True:
+         if button.on_click(on_button_clicked)==True:
              break
          else:
              continue
