@@ -130,6 +130,12 @@ def give_combining_process(netnumber):
     return combiningvar[netnumber]
     
 ####################################
+
+def check_key_press(anystring):
+    if anystring=!'enter':
+         sys.wait()
+    else:
+         continue
     
 def mainprogram():
  
@@ -138,6 +144,7 @@ def mainprogram():
     for i in range(give_net_length()):
         
         if i>0:
+            check_key_press(anystring)
             print('______________________________________________________________________________________________________________________________________________')
             #check_key_press()
             print(give_result(i-1))
@@ -168,6 +175,7 @@ def mainprogram():
             os.remove("one.pdf")
             
         if i==give_net_length()-1:
+            check_key_press(anystring)
             net.draw(style='european',filename="end.pdf",
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
             net.draw(style='european',
