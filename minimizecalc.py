@@ -172,7 +172,6 @@ def mainprogram():
             os.remove("one.pdf")
             
         if i==give_net_length()-1:
-            check_key_press()
             net.draw(style='european',filename="end.pdf",
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
             net.draw(style='european',
