@@ -141,7 +141,9 @@ def check_key_press():
        print("Next Step")
 
     display(button)
-    if button.on_click(on_button_clicked) == False:
+    if button.on_click(on_button_clicked):
+        continue
+    else:
         sys.wait()
 
     
