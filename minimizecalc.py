@@ -130,23 +130,6 @@ def give_combining_process(netnumber):
     return combiningvar[netnumber]
     
 ####################################
-def on_button_clicked(b):
-    return True
-
-def check_key_press():
- 
-    import ipywidgets as widgets
-    from IPython.display import display
-    button = widgets.Button(description="Next Step")
- 
-    display(button)
-    
-    
-    while True:
-         if (button.on_click(on_button_clicked))==True:
-             break
-         else:
-             continue
 
     
 def mainprogram():
@@ -156,7 +139,7 @@ def mainprogram():
     for i in range(give_net_length()):
         
         if i>0:
-            check_key_press()
+            #check_key_press()
             print('______________________________________________________________________________________________________________________________________________')
             print(give_result(i-1))
             col_net=colored_net(net,i)
