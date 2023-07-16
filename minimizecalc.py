@@ -442,7 +442,7 @@ def DC_R_Series():
 def DC_R_Parallel():
 
     return(circuit.Circuit("""
-        ...V1 1 0; down
+        ...V1 1 0 dc; down
         ...W 1 2; right
         ...R1 2 0_2; down
         ...W 2 3 ; right
