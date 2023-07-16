@@ -280,6 +280,10 @@ def show_changing_elements(net):
 
 
 def choose_net(number):
+
+###################################################################################################
+#following Notebook numbers without values
+###################################################################################################
     if number==1:
         return(DC_R_Series())
     if number==2:
@@ -348,28 +352,103 @@ def choose_net(number):
         return(AC_L_Random())
     if number==34:
         return(AC_Mixed_Random())
-    
-    
+
+###################################################################################################
+#following Notebook numbers with values
+###################################################################################################
+    if number==35:
+        return(DC_R_Series_v())
+    if number==36:
+        return(DC_R_Parallel_v())
+    if number==37:
+        return(DC_R_Mixed_v())
+    if number==38:
+        return(DC_R_Mixed_long_v())
+    if number==39:
+        return(DC_C_Series_v())
+    if number==40:
+        return(DC_C_Parallel_v())
+    if number==41:
+        return(DC_C_Mixed_v())
+    if number==42:
+        return(DC_C_Mixed_long_v())
+    if number==43:
+        return(DC_L_Series_v())
+    if number==44:
+        return(DC_L_Parallel_v())
+    if number==45:
+        return(DC_L_Mixed_v())
+    if number==46:
+        return(DC_L_Mixed_long_v())
+    if number==47:
+        return(DC_R_Random_v())
+    if number==48:
+        return(DC_C_Random_v())
+    if number==49:
+        return(DC_L_Random_v())
+    if number==50:
+        return(AC_R_Series_v())
+    if number==51:
+        return(AC_R_Parallel_v())
+    if number==52:
+        return(AC_R_Mixed_v())
+    if number==53:
+        return(AC_R_Mixed_long_v())
+    if number==54:
+        return(AC_C_Series_v())
+    if number==55:
+        return(AC_C_Parallel_v())
+    if number==56:
+        return(AC_C_Mixed_v())
+    if number==57:
+        return(AC_C_Mixed_long_v())
+    if number==58:
+        return(AC_L_Series_v())
+    if number==59:
+        return(AC_L_Parallel_v())
+    if number==60:
+        return(AC_L_Mixed_v())
+    if number==61:
+        return(AC_L_Mixed_long_v())
+    if number==62:
+        return(AC_Mixed_Series_v())
+    if number==63:
+        return(AC_Mixed_Parallel_v())
+    if number==64:
+        return(AC_Mixed_long_v())
+    if number==65:
+        return(AC_R_Random_v())
+    if number==66:
+        return(AC_C_Random_v())
+    if number==67:
+        return(AC_L_Random_v())
+    if number==68:
+        return(AC_Mixed_Random_v())
+
+
+###################################################################################################
+#following Notebooks without values
+###################################################################################################
 def DC_R_Series():
 
     return(circuit.Circuit("""
-        ...V 1 0 {10}; down
-        ...R1 1 2 {10}; right
-        ...R2 2 3 {20}; right
-        ...R3 3 0_3 {10}; down
+        ...V 1 0; down
+        ...R1 1 2; right
+        ...R2 2 3; right
+        ...R3 3 0_3; down
         ...W 0 0_3; right""")) 
 
 
 def DC_R_Parallel():
 
     return(circuit.Circuit("""
-        ...V1 1 0 {10}; down
+        ...V1 1 0; down
         ...W 1 2; right
-        ...R1 2 0_2 {10}; down
+        ...R1 2 0_2; down
         ...W 2 3 ; right
-        ...R2 3 0_3 {10}; down
+        ...R2 3 0_3; down
         ...W 3 4 ; right
-        ...R3 4 0_4 {10}; down
+        ...R3 4 0_4; down
         ...W 0 0_1; right
         ...W 0_1 0_2; right
         ...W 0_2 0_3; right
@@ -379,11 +458,11 @@ def DC_R_Parallel():
 def DC_R_Mixed():
 
     return(circuit.Circuit("""
-        ...V1 1 0 {10}; down
-        ...R1 1 2 {10}; right
-        ...R2 2 3 {10}; right
-        ...R3 2 0_2 {20}; down
-        ...R4 3 0_3 {10}; down
+        ...V1 1 0; down
+        ...R1 1 2; right
+        ...R2 2 3; right
+        ...R3 2 0_2; down
+        ...R4 3 0_3; down
         ...W 0 0_1; right
         ...W 0_1 0_2; right
         ...W 0_2 0_3; right""")) 
@@ -392,13 +471,13 @@ def DC_R_Mixed():
 def DC_R_Mixed_long():
 
     return(circuit.Circuit("""
-        ...V1 1 0 {10}; down
-        ...R1 1 2 {10}; right
-        ...R2 2 3 {20}; right
-        ...R3 3 4 {10}; right
-        ...R4 2 0_2 {20}; down
-        ...R5 3 0_3 {20}; down
-        ...R6 4 0_4 {10}; down
+        ...V1 1 0; down
+        ...R1 1 2; right
+        ...R2 2 3; right
+        ...R3 3 4; right
+        ...R4 2 0_2; down
+        ...R5 3 0_3; down
+        ...R6 4 0_4; down
         ...W 0 0_1; right
         ...W 0_1 0_2; right
         ...W 0_2 0_3; right
@@ -408,23 +487,23 @@ def DC_R_Mixed_long():
 def DC_C_Series():
 
     return(circuit.Circuit("""
-        ...V 1 0 {10}; down
-        ...C1 1 2 {10}; right
-        ...C2 2 3 {20}; right
-        ...C3 3 0_3 {10}; down
+        ...V 1 0; down
+        ...C1 1 2; right
+        ...C2 2 3; right
+        ...C3 3 0_3; down
         ...W 0 0_3; right""")) 
 
 
 def DC_C_Parallel():
 
     return(circuit.Circuit("""
-        ...V1 1 0 {10}; down
+        ...V1 1 0; down
         ...W 1 2; right
-        ...C1 2 0_2 {10}; down
+        ...C1 2 0_2; down
         ...W 2 3 ; right
-        ...C2 3 0_3 {10}; down
+        ...C2 3 0_3; down
         ...W 3 4 ; right
-        ...C3 4 0_4 {10}; down
+        ...C3 4 0_4; down
         ...W 0 0_1; right
         ...W 0_1 0_2; right
         ...W 0_2 0_3; right
@@ -434,11 +513,11 @@ def DC_C_Parallel():
 def DC_C_Mixed():
 
     return(circuit.Circuit("""
-        ...V1 1 0 {10}; down
-        ...C1 1 2 {10}; right
-        ...C2 2 3 {10}; right
-        ...C3 2 0_2 {20}; down
-        ...C4 3 0_3 {10}; down
+        ...V1 1 0; down
+        ...C1 1 2; right
+        ...C2 2 3; right
+        ...C3 2 0_2; down
+        ...C4 3 0_3; down
         ...W 0 0_1; right
         ...W 0_1 0_2; right
         ...W 0_2 0_3; right""")) 
@@ -447,13 +526,13 @@ def DC_C_Mixed():
 def DC_C_Mixed_long():
 
     return(circuit.Circuit("""
-        ...V1 1 0 {10}; down
-        ...C1 1 2 {10}; right
-        ...C2 2 3 {20}; right
-        ...C3 3 4 {10}; right
-        ...C4 2 0_2 {20}; down
-        ...C5 3 0_3 {20}; down
-        ...C6 4 0_4 {10}; down
+        ...V1 1 0; down
+        ...C1 1 2; right
+        ...C2 2 3; right
+        ...C3 3 4; right
+        ...C4 2 0_2; down
+        ...C5 3 0_3; down
+        ...C6 4 0_4; down
         ...W 0 0_1; right
         ...W 0_1 0_2; right
         ...W 0_2 0_3; right
@@ -463,23 +542,23 @@ def DC_C_Mixed_long():
 def DC_L_Series():
 
     return(circuit.Circuit("""
-        ...V 1 0 {10}; down
-        ...L1 1 2 {10}; right
-        ...L2 2 3 {20}; right
-        ...L3 3 0_3 {10}; down
+        ...V 1 0; down
+        ...L1 1 2; right
+        ...L2 2 3; right
+        ...L3 3 0_3; down
         ...W 0 0_3; right""")) 
 
 
 def DC_L_Parallel():
 
     return(circuit.Circuit("""
-        ...V1 1 0 {10}; down
+        ...V1 1 0; down
         ...W 1 2; right
-        ...L1 2 0_2 {10}; down
+        ...L1 2 0_2; down
         ...W 2 3 ; right
-        ...L2 3 0_3 {10}; down
+        ...L2 3 0_3; down
         ...W 3 4 ; right
-        ...L3 4 0_4 {10}; down
+        ...L3 4 0_4; down
         ...W 0 0_1; right
         ...W 0_1 0_2; right
         ...W 0_2 0_3; right
@@ -489,11 +568,11 @@ def DC_L_Parallel():
 def DC_L_Mixed():
 
     return(circuit.Circuit("""
-        ...V1 1 0 {10}; down
-        ...L1 1 2 {10}; right
-        ...L2 2 3 {10}; right
-        ...L3 2 0_2 {20}; down
-        ...L4 3 0_3 {10}; down
+        ...V1 1 0; down
+        ...L1 1 2; right
+        ...L2 2 3; right
+        ...L3 2 0_2; down
+        ...L4 3 0_3; down
         ...W 0 0_1; right
         ...W 0_1 0_2; right
         ...W 0_2 0_3; right""")) 
@@ -502,13 +581,13 @@ def DC_L_Mixed():
 def DC_L_Mixed_long():
 
     return(circuit.Circuit("""
-        ...V1 1 0 {10}; down
-        ...L1 1 2 {10}; right
-        ...L2 2 3 {20}; right
-        ...L3 3 4 {10}; right
-        ...L4 2 0_2 {20}; down
-        ...L5 3 0_3 {20}; down
-        ...L6 4 0_4 {10}; down
+        ...V1 1 0; down
+        ...L1 1 2; right
+        ...L2 2 3; right
+        ...L3 3 4; right
+        ...L4 2 0_2; down
+        ...L5 3 0_3; down
+        ...L6 4 0_4; down
         ...W 0 0_1; right
         ...W 0_1 0_2; right
         ...W 0_2 0_3; right
@@ -525,7 +604,7 @@ def DC_R_Random():
     par=random.randrange(1,k)
 
     net = randomnetwork.random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
-                        num_voltage_sources=1, kind='dc', num_parallel=par, numeric_values=True)
+                        num_voltage_sources=1, kind='dc', num_parallel=par, numeric_values=False)
     net=circuit.Circuit(net.netlist())
     
     return(net)
@@ -541,7 +620,7 @@ def DC_C_Random():
     par=random.randrange(1,k)
 
     net = randomnetwork.random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
-                        num_voltage_sources=1, kind='dc', num_parallel=par, numeric_values=True)
+                        num_voltage_sources=1, kind='dc', num_parallel=par, numeric_values=False)
     net=circuit.Circuit(net.netlist())
     
     return(net)
@@ -558,33 +637,32 @@ def DC_L_Random():
     par=random.randrange(1,k)
 
     net = randomnetwork.random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
-                        num_voltage_sources=1, kind='dc', num_parallel=par, numeric_values=True)
+                        num_voltage_sources=1, kind='dc', num_parallel=par, numeric_values=False)
     net=circuit.Circuit(net.netlist())
     
     return(net)
-
-#######################################################################################################
+ 
 
 def AC_R_Series():
 
     return(circuit.Circuit("""
-        ...V 1 0 ac {10}; down
-        ...R1 1 2 {10}; right
-        ...R2 2 3 {20}; right
-        ...R3 3 0_3 {10}; down
+        ...V 1 0 ac; down
+        ...R1 1 2; right
+        ...R2 2 3; right
+        ...R3 3 0_3; down
         ...W 0 0_3; right""")) 
 
 
 def AC_R_Parallel():
 
     return(circuit.Circuit("""
-        ...V1 1 0 ac {10}; down
+        ...V1 1 0 ac; down
         ...W 1 2; right
-        ...R1 2 0_2 {10}; down
+        ...R1 2 0_2; down
         ...W 2 3 ; right
-        ...R2 3 0_3 {10}; down
+        ...R2 3 0_3; down
         ...W 3 4 ; right
-        ...R3 4 0_4 {10}; down
+        ...R3 4 0_4; down
         ...W 0 0_1; right
         ...W 0_1 0_2; right
         ...W 0_2 0_3; right
@@ -594,11 +672,11 @@ def AC_R_Parallel():
 def AC_R_Mixed():
 
     return(circuit.Circuit("""
-        ...V1 1 0 ac {10}; down
-        ...R1 1 2 {10}; right
-        ...R2 2 3 {10}; right
-        ...R3 2 0_2 {20}; down
-        ...R4 3 0_3 {10}; down
+        ...V1 1 0 ac; down
+        ...R1 1 2; right
+        ...R2 2 3; right
+        ...R3 2 0_2; down
+        ...R4 3 0_3; down
         ...W 0 0_1; right
         ...W 0_1 0_2; right
         ...W 0_2 0_3; right""")) 
@@ -607,13 +685,13 @@ def AC_R_Mixed():
 def AC_R_Mixed_long():
 
     return(circuit.Circuit("""
-        ...V1 1 0 ac {10}; down
-        ...R1 1 2 {10}; right
-        ...R2 2 3 {20}; right
-        ...R3 3 4 {10}; right
-        ...R4 2 0_2 {20}; down
-        ...R5 3 0_3 {20}; down
-        ...R6 4 0_4 {10}; down
+        ...V1 1 0 ac; down
+        ...R1 1 2; right
+        ...R2 2 3; right
+        ...R3 3 4; right
+        ...R4 2 0_2; down
+        ...R5 3 0_3; down
+        ...R6 4 0_4; down
         ...W 0 0_1; right
         ...W 0_1 0_2; right
         ...W 0_2 0_3; right
@@ -623,23 +701,23 @@ def AC_R_Mixed_long():
 def AC_C_Series():
 
     return(circuit.Circuit("""
-        ...V 1 0 ac {10}; down
-        ...C1 1 2 {10}; right
-        ...C2 2 3 {20}; right
-        ...C3 3 0_3 {10}; down
+        ...V 1 0 ac; down
+        ...C1 1 2; right
+        ...C2 2 3; right
+        ...C3 3 0_3; down
         ...W 0 0_3; right""")) 
 
 
 def AC_C_Parallel():
 
     return(circuit.Circuit("""
-        ...V1 1 0 ac {10}; down
+        ...V1 1 0 ac; down
         ...W 1 2; right
-        ...C1 2 0_2 {10}; down
+        ...C1 2 0_2; down
         ...W 2 3 ; right
-        ...C2 3 0_3 {10}; down
+        ...C2 3 0_3; down
         ...W 3 4 ; right
-        ...C3 4 0_4 {10}; down
+        ...C3 4 0_4; down
         ...W 0 0_1; right
         ...W 0_1 0_2; right
         ...W 0_2 0_3; right
@@ -649,11 +727,11 @@ def AC_C_Parallel():
 def AC_C_Mixed():
 
     return(circuit.Circuit("""
-        ...V1 1 0 ac {10}; down
-        ...C1 1 2 {10}; right
-        ...C2 2 3 {10}; right
-        ...C3 2 0_2 {20}; down
-        ...C4 3 0_3 {10}; down
+        ...V1 1 0 ac; down
+        ...C1 1 2; right
+        ...C2 2 3; right
+        ...C3 2 0_2; down
+        ...C4 3 0_3; down
         ...W 0 0_1; right
         ...W 0_1 0_2; right
         ...W 0_2 0_3; right""")) 
@@ -662,13 +740,13 @@ def AC_C_Mixed():
 def AC_C_Mixed_long():
 
     return(circuit.Circuit("""
-        ...V1 1 0 ac {10}; down
-        ...C1 1 2 {10}; right
-        ...C2 2 3 {20}; right
-        ...C3 3 4 {10}; right
-        ...C4 2 0_2 {20}; down
-        ...C5 3 0_3 {20}; down
-        ...C6 4 0_4 {10}; down
+        ...V1 1 0 ac; down
+        ...C1 1 2; right
+        ...C2 2 3; right
+        ...C3 3 4; right
+        ...C4 2 0_2; down
+        ...C5 3 0_3; down
+        ...C6 4 0_4; down
         ...W 0 0_1; right
         ...W 0_1 0_2; right
         ...W 0_2 0_3; right
@@ -678,23 +756,23 @@ def AC_C_Mixed_long():
 def AC_L_Series():
 
     return(circuit.Circuit("""
-        ...V 1 0 ac {10}; down
-        ...L1 1 2 {10}; right
-        ...L2 2 3 {20}; right
-        ...L3 3 0_3 {10}; down
+        ...V 1 0 ac; down
+        ...L1 1 2; right
+        ...L2 2 3; right
+        ...L3 3 0_3; down
         ...W 0 0_3; right""")) 
 
 
 def AC_L_Parallel():
 
     return(circuit.Circuit("""
-        ...V1 1 0 ac {10}; down
+        ...V1 1 0 ac; down
         ...W 1 2; right
-        ...L1 2 0_2 {10}; down
+        ...L1 2 0_2; down
         ...W 2 3 ; right
-        ...L2 3 0_3 {10}; down
+        ...L2 3 0_3; down
         ...W 3 4 ; right
-        ...L3 4 0_4 {10}; down
+        ...L3 4 0_4; down
         ...W 0 0_1; right
         ...W 0_1 0_2; right
         ...W 0_2 0_3; right
@@ -704,11 +782,11 @@ def AC_L_Parallel():
 def AC_L_Mixed():
 
     return(circuit.Circuit("""
-        ...V1 1 0 ac {10}; down
-        ...L1 1 2 {10}; right
-        ...L2 2 3 {10}; right
-        ...L3 2 0_2 {20}; down
-        ...L4 3 0_3 {10}; down
+        ...V1 1 0 ac; down
+        ...L1 1 2; right
+        ...L2 2 3; right
+        ...L3 2 0_2; down
+        ...L4 3 0_3; down
         ...W 0 0_1; right
         ...W 0_1 0_2; right
         ...W 0_2 0_3; right""")) 
@@ -717,13 +795,13 @@ def AC_L_Mixed():
 def AC_L_Mixed_long():
 
     return(circuit.Circuit("""
-        ...V1 1 0 ac {10}; down
-        ...L1 1 2 {10}; right
-        ...L2 2 3 {20}; right
-        ...L3 3 4 {10}; right
-        ...L4 2 0_2 {20}; down
-        ...L5 3 0_3 {20}; down
-        ...L6 4 0_4 {10}; down
+        ...V1 1 0 ac; down
+        ...L1 1 2; right
+        ...L2 2 3; right
+        ...L3 3 4; right
+        ...L4 2 0_2; down
+        ...L5 3 0_3; down
+        ...L6 4 0_4; down
         ...W 0 0_1; right
         ...W 0_1 0_2; right
         ...W 0_2 0_3; right
@@ -732,23 +810,23 @@ def AC_L_Mixed_long():
 def AC_Mixed_Series():
     
     return(circuit.Circuit("""
-        ...V1 1 0 ac 10; down
-        ...R 1 2 20; right
-        ...L 2 3 10; right
-        ...C 3 0_3 10; down
+        ...V1 1 0 ac; down
+        ...R 1 2; right
+        ...L 2 3; right
+        ...C 3 0_3; down
         ...W 0 0_3; right"""))
 
 
 def AC_Mixed_Parallel():
     
     return(circuit.Circuit("""
-        ...V1 1 0 ac 10; down
+        ...V1 1 0 ac; down
         ...W 1 2; right
-        ...R 2 0_2 20; down
+        ...R 2 0_2; down
         ...W 2 3 ; right
-        ...C 3 0_3 10; down
+        ...C 3 0_3; down
         ...W 3 4 ; right
-        ...L 4 0_4 10; down
+        ...L 4 0_4; down
         ...W 0 0_1; right
         ...W 0_1 0_2; right
         ...W 0_2 0_3; right
@@ -757,13 +835,13 @@ def AC_Mixed_Parallel():
 def AC_Mixed_long():
     
     return(circuit.Circuit("""
-        ...V 1 0 ac 10; down
-        ...R1 1 2 10; right
-        ...L1 2 3 10; right
-        ...L2 3 0_3 5; down
-        ...C1 3 4 10; right
-        ...R2 4 5 20; right
-        ...C2 5 0_5 10; down
+        ...V 1 0 ac; down
+        ...R1 1 2; right
+        ...L1 2 3; right
+        ...L2 3 0_3; down
+        ...C1 3 4; right
+        ...R2 4 5; right
+        ...C2 5 0_5; down
         ...W 0 0_3; right
         ...W 0 0_5; right"""))
 
@@ -778,7 +856,7 @@ def AC_R_Random():
     par=random.randrange(1,k)
 
     net = randomnetwork.random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
-                        num_voltage_sources=1, kind='ac', num_parallel=par, numeric_values=True)
+                        num_voltage_sources=1, kind='ac', num_parallel=par, numeric_values=False)
     net=circuit.Circuit(net.netlist())
     
     return(net)
@@ -794,7 +872,7 @@ def AC_C_Random():
     par=random.randrange(1,k)
 
     net = randomnetwork.random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
-                        num_voltage_sources=1, kind='ac', num_parallel=par, numeric_values=True)
+                        num_voltage_sources=1, kind='ac', num_parallel=par, numeric_values=False)
     net=circuit.Circuit(net.netlist())
     
     return(net)
@@ -810,7 +888,7 @@ def AC_L_Random():
     par=random.randrange(1,k)
 
     net = randomnetwork.random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
-                        num_voltage_sources=1, kind='ac', num_parallel=par, numeric_values=True)
+                        num_voltage_sources=1, kind='ac', num_parallel=par, numeric_values=False)
     net=circuit.Circuit(net.netlist())
     
     return(net)
@@ -826,11 +904,498 @@ def AC_Mixed_Random():
     par=random.randrange(1,k)
 
     net = randomnetwork.random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
+                        num_voltage_sources=1, kind='ac', num_parallel=par, numeric_values=False)
+    net=circuit.Circuit(net.netlist())
+    
+    return(net)
+
+
+###################################################################################################
+#following Notebooks with values
+###################################################################################################
+
+def DC_R_Series_v():
+
+    return(circuit.Circuit("""
+        ...V 1 0 {10}; down
+        ...R1 1 2 {10}; right
+        ...R2 2 3 {20}; right
+        ...R3 3 0_3 {10}; down
+        ...W 0 0_3; right""")) 
+
+
+def DC_R_Parallel_v():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 {10}; down
+        ...W 1 2; right
+        ...R1 2 0_2 {10}; down
+        ...W 2 3 ; right
+        ...R2 3 0_3 {10}; down
+        ...W 3 4 ; right
+        ...R3 4 0_4 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right""")) 
+
+
+def DC_R_Mixed_v():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 {10}; down
+        ...R1 1 2 {10}; right
+        ...R2 2 3 {10}; right
+        ...R3 2 0_2 {20}; down
+        ...R4 3 0_3 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right""")) 
+
+
+def DC_R_Mixed_long_v():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 {10}; down
+        ...R1 1 2 {10}; right
+        ...R2 2 3 {20}; right
+        ...R3 3 4 {10}; right
+        ...R4 2 0_2 {20}; down
+        ...R5 3 0_3 {20}; down
+        ...R6 4 0_4 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right"""))
+
+
+def DC_C_Series_v():
+
+    return(circuit.Circuit("""
+        ...V 1 0 {10}; down
+        ...C1 1 2 {10}; right
+        ...C2 2 3 {20}; right
+        ...C3 3 0_3 {10}; down
+        ...W 0 0_3; right""")) 
+
+
+def DC_C_Parallel_v():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 {10}; down
+        ...W 1 2; right
+        ...C1 2 0_2 {10}; down
+        ...W 2 3 ; right
+        ...C2 3 0_3 {10}; down
+        ...W 3 4 ; right
+        ...C3 4 0_4 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right""")) 
+
+
+def DC_C_Mixed_v():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 {10}; down
+        ...C1 1 2 {10}; right
+        ...C2 2 3 {10}; right
+        ...C3 2 0_2 {20}; down
+        ...C4 3 0_3 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right""")) 
+
+
+def DC_C_Mixed_long_v():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 {10}; down
+        ...C1 1 2 {10}; right
+        ...C2 2 3 {20}; right
+        ...C3 3 4 {10}; right
+        ...C4 2 0_2 {20}; down
+        ...C5 3 0_3 {20}; down
+        ...C6 4 0_4 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right"""))
+
+
+def DC_L_Series_v():
+
+    return(circuit.Circuit("""
+        ...V 1 0 {10}; down
+        ...L1 1 2 {10}; right
+        ...L2 2 3 {20}; right
+        ...L3 3 0_3 {10}; down
+        ...W 0 0_3; right""")) 
+
+
+def DC_L_Parallel_v():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 {10}; down
+        ...W 1 2; right
+        ...L1 2 0_2 {10}; down
+        ...W 2 3 ; right
+        ...L2 3 0_3 {10}; down
+        ...W 3 4 ; right
+        ...L3 4 0_4 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right""")) 
+
+
+def DC_L_Mixed_v():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 {10}; down
+        ...L1 1 2 {10}; right
+        ...L2 2 3 {10}; right
+        ...L3 2 0_2 {20}; down
+        ...L4 3 0_3 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right""")) 
+
+
+def DC_L_Mixed_long_v():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 {10}; down
+        ...L1 1 2 {10}; right
+        ...L2 2 3 {20}; right
+        ...L3 3 4 {10}; right
+        ...L4 2 0_2 {20}; down
+        ...L5 3 0_3 {20}; down
+        ...L6 4 0_4 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right"""))
+
+def DC_R_Random_v():
+
+    res=random.randrange(3,6)
+    cap=0
+    ind=0
+    
+    k=res+cap+ind
+    
+    par=random.randrange(1,k)
+
+    net = randomnetwork.random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
+                        num_voltage_sources=1, kind='dc', num_parallel=par, numeric_values=True)
+    net=circuit.Circuit(net.netlist())
+    
+    return(net)
+
+def DC_C_Random_v():
+
+    cap=random.randrange(3,6)
+    res=0
+    ind=0
+    
+    k=res+cap+ind
+    
+    par=random.randrange(1,k)
+
+    net = randomnetwork.random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
+                        num_voltage_sources=1, kind='dc', num_parallel=par, numeric_values=True)
+    net=circuit.Circuit(net.netlist())
+    
+    return(net)
+
+
+def DC_L_Random_v():
+
+    ind=random.randrange(3,6)
+    cap=0
+    res=0
+    
+    k=res+cap+ind
+    
+    par=random.randrange(1,k)
+
+    net = randomnetwork.random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
+                        num_voltage_sources=1, kind='dc', num_parallel=par, numeric_values=True)
+    net=circuit.Circuit(net.netlist())
+    
+    return(net)
+
+
+def AC_R_Series_v():
+
+    return(circuit.Circuit("""
+        ...V 1 0 ac {10}; down
+        ...R1 1 2 {10}; right
+        ...R2 2 3 {20}; right
+        ...R3 3 0_3 {10}; down
+        ...W 0 0_3; right""")) 
+
+
+def AC_R_Parallel_v():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 ac {10}; down
+        ...W 1 2; right
+        ...R1 2 0_2 {10}; down
+        ...W 2 3 ; right
+        ...R2 3 0_3 {10}; down
+        ...W 3 4 ; right
+        ...R3 4 0_4 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right""")) 
+
+
+def AC_R_Mixed_v():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 ac {10}; down
+        ...R1 1 2 {10}; right
+        ...R2 2 3 {10}; right
+        ...R3 2 0_2 {20}; down
+        ...R4 3 0_3 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right""")) 
+
+
+def AC_R_Mixed_long_v():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 ac {10}; down
+        ...R1 1 2 {10}; right
+        ...R2 2 3 {20}; right
+        ...R3 3 4 {10}; right
+        ...R4 2 0_2 {20}; down
+        ...R5 3 0_3 {20}; down
+        ...R6 4 0_4 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right"""))
+
+
+def AC_C_Series_v():
+
+    return(circuit.Circuit("""
+        ...V 1 0 ac {10}; down
+        ...C1 1 2 {10}; right
+        ...C2 2 3 {20}; right
+        ...C3 3 0_3 {10}; down
+        ...W 0 0_3; right""")) 
+
+
+def AC_C_Parallel_v():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 ac {10}; down
+        ...W 1 2; right
+        ...C1 2 0_2 {10}; down
+        ...W 2 3 ; right
+        ...C2 3 0_3 {10}; down
+        ...W 3 4 ; right
+        ...C3 4 0_4 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right""")) 
+
+
+def AC_C_Mixed_v():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 ac {10}; down
+        ...C1 1 2 {10}; right
+        ...C2 2 3 {10}; right
+        ...C3 2 0_2 {20}; down
+        ...C4 3 0_3 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right""")) 
+
+
+def AC_C_Mixed_long_v():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 ac {10}; down
+        ...C1 1 2 {10}; right
+        ...C2 2 3 {20}; right
+        ...C3 3 4 {10}; right
+        ...C4 2 0_2 {20}; down
+        ...C5 3 0_3 {20}; down
+        ...C6 4 0_4 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right"""))
+
+
+def AC_L_Series_v():
+
+    return(circuit.Circuit("""
+        ...V 1 0 ac {10}; down
+        ...L1 1 2 {10}; right
+        ...L2 2 3 {20}; right
+        ...L3 3 0_3 {10}; down
+        ...W 0 0_3; right""")) 
+
+
+def AC_L_Parallel_v():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 ac {10}; down
+        ...W 1 2; right
+        ...L1 2 0_2 {10}; down
+        ...W 2 3 ; right
+        ...L2 3 0_3 {10}; down
+        ...W 3 4 ; right
+        ...L3 4 0_4 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right""")) 
+
+
+def AC_L_Mixed_v():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 ac {10}; down
+        ...L1 1 2 {10}; right
+        ...L2 2 3 {10}; right
+        ...L3 2 0_2 {20}; down
+        ...L4 3 0_3 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right""")) 
+
+
+def AC_L_Mixed_long_v():
+
+    return(circuit.Circuit("""
+        ...V1 1 0 ac {10}; down
+        ...L1 1 2 {10}; right
+        ...L2 2 3 {20}; right
+        ...L3 3 4 {10}; right
+        ...L4 2 0_2 {20}; down
+        ...L5 3 0_3 {20}; down
+        ...L6 4 0_4 {10}; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right"""))
+
+def AC_Mixed_Series_v():
+    
+    return(circuit.Circuit("""
+        ...V1 1 0 ac 10; down
+        ...R 1 2 20; right
+        ...L 2 3 10; right
+        ...C 3 0_3 10; down
+        ...W 0 0_3; right"""))
+
+
+def AC_Mixed_Parallel_v():
+    
+    return(circuit.Circuit("""
+        ...V1 1 0 ac 10; down
+        ...W 1 2; right
+        ...R 2 0_2 20; down
+        ...W 2 3 ; right
+        ...C 3 0_3 10; down
+        ...W 3 4 ; right
+        ...L 4 0_4 10; down
+        ...W 0 0_1; right
+        ...W 0_1 0_2; right
+        ...W 0_2 0_3; right
+        ...W 0_3 0_4; right"""))
+
+def AC_Mixed_long_v():
+    
+    return(circuit.Circuit("""
+        ...V 1 0 ac 10; down
+        ...R1 1 2 10; right
+        ...L1 2 3 10; right
+        ...L2 3 0_3 5; down
+        ...C1 3 4 10; right
+        ...R2 4 5 20; right
+        ...C2 5 0_5 10; down
+        ...W 0 0_3; right
+        ...W 0 0_5; right"""))
+
+def AC_R_Random_v():
+
+    res=random.randrange(3,6)
+    cap=0
+    ind=0
+    
+    k=res+cap+ind
+    
+    par=random.randrange(1,k)
+
+    net = randomnetwork.random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
                         num_voltage_sources=1, kind='ac', num_parallel=par, numeric_values=True)
     net=circuit.Circuit(net.netlist())
     
     return(net)
 
+def AC_C_Random_v():
+
+    cap=random.randrange(3,6)
+    res=0
+    ind=0
+    
+    k=res+cap+ind
+    
+    par=random.randrange(1,k)
+
+    net = randomnetwork.random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
+                        num_voltage_sources=1, kind='ac', num_parallel=par, numeric_values=True)
+    net=circuit.Circuit(net.netlist())
+    
+    return(net)
+
+def AC_L_Random_v():
+
+    ind=random.randrange(3,6)
+    cap=0
+    res=0
+    
+    k=res+cap+ind
+    
+    par=random.randrange(1,k)
+
+    net = randomnetwork.random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
+                        num_voltage_sources=1, kind='ac', num_parallel=par, numeric_values=True)
+    net=circuit.Circuit(net.netlist())
+    
+    return(net)
+
+def AC_Mixed_Random_v():
+
+    ind=random.randrange(1,3)
+    cap=random.randrange(1,3)
+    res=random.randrange(1,3)
+  
+    k=res+cap+ind
+    
+    par=random.randrange(1,k)
+
+    net = randomnetwork.random_network(num_resistors=res, num_capacitors=cap, num_inductors=ind,
+                        num_voltage_sources=1, kind='ac', num_parallel=par, numeric_values=True)
+    net=circuit.Circuit(net.netlist())
+    
+    return(net)
+###################################################################################################
+#end of Notebooks
+###################################################################################################
 
 def show_notebooks():
    
