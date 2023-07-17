@@ -264,7 +264,7 @@ def resub():
     if imaginärteil==0 and realteil==0:
         print('No result')
     if imaginärteil==0:
-        a='R'+a[5:]
+        a='R'+str(a[5:])
         print(a)
     if imaginärteil!=0:
         strimaginärteil=str(imaginärteil)
@@ -295,10 +295,10 @@ def resub():
             if cnt==1:
                 strimaginärteil=str(imaginärteil)
                 if strimaginärteil.find('-')>0:
-                    a='C'+a[5:]
+                    a='C'+str(a[5:])
                     print(a)
                 else:
-                    a='L'+a[5:]
+                    a='L'+str(a[5:])
                     print(a)
 
                  
