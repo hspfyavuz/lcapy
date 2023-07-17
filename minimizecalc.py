@@ -276,9 +276,9 @@ def resub():
             if strimaginärteil.find('+') or strimaginärteil.find('-') >=0:
                 ergfind=(strimaginärteil.find('+') or strimaginärteil.find('-'))
                 cnt=cnt+1
-                print(erg)
+                print(strimaginärteil)
                 strimaginärteil=strimaginärteil[ergfind+1:]
-                print(erg)
+                print(strimaginärteil)
                 print(cnt)
                 
         if i > 1:
