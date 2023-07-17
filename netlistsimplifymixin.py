@@ -55,6 +55,7 @@ class NetlistSimplifyMixin:
                             total,(save_new_component(subset_list[0:2],(give_net_length()+1))))
                 
             if (subset_list[0])[0] == 'C':
+                total = expr(0)
                 for name in subset_list[0:2]: #nur 2 komponenten
                     total += expr(self.elements[name].cpt.args[0])
                 mincalc.explain_dc_series_print(self,subset_list,
