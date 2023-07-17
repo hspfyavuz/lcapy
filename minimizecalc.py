@@ -273,8 +273,8 @@ def resub():
         #newname= oldname[1:]
         #else
         for i in range(10):
-            if strimaginärteil.find('+'or '-')>=0:
-                ergfind=strimaginärteil.find('+'or '-')
+            if strimaginärteil.find('+') or strimaginärteil.find('-') >=0:
+                ergfind=(strimaginärteil.find('+') or strimaginärteil.find('-'))
                 cnt=cnt+1
                 print(erg)
                 strimaginärteil=strimaginärteil[ergfind+1:]
