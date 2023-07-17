@@ -35,7 +35,6 @@ class NetlistSimplifyMixin:
             
             
             if (subset_list[0])[0] == 'Z':
-                total += expr(self.elements[name].cpt.args[0])
                 mincalc.explain_ac_series_print(self,subset_list,
                         total,(mincalc.save_new_component(subset_list[0:2],(mincalc.give_net_length()+1))))
                     
