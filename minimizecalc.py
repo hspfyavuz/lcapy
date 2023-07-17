@@ -261,20 +261,20 @@ def resub():
     print(realteil)
     imaginärteil=resultof_acnetlist.imag
     print(imaginärteil)
-    if imaginärteil==None and realteil==None:
+    if imaginärteil==0 and realteil==0:
         print('No result')
-    if imaginärteil==None:
+    if imaginärteil==0:
         a='R'+a[5:]
         print(a)
-    if imaginärteil!=None:
+    if imaginärteil!=0:
         strimaginärteil=str(imaginärteil)
         cnt=0
         #if imag=none
         #newname= oldname[1:]
         #else
         for i in range(10):
-            if strimaginärteil.find('j')>=0:
-                ergfind=strimaginärteil.find('j')
+            if strimaginärteil.find('+'or '-')>=0:
+                ergfind=strimaginärteil.find('+'or '-')
                 cnt=cnt+1
                 print(erg)
                 strimaginärteil=strimaginärteil[ergfind+1:]
