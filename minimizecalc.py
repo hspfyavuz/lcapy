@@ -256,8 +256,11 @@ def resub():
     
     a=(resultcompl[give_net_length()-2])
     resultof_acnetlist=a.real_imag
+    print(resultof_acnetlist)
     realteil=resultof_acnetlist.real
+    print(realteil)
     imaginärteil=resultof_acnetlist.imag
+    print(imaginärteil)
     if imaginärteil==None and realteil==None:
         print('No result')
     if imaginärteil==None:
