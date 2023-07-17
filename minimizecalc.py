@@ -287,19 +287,21 @@ def resub():
                 strimaginärteil=strimaginärteil[ergfind+1:]
                 print(strimaginärteil)
                 print(cnt)
+          
+         if i > 1:
+             if cnt>1:
+                 print('no resub')
+             if cnt==1:
+                 strimaginärteil=str(imaginärteil)
+                 if strimaginärteil.find('-')>0:
+                     a='C'+a[5:]
+                     print(a)
+                 else:
+                     a='L'+a[5:]
+                     print(a)
                 
              
-        if i > 1:
-            if cnt>1:
-                print('no resub')
-            if cnt==1:
-                strimaginärteil=str(imaginärteil)
-                if strimaginärteil.find('-')>0:
-                    a='C'+a[5:]
-                    print(a)
-                else:
-                    a='L'+a[5:]
-                    print(a)
+
                  
     
 def show_changing_elements(net):
