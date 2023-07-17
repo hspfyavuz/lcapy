@@ -356,74 +356,75 @@ def choose_net(number):
 ###################################################################################################
 #following Notebook numbers with values
 ###################################################################################################
-     if number==35:
-         return(DC_R_Series_v())
-     if number==36:
-         return(DC_R_Parallel_v())
-     if number==37:
-         return(DC_R_Mixed_v())
-     if number==38:
-         return(DC_R_Mixed_long_v())
-     if number==39:
-         return(DC_C_Series_v())
-     if number==40:
-         return(DC_C_Parallel_v())
-     if number==41:
-         return(DC_C_Mixed_v())
-     if number==42:
-         return(DC_C_Mixed_long_v())
-     if number==43:
-         return(DC_L_Series_v())
-     if number==44:
-         return(DC_L_Parallel_v())
-     if number==45:
-         return(DC_L_Mixed_v())
-     if number==46:
-         return(DC_L_Mixed_long_v())
-     if number==47:
-         return(DC_R_Random_v())
-     if number==48:
-         return(DC_C_Random_v())
-     if number==49:
-         return(DC_L_Random_v())
-     if number==50:
-         return(AC_R_Series_v())
-     if number==51:
-         return(AC_R_Parallel_v())
-     if number==52:
-         return(AC_R_Mixed_v())
-     if number==53:
-         return(AC_R_Mixed_long_v())
-     if number==54:
-         return(AC_C_Series_v())
-     if number==55:
-         return(AC_C_Parallel_v())
-     if number==56:
-         return(AC_C_Mixed_v())
-     if number==57:
-         return(AC_C_Mixed_long_v())
-     if number==58:
-         return(AC_L_Series_v())
-     if number==59:
-         return(AC_L_Parallel_v())
-     if number==60:
+     
+    if number==35:
+        return(DC_R_Series_v())
+    if number==36:
+        return(DC_R_Parallel_v())
+    if number==37:
+        return(DC_R_Mixed_v())
+    if number==38:
+        return(DC_R_Mixed_long_v())
+    if number==39:
+        return(DC_C_Series_v())
+    if number==40:
+        return(DC_C_Parallel_v())
+    if number==41:
+        return(DC_C_Mixed_v())
+    if number==42:
+        return(DC_C_Mixed_long_v())
+    if number==43:
+        return(DC_L_Series_v())
+    if number==44:
+        return(DC_L_Parallel_v())
+    if number==45:
+        return(DC_L_Mixed_v())
+    if number==46:
+        return(DC_L_Mixed_long_v())
+    if number==47:
+        return(DC_R_Random_v())
+    if number==48:
+        return(DC_C_Random_v())
+    if number==49:
+        return(DC_L_Random_v())
+    if number==50:
+        return(AC_R_Series_v())
+    if number==51:
+        return(AC_R_Parallel_v())
+    if number==52:
+        return(AC_R_Mixed_v())
+    if number==53:
+        return(AC_R_Mixed_long_v())
+    if number==54:
+        return(AC_C_Series_v())
+    if number==55:
+        return(AC_C_Parallel_v())
+    if number==56:
+        return(AC_C_Mixed_v())
+    if number==57:
+        return(AC_C_Mixed_long_v())
+    if number==58:
+        return(AC_L_Series_v())
+    if number==59:
+        return(AC_L_Parallel_v())
+    if number==60:
          return(AC_L_Mixed_v())
-     if number==61:
-         return(AC_L_Mixed_long_v())
-     if number==62:
-         return(AC_Mixed_Series_v())
-     if number==63:
-         return(AC_Mixed_Parallel_v())
-     if number==64:
-         return(AC_Mixed_long_v())
-     if number==65:
-         return(AC_R_Random_v())
-     if number==66:
-         return(AC_C_Random_v())
-     if number==67:
-         return(AC_L_Random_v())
-     if number==68:
-         return(AC_Mixed_Random_v())
+    if number==61:
+        return(AC_L_Mixed_long_v())
+    if number==62:
+        return(AC_Mixed_Series_v())
+    if number==63:
+        return(AC_Mixed_Parallel_v())
+    if number==64:
+        return(AC_Mixed_long_v())
+    if number==65:
+        return(AC_R_Random_v())
+    if number==66:
+        return(AC_C_Random_v())
+    if number==67:
+        return(AC_L_Random_v())
+    if number==68:
+        return(AC_Mixed_Random_v())
 
 
 ###################################################################################################
