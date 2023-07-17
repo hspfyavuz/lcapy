@@ -31,19 +31,19 @@ class NetlistSimplifyMixin:
             
             if (subset_list[0])[0] == 'R' or (subset_list[0])[0] == 'L':
                 mincalc.explain_dc_series_print(self,subset_list,
-                        total,(save_new_component(subset_list[0:2],(give_net_length()+1))))
+                        total,(mincalc.save_new_component(subset_list[0:2],(mincalc.give_net_length()+1))))
             
             if (subset_list[0])[0] == 'C':
                 total = ( (expr(self.elements[subset_list[0]].cpt.args[0]) * expr(self.elements[subset_list[1]].cpt.args[0])) 
                             / (expr(self.elements[subset_list[0]].cpt.args[0]) + expr(self.elements[subset_list[1]].cpt.args[0])))
                     
                 mincalc.explain_dc_parallel_print(self,subset_list,
-                            total,(save_new_component(subset_list[0:2],(give_net_length()+1))))
+                            total,(mincalc.save_new_component(subset_list[0:2],(mincalc.give_net_length()+1))))
             
             if (subset_list[0])[0] == 'Z':
                 total += expr(self.elements[name].cpt.args[0])
                 mincalc.explain_ac_series_print(self,subset_list,
-                        total,(save_new_component(subset_list[0:2],(give_net_length()+1))))
+                        total,(mincalc.save_new_component(subset_list[0:2],(mincalc.give_net_length()+1))))
                     
         else:
             if (subset_list[0])[0] == 'R'or (subset_list[0])[0] == 'L':
@@ -52,14 +52,14 @@ class NetlistSimplifyMixin:
                             / (expr(self.elements[subset_list[0]].cpt.args[0]) + expr(self.elements[subset_list[1]].cpt.args[0])))
                     
                 mincalc.explain_dc_parallel_print(self,subset_list,
-                            total,(save_new_component(subset_list[0:2],(give_net_length()+1))))
+                            total,(mincalc.save_new_component(subset_list[0:2],(mincalc.give_net_length()+1))))
                 
             if (subset_list[0])[0] == 'C':
                 total = expr(0)
                 for name in subset_list[0:2]: #nur 2 komponenten
                     total += expr(self.elements[name].cpt.args[0])
                 mincalc.explain_dc_series_print(self,subset_list,
-                            total,(save_new_component(subset_list[0:2],(give_net_length()+1))))    
+                            total,(mincalc.save_new_component(subset_list[0:2],(mincalc.give_net_length()+1))))    
             
             if (subset_list[0])[0]=='Z':
                 total = expr(0)
@@ -69,7 +69,7 @@ class NetlistSimplifyMixin:
                 #               + (1 / expr(self.elements[subset_list[1]].cpt.args[0]))))
                     
                 mincalc.explain_ac_parallel_print(self,subset_list,
-                            total,(save_new_component(subset_list[0:2],(give_net_length()+1))))
+                            total,(mincalc.save_new_component(subset_list[0:2],(mincalc.give_net_length()+1))))
                 
                 
                 
