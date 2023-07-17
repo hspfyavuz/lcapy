@@ -255,18 +255,41 @@ def print_changed_elements(comp,value1,value2):
 def resub():
     
     a=(resultcompl[give_net_length()-2])
-    b=a.real_imag
-    print(a)
-    print('______________________________________')
-    print(b)
-    print('______________________________________')
-    c=b.real
-    print(c)
-    print('______________________________________')
-    d=b.imag
-    print(d)
-    e=d.simplify()
-    print(e)
+    resultof_acnetlist=a.real_imag
+    realteil=resultof_acnetlist.real
+    imaginärteil=resultof_acnetlist.imag
+    if imaginärteil==None and realteil==None:
+        print('No result')
+    if imaginärteil==None:
+        a='R'+a[5:]
+        print(a)
+    if imaginärteil!=None:
+        strimaginärteil=str(imaginärteil)
+        cnt=0
+        #if imag=none
+        #newname= oldname[1:]
+        #else
+        for i in range(10):
+            if strimaginärteil.find('j')>=0:
+                ergfind=strimaginärteil.find('j')
+                cnt=cnt+1
+                print(erg)
+                strimaginärteil=strimaginärteil[ergfind+1:]
+                print(erg)
+                print(cnt)
+                
+        if i > 1:
+            if cnt>1:
+                print('no resub')
+            if cnt==1:
+                strimaginärteil=str(imaginärteil)
+                if strimaginärteil.find('-')>0:
+                    a='C'+a[5:]
+                    print(a)
+                else:
+                    a='L'+a[5:]
+                    print(a)
+                 
     
 def show_changing_elements(net):
     
