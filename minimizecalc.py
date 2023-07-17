@@ -151,7 +151,7 @@ def mainprogram():
             print('\n\n')
          
             merger.append(("step"+str(i)+".pdf"))
-            merger.addBookmark(give_result(i-1))
+            merger.addBookmark(give_result(i-1),i)
             os.remove(("step"+str(i)+".pdf"))
 
         net=give_net(i)
