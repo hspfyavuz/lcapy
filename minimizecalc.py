@@ -161,9 +161,9 @@ def mainprogram():
             net.draw(style='european',
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
             if net.has_ac:
-                print('_______________________________________________________________________ AC Schaltung ______________________________________________________________________')
+                print('_______________________________________________________________________ AC Schaltkreis ______________________________________________________________________')
             if net.has_dc:
-                print('____________________________________________________________________ Originalschaltung ____________________________________________________________________')
+                print('____________________________________________________________________ Originalschaltkreis ____________________________________________________________________')
             print('\n\n')
             merger.append("one.pdf")
             os.remove("one.pdf")
@@ -173,19 +173,18 @@ def mainprogram():
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
             net.draw(style='european',
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
-            print('____________________________________________________________________ Vereinfachte Schaltung ____________________________________________________________________')
+            print('____________________________________________________________________ Vereinfachter Schaltkreis ____________________________________________________________________')
             print('\n\n')
             merger.append("end.pdf")
             os.remove("end.pdf")
             if net.has_ac:
                 lastnet=resub()
-                print('________________________________________________________________________________________________________________________________________________________')
                 lastnet.draw(style='european',filename="lastnet.pdf",
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
                 lastnet.draw(style='european',
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
                 
-                print('_______________________________________________________________ Rücksubstituierte Schaltung _______________________________________________________________')
+                print('_______________________________________________________________ Rücksubstituierter Schaltkreis _______________________________________________________________')
                 merger.append("lastnet.pdf")
                 os.remove("lastnet.pdf")
             merger.write("result.pdf")
@@ -269,6 +268,7 @@ def resub():
     if imaginärteil==0:
         strrealteil=str(realteil)
         a='R = ' + strrealteil
+        print('________________________________________________________________________________________________________________________________________________________')                
         print('\nResubstituting element to:\n')
         print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\tZ'+a)
     if imaginärteil!=0:
@@ -296,12 +296,14 @@ def resub():
                 else:
                     strimaginärteilnew=(str(imaginärteil))[strimaginärteil+2:strimaginärteil2]+'/'+(str(imaginärteil))[1:strimaginärteil]
                 a='C = ' + strimaginärteilnew
+                print('________________________________________________________________________________________________________________________________________________________') 
                 print('\nResubstituting element to:\n')
                 print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\tZ'+a)
             else:
                 strimaginärteil=str(imaginärteil).find('*omega')
                 strimaginärteilnew=(str(imaginärteil))[:strimaginärteil]+(str(imaginärteil))[strimaginärteil+6:]
                 a='L = ' + strimaginärteilnew
+                print('________________________________________________________________________________________________________________________________________________________') 
                 print('\nResubstituting element to:\n')
                 print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\tZ'+a)
                 
