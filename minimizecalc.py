@@ -202,7 +202,7 @@ def result_to_txt_file(number):
     text_file.close()
     
     pdf = FPDF()  
-    pdf.add_page()     
+    pdf.add_page(format=(700,400))     
     pdf.set_font("Arial", size = 10)          
     f = open("Output.txt", "r")          
     for x in f:
