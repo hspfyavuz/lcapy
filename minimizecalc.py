@@ -294,7 +294,7 @@ def resub():
             print('no resub')
         if cnt==1:
             strimaginärteil=str(imaginärteil).find('*omega')
-            strimaginärteilnew=(str(imaginärteil))[:strimaginärteil]+(str(imaginärteil))[strimaginärteil+6:]
+            strimaginärteilnew=(str(imaginärteil))[strimaginärteil+7:]+(str(imaginärteil))[:strimaginärteil]
             a='C = ' + strimaginärteilnew
             print(a) 
         else:
