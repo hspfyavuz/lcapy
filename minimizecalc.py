@@ -288,7 +288,7 @@ def resub():
         strrealteil=str(realteil)
         a='R = ' + strrealteil
         print('________________________________________________________________________________________________________________________________________________________')                
-        print('\nResubstituting element to:\n')
+        print('\nResubstituting element:\n')
         print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\t'+a)
     if imaginärteil!=0:
         strimaginärteil=str(imaginärteil)
@@ -316,14 +316,14 @@ def resub():
                     strimaginärteilnew=(str(imaginärteil))[strimaginärteil+2:strimaginärteil2]+'/'+(str(imaginärteil))[1:strimaginärteil]
                 a='C = ' + strimaginärteilnew
                 print('________________________________________________________________________________________________________________________________________________________') 
-                print('\nResubstituting element to:\n')
+                print('\nResubstituting element:\n')
                 print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\t'+a)
             else:
                 strimaginärteil=str(imaginärteil).find('*omega')
                 strimaginärteilnew=(str(imaginärteil))[:strimaginärteil]+(str(imaginärteil))[strimaginärteil+6:]
                 a='L = ' + strimaginärteilnew
                 print('________________________________________________________________________________________________________________________________________________________') 
-                print('\nResubstituting element to:\n')
+                print('\nResubstituting element:\n')
                 print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\t'+a)
                 
 
