@@ -34,7 +34,6 @@ class NetlistSimplifyMixin:
             
                     
         else:
-            if (subset_list[0])[0] == 'R'or (subset_list[0])[0] == 'L'or (subset_list[0])[0] == 'C':
             total = expr(0)
             total = ( (expr(self.elements[subset_list[0]].cpt.args[0]) * expr(self.elements[subset_list[1]].cpt.args[0])) 
                             / (expr(self.elements[subset_list[0]].cpt.args[0]) + expr(self.elements[subset_list[1]].cpt.args[0])))
