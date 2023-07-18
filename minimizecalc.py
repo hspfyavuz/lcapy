@@ -16,7 +16,7 @@ combiningvar=[]
 resultcompl=[]
 ####################################
  
-def explain_dc_series_print(net,sublist,total,newname):
+def explain_add_print(net,sublist,total,newname):
     
     solution=( newname +' = '+(sublist[0])+ ' + ' +(sublist[1])
           +'\n'+ '= ' + ((net.elements[sublist[0]].cpt.args[0]))+ ' + '+ ((net.elements[sublist[1]].cpt.args[0]))
@@ -25,7 +25,7 @@ def explain_dc_series_print(net,sublist,total,newname):
     result.append(solution)
 
     
-def explain_dc_parallel_print(net,sublist,total,newname):
+def explain_combine_print(net,sublist,total,newname):
     
     solution=( newname +' = ( '+(sublist[0])+ ' ⋅ ' +(sublist[1]) + ' ) / ( ' 
                       + (sublist[0])+ ' + ' +(sublist[1])+ ' )'
@@ -34,24 +34,6 @@ def explain_dc_parallel_print(net,sublist,total,newname):
         +'\n'+ newname + ' = ' + str(total))
     result.append(solution)
          
-
-def explain_ac_series_print(net,sublist,total,newname):
-    
-    solution=( newname +' = '+(sublist[0])+ ' + ' +(sublist[1])
-          +'\n'+ '= ( ' + ((net.elements[sublist[0]].cpt.args[0]))+ ' ) + ( '+ ((net.elements[sublist[1]].cpt.args[0])) +' )'
-          +'\n'+ newname + ' = ' + str(total))
-           
-    result.append(solution)
-    resultcompl.append(total)
-
-         
-def explain_ac_parallel_print(net,sublist,total,newname):
-    
-    solution=( newname +' = ( 1 / (( 1 / '+(sublist[0])+ ') + ( 1 / ' +(sublist[1]) + ' )) )'
-        + '\n' '= ( 1 / (( 1 / '+(net.elements[sublist[0]].cpt.args[0])+ ') + ( 1 / ' +(net.elements[sublist[1]].cpt.args[0]) + ' )) )' 
-        +'\n'+ newname + ' = ' + str(total))
-    result.append(solution)
-    resultcompl.append(total)
     
         
 def result_print(name, result):
