@@ -177,6 +177,14 @@ def mainprogram():
             print('\n\n')
             merger.append("end.pdf")
             os.remove("end.pdf")
+            if net.has_ac:
+                lastnet=resub()
+                lastnet.draw(style='european',filename="lastnet.pdf",
+                        draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+                lastnet.draw(style='european',
+                        draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+                merger.append("lastnet.pdf")
+                os.remove("lastnet.pdf")
             merger.write("result.pdf")
             merger.close()
         
@@ -255,13 +263,9 @@ def print_changed_elements(comp,value1,value2):
 def resub():
     
     a=(resultcompl[give_net_length()-2])
-    print(a)
     resultof_acnetlist=a.real_imag
-    print(resultof_acnetlist)
     realteil=resultof_acnetlist.real
-    print(realteil)
     imaginärteil=resultof_acnetlist.imag
-    print(imaginärteil)
     if imaginärteil==0 and realteil==0:
         print('No result')
     if imaginärteil==0:
@@ -270,8 +274,6 @@ def resub():
         print(a)
     if imaginärteil!=0:
         strimaginärteil=str(imaginärteil)
-        stra=str(a)
-        print(stra)
         cnt=0
         #if imag=none
         #newname= oldname[1:]
@@ -280,10 +282,7 @@ def resub():
             if stra.find('j')>=0:
                 ergfind=stra.find('j')
                 cnt=cnt+1
-                print(stra)
                 stra=stra[ergfind+1:]
-                print(stra)
-                print(cnt)
           
         if cnt>1:
             print('no resub')
@@ -303,7 +302,24 @@ def resub():
                 a='L = ' + strimaginärteilnew
                 print(a)
 
-                 
+    net=(circuit.Circuit("""
+        ...V 1 0; down
+        ...R 1 2; right
+        ...W 2 0_2; down
+        ...W 0 0_2; right"""))
+ 
+    elt = 'R'
+    name=(netlist[i])
+    net1 = elt._new_value(strimaginärteilnew, )
+    parts = net1.split(' ', 1)
+
+    net1 = a[0] + ' ' + parts[1]
+    net.add(net1) 
+    net.remove('R1')
+ 
+    return net
+
+
     
 def show_changing_elements(net):
     
