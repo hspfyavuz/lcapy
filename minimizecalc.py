@@ -201,8 +201,8 @@ def result_to_txt_file(number):
     text_file.write(strin)
     text_file.close()
     
-    pdf = FPDF()  
-    pdf.add_page(format='A5')     
+    pdf = FPDF('A5')  
+    pdf.add_page()     
     pdf.set_font("Arial", size = 10)          
     f = open("Output.txt", "r")          
     for x in f:
