@@ -27,9 +27,9 @@ def explain_add_print(net,sublist,total,newname):
     
 def explain_combine_print(net,sublist,total,newname):
     
-    solution=( newname +' = ( '+(sublist[0])+ ' ⋅ ' +(sublist[1]) + ' ) / ( ' 
+    solution=( newname +' = ( '+(sublist[0])+ ' * ' +(sublist[1]) + ' ) / ( ' 
                       + (sublist[0])+ ' + ' +(sublist[1])+ ' )'
-        + '\n' '= ( '+(net.elements[sublist[0]].cpt.args[0])+ ' ⋅ ' +(net.elements[sublist[1]].cpt.args[0]) + ' ) / ( ' 
+        + '\n' '= ( '+(net.elements[sublist[0]].cpt.args[0])+ ' * ' +(net.elements[sublist[1]].cpt.args[0]) + ' ) / ( ' 
                       + (net.elements[sublist[0]].cpt.args[0])+ ' + ' +(net.elements[sublist[1]].cpt.args[0])+ ' )'
         +'\n'+ newname + ' = ' + str(total))
     result.append(solution)
