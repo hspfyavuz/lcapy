@@ -140,7 +140,7 @@ def mainprogram():
         
         if i>0:
             #check_key_press()
-            print('______________________________________________________________________________________________________________________________________________')
+            print('________________________________________________________________________________________________________________________________________________________')
             print(give_result(i-1))
             col_net=colored_net(net,i)
             col_net.draw(style='european',filename="step"+str(i)+".pdf",
@@ -179,10 +179,13 @@ def mainprogram():
             os.remove("end.pdf")
             if net.has_ac:
                 lastnet=resub()
+                print('________________________________________________________________________________________________________________________________________________________')
                 lastnet.draw(style='european',filename="lastnet.pdf",
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
                 lastnet.draw(style='european',
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+                
+                print('_______________________________________________________________ Rücksubstituierte Schaltung _______________________________________________________________')
                 merger.append("lastnet.pdf")
                 os.remove("lastnet.pdf")
             merger.write("result.pdf")
@@ -266,7 +269,8 @@ def resub():
     if imaginärteil==0:
         strrealteil=str(realteil)
         a='R = ' + strrealteil
-        print('Zstep'+str((give_net_length()-1))+'= '+str(b)+' \t\t\t->\t\t\tZ'+a)
+        print('\nResubstituting element to:\n')
+        print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\tZ'+a)
     if imaginärteil!=0:
         strimaginärteil=str(imaginärteil)
         stra=str(a)
@@ -292,12 +296,15 @@ def resub():
                 else:
                     strimaginärteilnew=(str(imaginärteil))[strimaginärteil+2:strimaginärteil2]+'/'+(str(imaginärteil))[1:strimaginärteil]
                 a='C = ' + strimaginärteilnew
-                print('Zstep'+str((give_net_length()-1))+'= '+str(b)+' \t\t\t->\t\t\tZ'+a)
+                print('\nResubstituting element to:\n')
+                print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\tZ'+a)
             else:
                 strimaginärteil=str(imaginärteil).find('*omega')
                 strimaginärteilnew=(str(imaginärteil))[:strimaginärteil]+(str(imaginärteil))[strimaginärteil+6:]
                 a='L = ' + strimaginärteilnew
-                print('Zstep'+str((give_net_length()-1))+'= '+str(b)+' \t\t\t->\t\t\tZ'+a)
+                print('\nResubstituting element to:\n')
+                print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\tZ'+a)
+                
 
     net=(circuit.Circuit("""
         ...V 1 0 ac; down
