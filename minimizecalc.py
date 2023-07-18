@@ -145,7 +145,7 @@ def mainprogram():
             result_to_txt_file(i-1)
             col_net=colored_net(net,i)
             col_net.draw(style='european',filename="step"+str(i)+".pdf",
-                        draw_nodes=False,label_nodes=False,scale=2,cpt_size=3,node_spacing=6)
+                        draw_nodes=False,label_nodes=False,scale=2,cpt_size=3,node_spacing=6,dpi=4)
             col_net.draw(style='european',
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
             print('________________________________________________________________________ Step',i,'________________________________________________________________________')
