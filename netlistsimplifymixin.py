@@ -137,12 +137,12 @@ class NetlistSimplifyMixin:
                     changed |= self._do_simplify_combine('Can add in series: %s',
                                                          subset, net, explain, True, True)
                     mincalc.save_components(subset)
-                    mincalc.save_combining_process('series')
+                    mincalc.save_combining_process('Simplify components in series')
                 elif k in ('C', 'Y'):
                     changed |= self._do_simplify_combine('Can combine in series: %s',
                                                          subset, net, explain, False, True)
                     mincalc.save_components(subset)
-                    mincalc.save_combining_process('series')
+                    mincalc.save_combining_process('Simplify components in series')
                 else:
                     raise RuntimeError('Internal error')
 
@@ -164,14 +164,14 @@ class NetlistSimplifyMixin:
                     changed |= self._do_simplify_combine('Can combine in parallel: %s',
                                                          subset, net, explain, False, False)
                     mincalc.save_components(subset)
-                    mincalc.save_combining_process('parallel')
+                    mincalc.save_combining_process('Simplify parallel components')
                 elif k in ('C', 'Y', 'I'):
                     if k == 'C' and not self._check_ic(subset):
                         continue
                     changed |= self._do_simplify_combine('Can add in parallel: %s',
                                                          subset, net, explain, True, False)
                     mincalc.save_components(subset)
-                    mincalc.save_combining_process('parallel')
+                    mincalc.save_combining_process('Simplify parallel components')
                 else:
                     raise RuntimeError('Internal error')
 
