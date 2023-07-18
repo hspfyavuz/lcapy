@@ -248,8 +248,8 @@ def resub():
     if numbertohave[0]<35:
         print('No Resub')
     else:
-        a=(resultcompl[give_net_length()-1])
-        b=(resultcompl[give_net_length()-1])
+        a=(give_result[give_net_length()-2])
+        b=(give_result[give_net_length()-2])
         resultof_acnetlist=a.real_imag
         realteil=resultof_acnetlist.real
         imaginärteil=resultof_acnetlist.imag
