@@ -294,7 +294,7 @@ def resub():
                 if (str(imaginärteil))[:strimaginärteil] == '-1':
                     strimaginärteilnew=(str(imaginärteil))[strimaginärteil+2:strimaginärteil2]   
                 else:
-                    strimaginärteilnew=(str(imaginärteil))[strimaginärteil+1:strimaginärteil2-1]+'/'+(str(imaginärteil))[1:strimaginärteil-1]
+                    strimaginärteilnew=(str(imaginärteil))[strimaginärteil+2:strimaginärteil2]+'/'+(str(imaginärteil))[:strimaginärteil]
                 a='C = ' + strimaginärteilnew
                 print(a) 
             else:
