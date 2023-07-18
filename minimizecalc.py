@@ -255,6 +255,7 @@ def print_changed_elements(comp,value1,value2):
 def resub():
     
     a=(resultcompl[give_net_length()-2])
+    print(a)
     resultof_acnetlist=a.real_imag
     print(resultof_acnetlist)
     realteil=resultof_acnetlist.real
@@ -268,44 +269,38 @@ def resub():
         a='R = ' + strrealteil
         print(a)
     if imaginärteil!=0:
-        strimaginärteil=str(imaginärteil)
+        stra=str(a)
         print(strimaginärteil)
         cnt=0
         #if imag=none
         #newname= oldname[1:]
         #else
         for i in range(10):
-            if strimaginärteil.find('+')>=0:
-                ergfind=strimaginärteil.find('+')
+            if stra.find('j')>=0:
+                ergfind=stra.find('j')
                 cnt=cnt+1
-                print(strimaginärteil)
-                strimaginärteil=strimaginärteil[ergfind+1:]
-                print(strimaginärteil)
-                print(cnt)
-            if strimaginärteil.find('-')>=0:
-                ergfind=strimaginärteil.find('-')
-                cnt=cnt+1
-                print(strimaginärteil)
-                strimaginärteil=strimaginärteil[ergfind+1:]
-                print(strimaginärteil)
+                print(stra)
+                stra=stra[ergfind+1:]
+                print(stra)
                 print(cnt)
           
         if cnt>1:
             print('no resub')
         if cnt==1:
-            strimaginärteil=str(imaginärteil).find('/')
-            strimaginärteil2=str(imaginärteil).find('*omega')
-            if (str(imaginärteil))[:strimaginärteil] == '-1':
-                strimaginärteilnew=(str(imaginärteil))[strimaginärteil+2:strimaginärteil2]   
+            if strimaginärteil.find('-')>=0:
+                strimaginärteil=str(imaginärteil).find('/')
+                strimaginärteil2=str(imaginärteil).find('*omega')
+                if (str(imaginärteil))[:strimaginärteil] == '-1':
+                    strimaginärteilnew=(str(imaginärteil))[strimaginärteil+2:strimaginärteil2]   
+                else:
+                    strimaginärteilnew=(str(imaginärteil))[strimaginärteil+1:strimaginärteil2-1]+'/'+(str(imaginärteil))[1:strimaginärteil-1]
+                a='C = ' + strimaginärteilnew
+                print(a) 
             else:
-                strimaginärteilnew=(str(imaginärteil))[strimaginärteil+1:strimaginärteil2-1]+'/'+(str(imaginärteil))[1:strimaginärteil-1]
-            a='C = ' + strimaginärteilnew
-            print(a) 
-        else:
-            strimaginärteil=str(imaginärteil).find('*omega')
-            strimaginärteilnew=(str(imaginärteil))[:strimaginärteil]+(str(imaginärteil))[strimaginärteil+6:]
-            a='L = ' + strimaginärteilnew
-            print(a)
+                strimaginärteil=str(imaginärteil).find('*omega')
+                strimaginärteilnew=(str(imaginärteil))[:strimaginärteil]+(str(imaginärteil))[strimaginärteil+6:]
+                a='L = ' + strimaginärteilnew
+                print(a)
 
                  
     
