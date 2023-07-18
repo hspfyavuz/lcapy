@@ -14,6 +14,7 @@ subset_steps=[]
 result=[]
 combiningvar=[]
 resultcompl=[]
+numbertohave=[]
 ####################################
  
 def explain_add_print(net,sublist,total,newname):
@@ -33,22 +34,7 @@ def explain_combine_print(net,sublist,total,newname):
                       + (net.elements[sublist[0]].cpt.args[0])+ ') + (' +(net.elements[sublist[1]].cpt.args[0])+ ') )'
         +'\n'+ newname + ' = ' + str(total))
     result.append(solution)
-         
-    
-        
-def result_print(name, result):
-    
-    #noch nicht funktionsfähig
-    if name[0]=='R' or name[0]=='Z':
-        print('≙ %s = %s Ω' % (name,result))
-        print('__________')
-    if name[0]=='C':
-        print('≙ %s = %s F' % (name,result))
-        print('__________')
-    if name[0]=='L':
-        print('≙ %s = %s H' % (name,result))
-        print('__________')
-    
+
 
 def give_result(step):
     
@@ -258,55 +244,55 @@ def print_changed_elements(comp,value1,value2):
     
             
 def resub():
-    
-    a=(resultcompl[give_net_length()-2])
-    b=(resultcompl[give_net_length()-2])
-    resultof_acnetlist=a.real_imag
-    realteil=resultof_acnetlist.real
-    imaginärteil=resultof_acnetlist.imag
-    if imaginärteil==0 and realteil==0:
-        print('No result')
-    if imaginärteil==0:
-        strrealteil=str(realteil)
-        a='R = ' + strrealteil
-        print('________________________________________________________________________________________________________________________________________________________')                
-        print('\nResubstituting element:\n')
-        print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\t'+a)
-    if imaginärteil!=0:
-        strimaginärteil=str(imaginärteil)
-        stra=str(a)
-        cnt=0
-        #if imag=none
-        #newname= oldname[1:]
-        #else
-        for i in range(10):
-            if stra.find('j')>=0:
-                ergfind=stra.find('j')
-                cnt=cnt+1
-                stra=stra[ergfind+1:]
-          
-        if cnt>1:
-            print('No resub')
-            return 0
-        if cnt==1:
-            if strimaginärteil.find('-')>=0:
-                strimaginärteil=str(imaginärteil).find('/')
-                strimaginärteil2=str(imaginärteil).find('*omega')
-                if (str(imaginärteil))[:strimaginärteil] == '-1':
-                    strimaginärteilnew=(str(imaginärteil))[strimaginärteil+2:strimaginärteil2]   
+
+    if numbertohave[0]<35:
+        print('No Resub')
+    else:
+        a=(resultcompl[give_net_length()-2])
+        b=(resultcompl[give_net_length()-2])
+        resultof_acnetlist=a.real_imag
+        realteil=resultof_acnetlist.real
+        imaginärteil=resultof_acnetlist.imag
+        if imaginärteil==0 and realteil==0:
+            print('No result')
+        if imaginärteil==0:
+            strrealteil=str(realteil)
+            a='R = ' + strrealteil
+            print('________________________________________________________________________________________________________________________________________________________')                
+            print('\nResubstituting element:\n')
+            print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\t'+a)
+        if imaginärteil!=0:
+            strimaginärteil=str(imaginärteil)
+            stra=str(a)
+            cnt=0
+            for i in range(10):
+                if stra.find('j')>=0:
+                    ergfind=stra.find('j')
+                    cnt=cnt+1
+                    stra=stra[ergfind+1:]
+              
+            if cnt>1:
+                print('No resub')
+                return 0
+            if cnt==1:
+                if strimaginärteil.find('-')>=0:
+                    strimaginärteil=str(imaginärteil).find('/')
+                    strimaginärteil2=str(imaginärteil).find('*omega')
+                    if (str(imaginärteil))[:strimaginärteil] == '-1':
+                        strimaginärteilnew=(str(imaginärteil))[strimaginärteil+2:strimaginärteil2]   
+                    else:
+                        strimaginärteilnew=(str(imaginärteil))[strimaginärteil+2:strimaginärteil2]+'/'+(str(imaginärteil))[1:strimaginärteil]
+                    a='C = ' + strimaginärteilnew
+                    print('________________________________________________________________________________________________________________________________________________________') 
+                    print('\nResubstituting element:\n')
+                    print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\t'+a)
                 else:
-                    strimaginärteilnew=(str(imaginärteil))[strimaginärteil+2:strimaginärteil2]+'/'+(str(imaginärteil))[1:strimaginärteil]
-                a='C = ' + strimaginärteilnew
-                print('________________________________________________________________________________________________________________________________________________________') 
-                print('\nResubstituting element:\n')
-                print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\t'+a)
-            else:
-                strimaginärteil=str(imaginärteil).find('*omega')
-                strimaginärteilnew=(str(imaginärteil))[:strimaginärteil]+(str(imaginärteil))[strimaginärteil+6:]
-                a='L = ' + strimaginärteilnew
-                print('________________________________________________________________________________________________________________________________________________________') 
-                print('\nResubstituting element:\n')
-                print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\t'+a)
+                    strimaginärteil=str(imaginärteil).find('*omega')
+                    strimaginärteilnew=(str(imaginärteil))[:strimaginärteil]+(str(imaginärteil))[strimaginärteil+6:]
+                    a='L = ' + strimaginärteilnew
+                    print('________________________________________________________________________________________________________________________________________________________') 
+                    print('\nResubstituting element:\n')
+                    print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\t'+a)
                 
 
     net=(circuit.Circuit("""
@@ -340,7 +326,7 @@ def show_changing_elements(net):
 
 
 def choose_net(number):
-
+    numbertohave=number
 ###################################################################################################
 #following Notebook numbers without values
 ###################################################################################################
