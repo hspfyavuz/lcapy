@@ -1,11 +1,12 @@
 import os
-from PyPDF2 import PdfMerger
+from PyPDF2 import PdfMerger, PdfWriter
 from ordered_set import OrderedSet
 from lcapy import *
 from lcapy import randomnetwork
 from lcapy import circuit
 from sys import *
 import random
+from fpdf import FPDF
 
 ####################################
 netarr=[]
@@ -120,13 +121,11 @@ def give_combined_components(step):
 
 def save_combining_process(kind):
     
-    #noch nicht funktionsfähig
     combiningvar.append(kind)
 
 
 def give_combining_process(netnumber):
     
-    #noch nicht funktionsfähig
     return combiningvar[netnumber]
     
 ####################################
@@ -135,12 +134,13 @@ def give_combining_process(netnumber):
 def mainprogram():
  
     merger = PdfMerger()
- 
+    writer=PdfWriter()
     for i in range(give_net_length()):
         
         if i>0:
             #check_key_press()
             print('____________________________________________________________________________________________________________________________________________________________')
+            print(give_combining_process(i-1))
             print(give_result(i-1))
             col_net=colored_net(net,i)
             col_net.draw(style='european',filename="step"+str(i)+".pdf",
@@ -149,8 +149,10 @@ def mainprogram():
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
             print('________________________________________________________________________ Step',i,'________________________________________________________________________')
             print('\n\n')
-         
+
+            merger.append("restext"+str(i)+".pdf")
             merger.append(("step"+str(i)+".pdf"))
+            os.remove("restext"+str(i)+".pdf")
             os.remove(("step"+str(i)+".pdf"))
 
         net=give_net(i)
@@ -189,6 +191,22 @@ def mainprogram():
                 os.remove("lastnet.pdf")
             merger.write("result.pdf")
             merger.close()
+
+
+def result_to_txt_file(i):
+    
+    strin=(give_combining_process(i-1)+'\n'+give_result(i-1))
+    text_file = open("Output.txt", "w")
+    text_file.write(strin)
+    text_file.close()
+    
+    pdf = FPDF()  
+    pdf.add_page()     
+    pdf.set_font("Arial", size = 10)          
+    f = open("Output.txt", "r")          
+    for x in f:
+        pdf.cell(400, 100, txt = x, ln = 1, align = 'C')
+    pdf.output("restext"+str(i)+".pdf")
         
 
 def colored_net(net,components):
