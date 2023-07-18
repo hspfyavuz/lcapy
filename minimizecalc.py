@@ -255,7 +255,6 @@ def print_changed_elements(comp,value1,value2):
 def resub():
     
     a=(resultcompl[give_net_length()-2])
-    print(a)
     resultof_acnetlist=a.real_imag
     print(resultof_acnetlist)
     realteil=resultof_acnetlist.real
@@ -265,8 +264,8 @@ def resub():
     if imaginärteil==0 and realteil==0:
         print('No result')
     if imaginärteil==0:
-        stra=str(a)
-        a='R'+stra[1:]
+        strrealteil=str(realteil)
+        a='R = ' + strrealteil
         print(a)
     if imaginärteil!=0:
         strimaginärteil=str(imaginärteil)
@@ -297,12 +296,15 @@ def resub():
             if cnt==1:
                 strimaginärteil=str(imaginärteil)
                 if strimaginärteil.find('-')>0:
-                    stra=str(a)
-                    a='C'+stra[1:]
+                    strimaginärteil=str(imaginärteil).find('*omega')
+                    strimaginärteilnew=(str(imaginärteil))[:strimaginärteil]+(str(imaginärteil))[strimaginärteil+5:]
+                    a='L = ' + strimaginärteilnew
+                    a='C = ' + imaginärteil
                     print(a)
                 else:
-                    stra=str(a)
-                    a='L'+stra[1:]
+                    strimaginärteil=str(imaginärteil).find('*omega')
+                    strimaginärteilnew=(str(imaginärteil))[:strimaginärteil]+(str(imaginärteil))[strimaginärteil+5:]
+                    a='L = ' + strimaginärteilnew
                     print(a)
 
                  
