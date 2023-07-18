@@ -309,7 +309,7 @@ def resub():
         ...W 2 0_2; down
         ...W 0 0_2; right"""))
  
-    elt = net..elements['R']
+    elt = net.elements['R']
     name= 'R'
     net1 = elt._new_value(strimaginärteilnew, )
     parts = net1.split(' ', 1)
