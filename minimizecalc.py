@@ -145,7 +145,7 @@ def mainprogram():
             result_to_txt_file(i-1)
             col_net=colored_net(net,i)
             col_net.draw(style='european',filename="step"+str(i)+".pdf",
-                        draw_nodes=False,label_nodes=False,cpt_size=2,node_spacing=5)
+                        draw_nodes=False,label_nodes=False,cpt_size=3,node_spacing=6)
             col_net.draw(style='european',
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
             print('________________________________________________________________________ Step',i,'________________________________________________________________________')
@@ -160,7 +160,7 @@ def mainprogram():
         
         if i==0:
             net.draw(style='european',filename="one.pdf",
-                        draw_nodes=False,label_nodes=False,cpt_size=2,node_spacing=5)
+                        draw_nodes=False,label_nodes=False,cpt_size=3,node_spacing=6)
             net.draw(style='european',
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
             if net.has_ac:
@@ -173,7 +173,7 @@ def mainprogram():
             
         if i==give_net_length()-1:
             net.draw(style='european',filename="end.pdf",
-                        draw_nodes=False,label_nodes=False,cpt_size=2,node_spacing=5)
+                        draw_nodes=False,label_nodes=False,cpt_size=3,node_spacing=6)
             net.draw(style='european',
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
             print('_______________________________________________________________ Vereinfachter Schaltkreis _______________________________________________________________')
