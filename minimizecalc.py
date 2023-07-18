@@ -140,14 +140,14 @@ def mainprogram():
         
         if i>0:
             #check_key_press()
-            print('________________________________________________________________________________________________________________________________________________________')
+            print('____________________________________________________________________________________________________________________________________________________________')
             print(give_result(i-1))
             col_net=colored_net(net,i)
             col_net.draw(style='european',filename="step"+str(i)+".pdf",
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
             col_net.draw(style='european',
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
-            print('____________________________________________________________________ Step',i,'____________________________________________________________________')
+            print('________________________________________________________________________ Step',i,'________________________________________________________________________')
             print('\n\n')
          
             merger.append(("step"+str(i)+".pdf"))
@@ -173,7 +173,7 @@ def mainprogram():
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
             net.draw(style='european',
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
-            print('____________________________________________________________________ Vereinfachter Schaltkreis ____________________________________________________________________')
+            print('_______________________________________________________________ Vereinfachter Schaltkreis _______________________________________________________________')
             print('\n\n')
             merger.append("end.pdf")
             os.remove("end.pdf")
@@ -270,7 +270,7 @@ def resub():
         a='R = ' + strrealteil
         print('________________________________________________________________________________________________________________________________________________________')                
         print('\nResubstituting element to:\n')
-        print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\tZ'+a)
+        print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\t'+a)
     if imaginärteil!=0:
         strimaginärteil=str(imaginärteil)
         stra=str(a)
@@ -298,14 +298,14 @@ def resub():
                 a='C = ' + strimaginärteilnew
                 print('________________________________________________________________________________________________________________________________________________________') 
                 print('\nResubstituting element to:\n')
-                print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\tZ'+a)
+                print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\t'+a)
             else:
                 strimaginärteil=str(imaginärteil).find('*omega')
                 strimaginärteilnew=(str(imaginärteil))[:strimaginärteil]+(str(imaginärteil))[strimaginärteil+6:]
                 a='L = ' + strimaginärteilnew
                 print('________________________________________________________________________________________________________________________________________________________') 
                 print('\nResubstituting element to:\n')
-                print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\tZ'+a)
+                print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\t'+a)
                 
 
     net=(circuit.Circuit("""
