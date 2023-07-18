@@ -142,6 +142,7 @@ def mainprogram():
             print('____________________________________________________________________________________________________________________________________________________________')
             print(give_combining_process(i-1))
             print(give_result(i-1))
+            result_to_txt_file(i-1)
             col_net=colored_net(net,i)
             col_net.draw(style='european',filename="step"+str(i)+".pdf",
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
@@ -193,9 +194,9 @@ def mainprogram():
             merger.close()
 
 
-def result_to_txt_file(i):
+def result_to_txt_file(number):
     
-    strin=(give_combining_process(i-1)+'\n'+give_result(i-1))
+    strin=(give_combining_process(number)+'\n'+give_result(number))
     text_file = open("Output.txt", "w")
     text_file.write(strin)
     text_file.close()
