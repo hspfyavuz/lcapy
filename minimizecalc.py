@@ -293,8 +293,12 @@ def resub():
         if cnt>1:
             print('no resub')
         if cnt==1:
-            strimaginärteil=str(imaginärteil).find('*omega')
-            strimaginärteilnew=(str(imaginärteil))[strimaginärteil+7:]+(str(imaginärteil))[:strimaginärteil]
+            strimaginärteil=str(imaginärteil).find('/')
+            strimaginärteil2=str(imaginärteil).find('*omega')
+            if (str(imaginärteil))[:strimaginärteil-1] == '-1':
+                strimaginärteilnew=(str(imaginärteil))[strimaginärteil+1:strimaginärteil2-1]   
+            else:
+                strimaginärteilnew=(str(imaginärteil))[strimaginärteil+1:strimaginärteil2-1]+'/'+(str(imaginärteil))[1:strimaginärteil-1]
             a='C = ' + strimaginärteilnew
             print(a) 
         else:
