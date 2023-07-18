@@ -266,7 +266,7 @@ def resub():
     if imaginärteil==0:
         strrealteil=str(realteil)
         a='R = ' + strrealteil
-        print('Z = '+str(b)+' \t\t\t->\t\t\tZ'+a)
+        print('Zstep'+str((give_net_length()-1))+'= '+str(b)+' \t\t\t->\t\t\tZ'+a)
     if imaginärteil!=0:
         strimaginärteil=str(imaginärteil)
         stra=str(a)
@@ -292,12 +292,12 @@ def resub():
                 else:
                     strimaginärteilnew=(str(imaginärteil))[strimaginärteil+2:strimaginärteil2]+'/'+(str(imaginärteil))[1:strimaginärteil]
                 a='C = ' + strimaginärteilnew
-                print('Z = '+str(b)+' \t\t\t->\t\t\tZ'+a)
+                print('Zstep'+str((give_net_length()-1))+'= '+str(b)+' \t\t\t->\t\t\tZ'+a)
             else:
                 strimaginärteil=str(imaginärteil).find('*omega')
                 strimaginärteilnew=(str(imaginärteil))[:strimaginärteil]+(str(imaginärteil))[strimaginärteil+6:]
                 a='L = ' + strimaginärteilnew
-                print('Z = '+str(b)+' \t\t\t->\t\t\tZ'+a)
+                print('Zstep'+str((give_net_length()-1))+'= '+str(b)+' \t\t\t->\t\t\tZ'+a)
 
     net=(circuit.Circuit("""
         ...V 1 0 ac; down
