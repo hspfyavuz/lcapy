@@ -316,7 +316,7 @@ def resub():
 
     net1 = a[0] + ' ' + parts[1]
     net.add(net1) 
-    net.remove('R1')
+    net.remove('R')
  
     return net
 
