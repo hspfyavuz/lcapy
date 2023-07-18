@@ -207,7 +207,7 @@ def result_to_txt_file(number):
     f = open("Output.txt", "r")          
     for x in f:
         pdf.cell(400, 100, txt = x, ln = 1, align = 'C')
-    pdf.output("restext"+str(number)+".pdf")
+    pdf.output("restext"+str(number+1)+".pdf")
         
 
 def colored_net(net,components):
