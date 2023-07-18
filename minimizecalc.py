@@ -245,7 +245,7 @@ def print_changed_elements(comp,value1,value2):
             
 def resub():
     print(numbertohave)
-    if numbertohave[1]<35:
+    if numbertohave[0]<35:
         print('No Resub')
     else:
         a=(resultcompl[give_net_length()-2])
@@ -326,7 +326,7 @@ def show_changing_elements(net):
 
 
 def choose_net(number):
-    numbertohave[1]=number
+    numbertohave.append(number)
 ###################################################################################################
 #following Notebook numbers without values
 ###################################################################################################
