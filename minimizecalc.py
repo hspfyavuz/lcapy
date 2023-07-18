@@ -24,6 +24,7 @@ def explain_add_print(net,sublist,total,newname):
           +'\n'+ newname + ' = ' + str(total))
            
     result.append(solution)
+    resultcompl.append(total)
 
     
 def explain_combine_print(net,sublist,total,newname):
@@ -34,6 +35,7 @@ def explain_combine_print(net,sublist,total,newname):
                       + (net.elements[sublist[0]].cpt.args[0])+ ') + (' +(net.elements[sublist[1]].cpt.args[0])+ ') )'
         +'\n'+ newname + ' = ' + str(total))
     result.append(solution)
+    resultcompl.append(total)
 
 
 def give_result(step):
@@ -248,8 +250,8 @@ def resub():
     if numbertohave[0]<35:
         print('No Resub')
     else:
-        a=(give_result[give_net_length()-2])
-        b=(give_result[give_net_length()-2])
+        a=(resultcompl[give_net_length()-2])
+        b=(resultcompl[give_net_length()-2])
         resultof_acnetlist=a.real_imag
         realteil=resultof_acnetlist.real
         imaginärteil=resultof_acnetlist.imag
