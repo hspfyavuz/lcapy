@@ -330,11 +330,11 @@ def resub():
 def show_changing_elements(net):
     
     net.draw(style='european',draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
-    print('____________________________________________________________________ Originalschaltung ____________________________________________________________________')
+    print('____________________________________________________________________ Originalschaltkreis ____________________________________________________________________')
     print('\nSubstituting elements to:\n')
     newnet=change_elements(net)
     newnet.draw(style='european',draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
-    print('_______________________________________________________________________ AC Schaltung ______________________________________________________________________')
+    print('_______________________________________________________________________ AC Schaltkreis ______________________________________________________________________')
     return(newnet)
 
 
