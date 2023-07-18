@@ -304,7 +304,7 @@ def resub():
                 print(a)
 
     net=(circuit.Circuit("""
-        ...V 1 0; down
+        ...V 1 0 ac; down
         ...R 1 2; right
         ...W 2 0_2; down
         ...W 0 0_2; right"""))
