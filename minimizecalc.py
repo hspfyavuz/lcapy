@@ -269,8 +269,9 @@ def resub():
         a='R = ' + strrealteil
         print(a)
     if imaginärteil!=0:
+        strimaginärteil=str(imaginärteil)
         stra=str(a)
-        print(strimaginärteil)
+        print(stra)
         cnt=0
         #if imag=none
         #newname= oldname[1:]
