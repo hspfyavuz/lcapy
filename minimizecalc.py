@@ -257,6 +257,7 @@ def print_changed_elements(comp,value1,value2):
 def resub():
     
     a=(resultcompl[give_net_length()-2])
+    b=(resultcompl[give_net_length()-2])
     resultof_acnetlist=a.real_imag
     realteil=resultof_acnetlist.real
     imaginärteil=resultof_acnetlist.imag
@@ -296,7 +297,7 @@ def resub():
                 strimaginärteil=str(imaginärteil).find('*omega')
                 strimaginärteilnew=(str(imaginärteil))[:strimaginärteil]+(str(imaginärteil))[strimaginärteil+6:]
                 a='L = ' + strimaginärteilnew
-                print(imaginärteil+ ' \t\t\t->\t\t\tZ'+a)
+                print(b+' = '+imaginärteil+' \t\t\t->\t\t\tZ'+a)
 
     net=(circuit.Circuit("""
         ...V 1 0 ac; down
