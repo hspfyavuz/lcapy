@@ -252,12 +252,6 @@ def print_changed_elements(comp,value1,value2):
     strvalue1=str(value1)
     strvalue2=str(value2)
     print(strcomp+' = '+strvalue1+' \t\t\t->\t\t\tZ'+strcomp+' = '+strvalue2)
-    #if strcomp[0]=='R':
-     #   if value2!=strcomp:
-    #if strcomp[0]=='C':
-     #   if strvalue2.find('-j')>=0:
-    #if strcomp[0]=='L':
-     #   if strvalue2.find('j')>=0:
     
             
 def resub():
@@ -271,7 +265,7 @@ def resub():
     if imaginärteil==0:
         strrealteil=str(realteil)
         a='R = ' + strrealteil
-        print(a)
+        print(imaginärteil+ ' \t\t\t->\t\t\tZ'+a)
     if imaginärteil!=0:
         strimaginärteil=str(imaginärteil)
         stra=str(a)
@@ -286,7 +280,7 @@ def resub():
                 stra=stra[ergfind+1:]
           
         if cnt>1:
-            print('no resub')
+            print('No resub')
         if cnt==1:
             if strimaginärteil.find('-')>=0:
                 strimaginärteil=str(imaginärteil).find('/')
@@ -296,12 +290,12 @@ def resub():
                 else:
                     strimaginärteilnew=(str(imaginärteil))[strimaginärteil+2:strimaginärteil2]+'/'+(str(imaginärteil))[1:strimaginärteil]
                 a='C = ' + strimaginärteilnew
-                print(a) 
+                print(imaginärteil+ ' \t\t\t->\t\t\tZ'+a)
             else:
                 strimaginärteil=str(imaginärteil).find('*omega')
                 strimaginärteilnew=(str(imaginärteil))[:strimaginärteil]+(str(imaginärteil))[strimaginärteil+6:]
                 a='L = ' + strimaginärteilnew
-                print(a)
+                print(imaginärteil+ ' \t\t\t->\t\t\tZ'+a)
 
     net=(circuit.Circuit("""
         ...V 1 0 ac; down
