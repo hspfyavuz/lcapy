@@ -295,7 +295,7 @@ def resub():
         if cnt==1:
             strimaginärteil=str(imaginärteil).find('/')
             strimaginärteil2=str(imaginärteil).find('*omega')
-            if (str(imaginärteil))[:strimaginärteil-1] == '-1':
+            if (str(imaginärteil))[:strimaginärteil-1] == '1':
                 strimaginärteilnew=(str(imaginärteil))[strimaginärteil+1:strimaginärteil2-1]   
             else:
                 strimaginärteilnew=(str(imaginärteil))[strimaginärteil+1:strimaginärteil2-1]+'/'+(str(imaginärteil))[1:strimaginärteil-1]
