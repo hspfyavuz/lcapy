@@ -281,6 +281,7 @@ def resub():
           
         if cnt>1:
             print('No resub')
+            return 0
         if cnt==1:
             if strimaginärteil.find('-')>=0:
                 strimaginärteil=str(imaginärteil).find('/')
