@@ -326,7 +326,7 @@ def show_changing_elements(net):
 
 
 def choose_net(number):
-    numbertohave=number
+    numbertohave[0]=number
 ###################################################################################################
 #following Notebook numbers without values
 ###################################################################################################
