@@ -363,7 +363,7 @@ def show_changing_elements(net):
     print('_______________________________________________________________________ AC circuit ______________________________________________________________________')
     merger.append("genuine.pdf")
     os.remove("genuine.pdf")
-    for i in range len(re_sub):
+    for i in range(len(re_sub)):
         re_sub_to_txt_file(i)
         merger.append("resubtext"+str(number)+".pdf")
         os.remove("resubtext"+str(number)+".pdf")
