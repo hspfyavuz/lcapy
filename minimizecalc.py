@@ -134,9 +134,9 @@ def mainprogram():
             net.draw(style='european',
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
             if net.has_ac:
-                print('_______________________________________________________________________ AC Schaltkreis ______________________________________________________________________')
+                print('_______________________________________________________________________ AC circuit ______________________________________________________________________')
             if net.has_dc:
-                print('____________________________________________________________________ Originalschaltkreis ____________________________________________________________________')
+                print('____________________________________________________________________ Genuine circuit ____________________________________________________________________')
             print('\n\n')
             merger.append("one.pdf")
             os.remove("one.pdf")
@@ -146,7 +146,7 @@ def mainprogram():
                         draw_nodes=False,label_nodes=False,scale=2,cpt_size=3,node_spacing=6)
             net.draw(style='european',
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
-            print('_______________________________________________________________ Vereinfachter Schaltkreis _______________________________________________________________')
+            print('_______________________________________________________________ Simplified circuit _______________________________________________________________')
             print('\n\n')
             merger.append("end.pdf")
             os.remove("end.pdf")
@@ -157,7 +157,7 @@ def mainprogram():
                 lastnet.draw(style='european',
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
                 
-                print('_______________________________________________________________ Rücksubstituierter Schaltkreis _______________________________________________________________')
+                print('_______________________________________________________________ Resubstitued circuit _______________________________________________________________')
                 merger.append("lastnet.pdf")
                 os.remove("lastnet.pdf")
             merger.write("result.pdf")
@@ -261,7 +261,7 @@ def resub():
             strrealteil=str(realteil)
             a='R = ' + strrealteil
             print('________________________________________________________________________________________________________________________________________________________')                
-            print('\nResubstituting element:\n')
+            print('\nResubstitute element:\n')
             print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\t'+a)
         if imaginärteil!=0:
             strimaginärteil=str(imaginärteil)
@@ -286,14 +286,14 @@ def resub():
                         strimaginärteilnew=(str(imaginärteil))[strimaginärteil+2:strimaginärteil2]+'/'+(str(imaginärteil))[1:strimaginärteil]
                     a='C = ' + strimaginärteilnew
                     print('________________________________________________________________________________________________________________________________________________________') 
-                    print('\nResubstituting element:\n')
+                    print('\nResubstitute element:\n')
                     print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\t'+a)
                 else:
                     strimaginärteil=str(imaginärteil).find('*omega')
                     strimaginärteilnew=(str(imaginärteil))[:strimaginärteil]+(str(imaginärteil))[strimaginärteil+6:]
                     a='L = ' + strimaginärteilnew
                     print('________________________________________________________________________________________________________________________________________________________') 
-                    print('\nResubstituting element:\n')
+                    print('\nResubstitute element:\n')
                     print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\t'+a)
                 
 
@@ -319,11 +319,11 @@ def resub():
 def show_changing_elements(net):
     
     net.draw(style='european',draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
-    print('____________________________________________________________________ Originalschaltkreis ____________________________________________________________________')
-    print('\nSubstituting elements to:\n')
+    print('____________________________________________________________________ Genuine circuit ____________________________________________________________________')
+    print('\nSubstitute elements to:\n')
     newnet=change_elements(net)
     newnet.draw(style='european',draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
-    print('_______________________________________________________________________ AC Schaltkreis ______________________________________________________________________')
+    print('_______________________________________________________________________ AC circuit ______________________________________________________________________')
     return(newnet)
 
 
