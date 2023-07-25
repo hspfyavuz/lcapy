@@ -8,6 +8,9 @@ from sys import *
 import random
 from fpdf import FPDF
 
+merger = PdfMerger()
+writer=PdfWriter()
+
 ####################################
 netarr=[]
 subset_steps=[]
@@ -109,8 +112,8 @@ def give_re_sub(number):
     
 def mainprogram():
  
-    merger = PdfMerger()
-    writer=PdfWriter()
+    #merger = PdfMerger()
+    #writer=PdfWriter()
     for i in range(give_net_length()):
         
         if i>0:
@@ -352,8 +355,8 @@ def resub():
     
 def show_changing_elements(net):
 
-    merger = PdfMerger()
-    writer=PdfWriter()
+    #merger = PdfMerger()
+    #writer=PdfWriter()
     net.draw(style='european',draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     net.draw(style='european',filename="genuine.pdf",draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('____________________________________________________________________ Genuine circuit ____________________________________________________________________')
@@ -371,7 +374,7 @@ def show_changing_elements(net):
     merger.append("newnet.pdf")
     os.remove("newnet.pdf")
     print(re_sub)
-    merger.write("result.pdf")
+    #merger.write("result.pdf")
     #merger.close()
     return(newnet)
 
