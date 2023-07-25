@@ -200,7 +200,7 @@ def re_sub_to_txt_file(number):
     text_file.write(strin)
     text_file.close()
     
-    pdf = FPDF('L', 'mm', (300,100))  
+    pdf = FPDF('L', 'mm', (100,300))  
     pdf.add_page()     
     pdf.set_font("Arial", size = 10)          
     f = open("Output.txt", "r")          
