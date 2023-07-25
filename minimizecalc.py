@@ -129,14 +129,12 @@ def mainprogram():
         net=give_net(i)
         
         if i==0:
-            if net.has_ac:
-                net=show_changing_elements(net)
             net.draw(style='european',filename="one.pdf",
                         draw_nodes=False,label_nodes=False,scale=2,cpt_size=3,node_spacing=6)
             net.draw(style='european',
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
-            #if net.has_ac:
-            #    print('_______________________________________________________________________ AC circuit ______________________________________________________________________')
+            if net.has_ac:
+                print('_______________________________________________________________________ AC circuit ______________________________________________________________________')
             if net.has_dc:
                 print('____________________________________________________________________ Genuine circuit ____________________________________________________________________')
             print('\n\n')
