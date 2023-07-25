@@ -247,7 +247,7 @@ def print_changed_elements(comp,value1,value2):
     
             
 def resub():
-    print(numbertohave)
+    
     if numbertohave[0]<35:
         print('No Resub')
     else:
