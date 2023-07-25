@@ -84,9 +84,9 @@ def combine_components(component1,component2,component3):
     subset_steps.append(combinedcomponents)
     
 
-#def give_combined_components(step):
-#
-#    return (subset_steps[step-1])
+def give_combined_components(step):
+
+    return (subset_steps[step-1])
     
 
 def save_combining_process(kind):
