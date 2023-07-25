@@ -163,6 +163,8 @@ def mainprogram():
             if net.has_ac:
                 lastnet=resub()
                 re_sub_to_txt_file(len(re_sub)-1)
+                merger.append("resubtext"+str(len(re_sub)-1)+".pdf")
+                os.remove("resubtext"+str(len(re_sub)-1)+".pdf")
                 if type(lastnet)!=int:
                     lastnet.draw(style='european',filename="lastnet.pdf",
                             draw_nodes=False,label_nodes=False,scale=3,cpt_size=4,node_spacing=7)
@@ -172,7 +174,6 @@ def mainprogram():
                     print('_______________________________________________________________ Resubstitued circuit _______________________________________________________________')
                     merger.append("lastnet.pdf")
                     os.remove("lastnet.pdf")
-            merger.append("resubtext"+str(len(re_sub)-1)+".pdf")
             merger.write("result.pdf")
             merger.close()
 
@@ -184,7 +185,7 @@ def result_to_txt_file(number):
     text_file.write(strin)
     text_file.close()
     
-    pdf = FPDF('L', 'mm', 'A5')  
+    pdf = FPDF('L', 'mm', (150,400))  
     pdf.add_page()     
     pdf.set_font("Arial", size = 10)          
     f = open("Output.txt", "r")          
@@ -200,7 +201,7 @@ def re_sub_to_txt_file(number):
     text_file.write(strin)
     text_file.close()
     
-    pdf = FPDF('L', 'mm', (50,250))  
+    pdf = FPDF('L', 'mm', (40,250))  
     pdf.add_page()     
     pdf.set_font("Arial", size = 10)          
     f = open("Output.txt", "r")          
@@ -296,7 +297,7 @@ def resub():
             print('________________________________________________________________________________________________________________________________________________________')                
             print('\nResubstitute element:\n')
             print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\t'+a)
-            re_sub.append('Resubstitute element:'+'Zstep'+str((give_net_length()-1))+' = '+str(b)+' -> '+a)
+            re_sub.append('Resubstitute element: '+'Zstep'+str((give_net_length()-1))+' = '+str(b)+' -> '+a)
         if imaginärteil!=0:
             strimaginärteil=str(imaginärteil)
             stra=str(a)
@@ -323,7 +324,7 @@ def resub():
                     print('________________________________________________________________________________________________________________________________________________________') 
                     print('\nResubstitute element:\n')
                     print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\t'+a)
-                    re_sub.append('Resubstitute element:'+'Zstep'+str((give_net_length()-1))+' = '+str(b)+' -> '+a)
+                    re_sub.append('Resubstitute element: '+'Zstep'+str((give_net_length()-1))+' = '+str(b)+' -> '+a)
                 else:
                     strimaginärteil=str(imaginärteil).find('*omega')
                     strimaginärteilnew=(str(imaginärteil))[:strimaginärteil]+(str(imaginärteil))[strimaginärteil+6:]
@@ -331,7 +332,7 @@ def resub():
                     print('________________________________________________________________________________________________________________________________________________________') 
                     print('\nResubstitute element:\n')
                     print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\t'+a)
-                    re_sub.append('Resubstitute element:'+'Zstep'+str((give_net_length()-1))+' = '+str(b)+' -> '+a)
+                    re_sub.append('Resubstitute element: '+'Zstep'+str((give_net_length()-1))+' = '+str(b)+' -> '+a)
                 
 
     net=(circuit.Circuit("""
