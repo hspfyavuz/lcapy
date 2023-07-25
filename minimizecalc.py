@@ -159,7 +159,7 @@ def mainprogram():
             os.remove("end.pdf")
             if net.has_ac:
                 lastnet=resub()
-                re_sub_to_txt_file(1)
+                re_sub_to_txt_file(2)
                 if type(lastnet)!=int:
                     lastnet.draw(style='european',filename="lastnet.pdf",
                             draw_nodes=False,label_nodes=False,scale=2,cpt_size=3,node_spacing=6)
@@ -169,7 +169,7 @@ def mainprogram():
                     print('_______________________________________________________________ Resubstitued circuit _______________________________________________________________')
                     merger.append("lastnet.pdf")
                     os.remove("lastnet.pdf")
-            merger.append("resubtext1.pdf")
+            merger.append("resubtext2.pdf")
             merger.write("result.pdf")
             merger.close()
 
@@ -363,13 +363,13 @@ def show_changing_elements(net):
     newnet.draw(style='european',draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     newnet.draw(style='european',filename="newnet.pdf",draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_______________________________________________________________________ AC circuit ______________________________________________________________________')
-    re_sub_to_txt_file(0)
+    re_sub_to_txt_file(1)
     merger.append("genuine.pdf")
     os.remove("genuine.pdf")
     merger.append("newnet.pdf")
     os.remove("newnet.pdf")
-    merger.append("resubtext0.pdf")
-    os.remove("resubtext0.pdf")
+    merger.append("resubtext1.pdf")
+    os.remove("resubtext1.pdf")
     print(re_sub)
     #merger.write("result.pdf")
     #merger.close()
