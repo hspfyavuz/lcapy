@@ -366,8 +366,8 @@ def show_changing_elements(net):
     os.remove("genuine.pdf")
     for i in range(len(re_sub)):
         re_sub_to_txt_file(i)
-        merger.append("resubtext"+str(number)+".pdf")
-        os.remove("resubtext"+str(number)+".pdf")
+        merger.append("resubtext"+str(i)+".pdf")
+        os.remove("resubtext"+str(i)+".pdf")
     merger.append("newnet.pdf")
     os.remove("newnet.pdf")
     print(re_sub)
