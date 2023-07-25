@@ -372,7 +372,7 @@ def show_changing_elements(net):
     os.remove("newnet.pdf")
     print(re_sub)
     merger.write("result.pdf")
-    merger.close()
+    #merger.close()
     return(newnet)
 
 
