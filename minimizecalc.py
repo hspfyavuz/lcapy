@@ -353,7 +353,7 @@ def resub():
 def show_changing_elements(net):
 
     merger = PdfMerger()
-    #writer=PdfWriter()
+    writer=PdfWriter()
     net.draw(style='european',draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     net.draw(style='european',filename="genuine.pdf",draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('____________________________________________________________________ Genuine circuit ____________________________________________________________________')
@@ -371,8 +371,8 @@ def show_changing_elements(net):
     merger.append("newnet.pdf")
     os.remove("newnet.pdf")
     print(re_sub)
-    #merger.write("result.pdf")
-    #merger.close()
+    merger.write("result.pdf")
+    merger.close()
     return(newnet)
 
 
