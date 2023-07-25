@@ -152,14 +152,15 @@ def mainprogram():
             os.remove("end.pdf")
             if net.has_ac:
                 lastnet=resub()
-                lastnet.draw(style='european',filename="lastnet.pdf",
-                        draw_nodes=False,label_nodes=False,scale=2,cpt_size=3,node_spacing=6)
-                lastnet.draw(style='european',
-                        draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
-                
-                print('_______________________________________________________________ Resubstitued circuit _______________________________________________________________')
-                merger.append("lastnet.pdf")
-                os.remove("lastnet.pdf")
+                if type(lastnet)!=int:
+                    lastnet.draw(style='european',filename="lastnet.pdf",
+                            draw_nodes=False,label_nodes=False,scale=2,cpt_size=3,node_spacing=6)
+                    lastnet.draw(style='european',
+                            draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
+                    
+                    print('_______________________________________________________________ Resubstitued circuit _______________________________________________________________')
+                    merger.append("lastnet.pdf")
+                    os.remove("lastnet.pdf")
             merger.write("result.pdf")
             merger.close()
 
