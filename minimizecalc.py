@@ -259,7 +259,7 @@ def change_elements_of_ac_netlist(net,netlist):
             
         if str(netlist[i][0])=='W':
             net=net
-        re_sub.append[resubbefore]   
+        re_sub.append(resubbefore)   
     return net
 
 
