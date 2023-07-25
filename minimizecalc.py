@@ -130,7 +130,7 @@ def mainprogram():
         
         if i==0:
             if net.has_ac:
-                net=m.show_changing_elements(net)
+                net=show_changing_elements(net)
             net.draw(style='european',filename="one.pdf",
                         draw_nodes=False,label_nodes=False,scale=2,cpt_size=3,node_spacing=6)
             net.draw(style='european',
