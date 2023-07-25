@@ -179,6 +179,22 @@ def result_to_txt_file(number):
     for x in f:
         pdf.cell(200, 10, txt = x, ln = 1, align = 'C')
     pdf.output("restext"+str(number+1)+".pdf")
+
+
+#def resub_to_txt_file(number):
+#    
+#    strin=(give_combining_process(number)+'\n'+give_result(number))
+#    text_file = open("Output.txt", "w")
+#    text_file.write(strin)
+#    text_file.close()
+#    
+#    pdf = FPDF('L', 'mm', 'A5')  
+#    pdf.add_page()     
+#    pdf.set_font("Arial", size = 10)          
+#    f = open("Output.txt", "r")          
+#    for x in f:
+#        pdf.cell(200, 10, txt = x, ln = 1, align = 'C')
+#    pdf.output("restext"+str(number+1)+".pdf")
         
 
 def colored_net(net,components):
