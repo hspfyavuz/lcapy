@@ -124,7 +124,7 @@ def mainprogram():
             result_to_txt_file(i-1)
             col_net=colored_net(net,i)
             col_net.draw(style='european',filename="step"+str(i)+".pdf",
-                        draw_nodes=False,label_nodes=False,scale=3,cpt_size=4,node_spacing=7)
+                        draw_nodes=False,label_nodes=False,scale=2,cpt_size=3,node_spacing=6)
             col_net.draw(style='european',
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
             print('________________________________________________________________________ Step',i,'________________________________________________________________________')
@@ -140,7 +140,7 @@ def mainprogram():
         if i==0:
             if net.has_dc:
                 net.draw(style='european',filename="one.pdf",
-                            draw_nodes=False,label_nodes=False,scale=3,cpt_size=4,node_spacing=7)
+                            draw_nodes=False,label_nodes=False,scale=2,cpt_size=3,node_spacing=6)
                 net.draw(style='european',
                             draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
                 #if net.has_ac:
@@ -153,7 +153,7 @@ def mainprogram():
             
         if i==give_net_length()-1:
             net.draw(style='european',filename="end.pdf",
-                        draw_nodes=False,label_nodes=False,scale=3,cpt_size=4,node_spacing=7)
+                        draw_nodes=False,label_nodes=False,scale=2,cpt_size=3,node_spacing=6)
             net.draw(style='european',
                         draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
             print('_______________________________________________________________ Simplified circuit _______________________________________________________________')
@@ -167,7 +167,7 @@ def mainprogram():
                 os.remove("resubtext"+str(len(re_sub)-1)+".pdf")
                 if type(lastnet)!=int:
                     lastnet.draw(style='european',filename="lastnet.pdf",
-                            draw_nodes=False,label_nodes=False,scale=3,cpt_size=4,node_spacing=7)
+                            draw_nodes=False,label_nodes=False,scale=2,cpt_size=3,node_spacing=6)
                     lastnet.draw(style='european',
                             draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
                     
@@ -185,7 +185,7 @@ def result_to_txt_file(number):
     text_file.write(strin)
     text_file.close()
     
-    pdf = FPDF('L', 'mm', (150,200))  
+    pdf = FPDF('L', 'mm', (150,225))  
     pdf.add_page()     
     pdf.set_font("Arial", size = 10)          
     f = open("Output.txt", "r")          
@@ -359,12 +359,12 @@ def show_changing_elements(net):
     #merger = PdfMerger()
     #writer=PdfWriter()
     net.draw(style='european',draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
-    net.draw(style='european',filename="genuine.pdf",draw_nodes=False,label_nodes=False,scale=3,cpt_size=4,node_spacing=7)
+    net.draw(style='european',filename="genuine.pdf",draw_nodes=False,label_nodes=False,scale=2,cpt_size=3,node_spacing=6)
     print('____________________________________________________________________ Genuine circuit ____________________________________________________________________')
     print('\nSubstitute elements to:\n')
     newnet=change_elements(net)
     newnet.draw(style='european',draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
-    newnet.draw(style='european',filename="newnet.pdf",draw_nodes=False,label_nodes=False,scale=3,cpt_size=4,node_spacing=7)
+    newnet.draw(style='european',filename="newnet.pdf",draw_nodes=False,label_nodes=False,scale=2,cpt_size=3,node_spacing=6)
     print('_______________________________________________________________________ AC circuit ______________________________________________________________________')
     merger.append("genuine.pdf")
     os.remove("genuine.pdf")
