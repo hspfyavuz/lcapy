@@ -10,7 +10,7 @@ from fpdf import FPDF
 
 ####################################
 netarr=[]
-#subset_steps=[]
+subset_steps=[]
 result=[]
 combiningvar=[]
 resultcompl=[]
