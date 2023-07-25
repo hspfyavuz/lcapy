@@ -185,7 +185,7 @@ def result_to_txt_file(number):
     text_file.write(strin)
     text_file.close()
     
-    pdf = FPDF('L', 'mm', (100,250))  
+    pdf = FPDF('L', 'mm', (150,250))  
     pdf.add_page()     
     pdf.set_font("Arial", size = 10)          
     f = open("Output.txt", "r")          
@@ -201,7 +201,7 @@ def re_sub_to_txt_file(number):
     text_file.write(strin)
     text_file.close()
     
-    pdf = FPDF('L', 'mm', (40,250))  
+    pdf = FPDF('L', 'mm', (30,250))  
     pdf.add_page()     
     pdf.set_font("Arial", size = 10)          
     f = open("Output.txt", "r")          
@@ -374,7 +374,6 @@ def show_changing_elements(net):
         os.remove("resubtext"+str(i)+".pdf")
     merger.append("newnet.pdf")
     os.remove("newnet.pdf")
-    print(re_sub)
     #merger.write("result.pdf")
     #merger.close()
     return(newnet)
