@@ -268,8 +268,9 @@ def print_changed_elements(comp,value1,value2):
     strvalue1=str(value1)
     strvalue2=str(value2)
     print(strcomp+' = '+strvalue1+' \t\t\t->\t\t\tZ'+strcomp+' = '+strvalue2)
-    return (strcomp+' = '+strvalue1+' \t\t\t->\t\t\tZ'+strcomp+' = '+strvalue2)
     re_sub.append('Substitute element:'+strcomp+' = '+strvalue1+' -> Z'+strcomp+' = '+strvalue2)
+    return (strcomp+' = '+strvalue1+' \t\t\t->\t\t\tZ'+strcomp+' = '+strvalue2)
+    
     
             
 def resub():
