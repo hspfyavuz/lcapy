@@ -61,14 +61,14 @@ def give_net_length():
 
 ####################################
 
-def save_components(components):
-    
-    componentlist=list(components)
-    component1=componentlist[0]
-    component2=componentlist[1]
-    component3=save_new_component(components,give_net_length())
-    combine_components(component1,component2,component3)
-    give_combined_components(give_net_length())
+#def save_components(components):
+#    
+#    componentlist=list(components)
+#    component1=componentlist[0]
+#    component2=componentlist[1]
+#    component3=save_new_component(components,give_net_length())
+#    combine_components(component1,component2,component3)
+#    give_combined_components(give_net_length())
     
 
 def save_new_component(components,netlength):
@@ -78,11 +78,11 @@ def save_new_component(components,netlength):
     return componentname
 
 
-def combine_components(component1,component2,component3):
-    
-    combinedcomponents=str(str(component1)+','+str(component2)+','+str(component3))
-    subset_steps.append(combinedcomponents)
-    
+#def combine_components(component1,component2,component3):
+#    
+#    combinedcomponents=str(str(component1)+','+str(component2)+','+str(component3))
+#    subset_steps.append(combinedcomponents)
+#    #
 
 def give_combined_components(step):
 
