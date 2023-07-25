@@ -159,7 +159,7 @@ def mainprogram():
             os.remove("end.pdf")
             if net.has_ac:
                 lastnet=resub()
-                re_sub_to_txt_file(2)
+                re_sub_to_txt_file(len(re_sub))
                 if type(lastnet)!=int:
                     lastnet.draw(style='european',filename="lastnet.pdf",
                             draw_nodes=False,label_nodes=False,scale=2,cpt_size=3,node_spacing=6)
@@ -169,7 +169,7 @@ def mainprogram():
                     print('_______________________________________________________________ Resubstitued circuit _______________________________________________________________')
                     merger.append("lastnet.pdf")
                     os.remove("lastnet.pdf")
-            merger.append("resubtext2.pdf")
+            merger.append("resubtext"+str(len(re_sub))+".pdf")
             merger.write("result.pdf")
             merger.close()
 
@@ -236,31 +236,29 @@ def change_elements_of_ac_netlist(net,netlist):
                     newname='ZR'+ (netlist[i][1])
                 except:
                     newname='ZR'
-                sub=print_changed_elements(netlist[i],net.elements[netlist[i]].R,net.elements[netlist[i]].Z.jomega)
+                print_changed_elements(netlist[i],net.elements[netlist[i]].R,net.elements[netlist[i]].Z.jomega)
             if (netlist[i][0])=='C':
                 try:
                     newname='ZC'+ (netlist[i][1])
                 except:
                     newname='ZC'
-                sub=print_changed_elements(netlist[i],net.elements[netlist[i]].C,net.elements[netlist[i]].Z.jomega)
+                print_changed_elements(netlist[i],net.elements[netlist[i]].C,net.elements[netlist[i]].Z.jomega)
             if (netlist[i][0])=='L':
                 try:
                     newname='ZL'+ (netlist[i][1])
                 except:
                     newname='ZL'
-                sub=print_changed_elements(netlist[i],net.elements[netlist[i]].L,net.elements[netlist[i]].Z.jomega)
+                print_changed_elements(netlist[i],net.elements[netlist[i]].L,net.elements[netlist[i]].Z.jomega)
                 
             net1 = newname + ' ' + parts[1]
             net.add(net1)
             net.remove(name)
-            resubbefore.append(sub)
             
         if str(netlist[i][0])=='Z':
             net=net
             
         if str(netlist[i][0])=='W':
             net=net
-        re_sub.append(str(resubbefore))   
     return net
 
 
@@ -271,7 +269,7 @@ def print_changed_elements(comp,value1,value2):
     strvalue2=str(value2)
     print(strcomp+' = '+strvalue1+' \t\t\t->\t\t\tZ'+strcomp+' = '+strvalue2)
     return (strcomp+' = '+strvalue1+' \t\t\t->\t\t\tZ'+strcomp+' = '+strvalue2)
-    #re_sub.append('\nSubstitute element:\n'+strcomp+' = '+strvalue1+' \t\t\t->\t\t\tZ'+strcomp+' = '+strvalue2)
+    re_sub.append('Substitute element:'+strcomp+' = '+strvalue1+' -> Z'+strcomp+' = '+strvalue2)
     
             
 def resub():
@@ -294,7 +292,7 @@ def resub():
             print('________________________________________________________________________________________________________________________________________________________')                
             print('\nResubstitute element:\n')
             print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\t'+a)
-            re_sub.append('\nResubstitute element:\n'+'Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\t'+a)
+            re_sub.append('Resubstitute element:'+'Zstep'+str((give_net_length()-1))+' = '+str(b)+' -> '+a)
         if imaginärteil!=0:
             strimaginärteil=str(imaginärteil)
             stra=str(a)
@@ -321,7 +319,7 @@ def resub():
                     print('________________________________________________________________________________________________________________________________________________________') 
                     print('\nResubstitute element:\n')
                     print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\t'+a)
-                    re_sub.append('\nResubstitute element:\n'+'Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\t'+a)
+                    re_sub.append('Resubstitute element:'+'Zstep'+str((give_net_length()-1))+' = '+str(b)+' -> '+a)
                 else:
                     strimaginärteil=str(imaginärteil).find('*omega')
                     strimaginärteilnew=(str(imaginärteil))[:strimaginärteil]+(str(imaginärteil))[strimaginärteil+6:]
@@ -329,7 +327,7 @@ def resub():
                     print('________________________________________________________________________________________________________________________________________________________') 
                     print('\nResubstitute element:\n')
                     print('Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\t'+a)
-                    re_sub.append('\nResubstitute element:\n'+'Zstep'+str((give_net_length()-1))+' = '+str(b)+' \t\t\t->\t\t\t'+a)
+                    re_sub.append('Resubstitute element:'+'Zstep'+str((give_net_length()-1))+' = '+str(b)+' -> '+a)
                 
 
     net=(circuit.Circuit("""
@@ -363,13 +361,14 @@ def show_changing_elements(net):
     newnet.draw(style='european',draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     newnet.draw(style='european',filename="newnet.pdf",draw_nodes=False,label_nodes=False,cpt_size=0.5,node_spacing=2)
     print('_______________________________________________________________________ AC circuit ______________________________________________________________________')
-    re_sub_to_txt_file(1)
     merger.append("genuine.pdf")
     os.remove("genuine.pdf")
+    for i in range len(re_sub):
+        re_sub_to_txt_file(i)
+        merger.append("resubtext"+str(number)+".pdf")
+        os.remove("resubtext"+str(number)+".pdf")
     merger.append("newnet.pdf")
     os.remove("newnet.pdf")
-    merger.append("resubtext1.pdf")
-    os.remove("resubtext1.pdf")
     print(re_sub)
     #merger.write("result.pdf")
     #merger.close()
