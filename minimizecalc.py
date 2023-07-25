@@ -185,7 +185,7 @@ def result_to_txt_file(number):
     text_file.write(strin)
     text_file.close()
     
-    pdf = FPDF('L', 'mm', (150,400))  
+    pdf = FPDF('L', 'mm', (100,250))  
     pdf.add_page()     
     pdf.set_font("Arial", size = 10)          
     f = open("Output.txt", "r")          
