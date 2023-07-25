@@ -159,7 +159,7 @@ def mainprogram():
             os.remove("end.pdf")
             if net.has_ac:
                 lastnet=resub()
-                re_sub_to_txt_file(len(re_sub))
+                re_sub_to_txt_file(len(re_sub)-1)
                 if type(lastnet)!=int:
                     lastnet.draw(style='european',filename="lastnet.pdf",
                             draw_nodes=False,label_nodes=False,scale=2,cpt_size=3,node_spacing=6)
@@ -169,7 +169,7 @@ def mainprogram():
                     print('_______________________________________________________________ Resubstitued circuit _______________________________________________________________')
                     merger.append("lastnet.pdf")
                     os.remove("lastnet.pdf")
-            merger.append("resubtext"+str(len(re_sub))+".pdf")
+            merger.append("resubtext"+str(len(re_sub)-1)+".pdf")
             merger.write("result.pdf")
             merger.close()
 
@@ -268,7 +268,7 @@ def print_changed_elements(comp,value1,value2):
     strvalue1=str(value1)
     strvalue2=str(value2)
     print(strcomp+' = '+strvalue1+' \t\t\t->\t\t\tZ'+strcomp+' = '+strvalue2)
-    re_sub.append('Substitute element:'+strcomp+' = '+strvalue1+' -> Z'+strcomp+' = '+strvalue2)
+    re_sub.append('Substitute element: '+strcomp+' = '+strvalue1+' -> Z '+strcomp+' = '+strvalue2)
     return (strcomp+' = '+strvalue1+' \t\t\t->\t\t\tZ'+strcomp+' = '+strvalue2)
     
     
