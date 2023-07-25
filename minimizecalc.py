@@ -185,7 +185,7 @@ def result_to_txt_file(number):
     text_file.write(strin)
     text_file.close()
     
-    pdf = FPDF('L', 'mm', (150,250))  
+    pdf = FPDF('L', 'mm', (150,200))  
     pdf.add_page()     
     pdf.set_font("Arial", size = 10)          
     f = open("Output.txt", "r")          
@@ -201,7 +201,7 @@ def re_sub_to_txt_file(number):
     text_file.write(strin)
     text_file.close()
     
-    pdf = FPDF('L', 'mm', (30,250))  
+    pdf = FPDF('L', 'mm', (50,250))  
     pdf.add_page()     
     pdf.set_font("Arial", size = 10)          
     f = open("Output.txt", "r")          
@@ -272,7 +272,7 @@ def print_changed_elements(comp,value1,value2):
     strvalue1=str(value1)
     strvalue2=str(value2)
     print(strcomp+' = '+strvalue1+' \t\t\t->\t\t\tZ'+strcomp+' = '+strvalue2)
-    re_sub.append('Substitute element: '+strcomp+' = '+strvalue1+' -> Z '+strcomp+' = '+strvalue2)
+    re_sub.append('Substitute element: '+strcomp+' = '+strvalue1+' -> Z'+strcomp+' = '+strvalue2)
     return (strcomp+' = '+strvalue1+' \t\t\t->\t\t\tZ'+strcomp+' = '+strvalue2)
     
     
