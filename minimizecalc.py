@@ -369,6 +369,7 @@ def show_changing_elements(net):
     os.remove("newnet.pdf")
     merger.append("resubtext0.pdf")
     os.remove("resubtext0.pdf")
+    print(re_sub)
     #merger.write("result.pdf")
     #merger.close()
     return(newnet)
