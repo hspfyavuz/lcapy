@@ -16,6 +16,7 @@ combiningvar=[]
 resultcompl=[]
 numbertohave=[]
 re_sub=[]
+resubbefore=[]
 ####################################
  
 def explain_add_print(net,sublist,total,newname):
@@ -222,7 +223,7 @@ def change_elements(net):
              
 
 def change_elements_of_ac_netlist(net,netlist):
-    resubbefore=[]
+    
     for i in range(len(netlist)-1):
         if (netlist[i][0])=='R' or (netlist[i][0])=='C' or (netlist[i][0])=='L':
             
